@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>INDEX</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!-- screen -->
+  <main style="background-color: gray">
+    <!-- nav bar -->
+    <nav class="nav">
+      <!-- Top left -->
+      <section class="rowContainer" style="gap: 16px; margin-right: auto">
+        <button class="navButton">
+          <div class="logoCircle"></div>
+          <h1>MEAL AND MINGLE</h1>
+        </button>
+      </section>
+      <!-- Top right -->
+      <section class="rowContainer" style="gap: 75px">
+        <button class="navButton">
+          <h1>HOME</h1>
+        </button>
+        <button class="navButton">
+          <h1>MESSAGES</h1>
+        </button>
+        <!-- PROFILE -->
+        <div class="rowContainer" style="gap: 16px">
+          <button class="navButton">
+            <h1>FIRST LAST</h1>
+          </button>
+          <button class="userIcon headerVariation">FL</button>
+        </div>
+      </section>
+    </nav>
+    <!-- body -->
+    <section class="body">
+      <!-- Left Content -->
+      <section class="leftFrame">
+        <!-- Subheader -->
+        <div class="subHeader">
+          <h2 style="margin-right: auto">POSTS</h2>
+          <button class="filterButton">
+            <img src="https://cdn-icons-png.flaticon.com/128/7693/7693332.png"
+              style="width: 15px; height: auto; filter: invert(1)" />
+          </button>
+        </div>
+        <!-- List of posts -->
+        <section style="
+          display: flex;
+          flex-direction: column;
+          gap: 9px;
+          width: 317px;
+          height: 816px;
+        ">
+          <!-- Post 1 -->
+          <div class="post">
+            <button class="userIcon" style="margin-right: auto">JD</button>
+            <!-- Right side of post -->
+            <div class="colContainer">
+              <!-- "x" button container -->
+              <div class="rowContainer" style="width: 250px; height: 0px; justify-content: flex-end">
+                <!-- "x" button -->
+                <button class="crossButton">
+                  <img src="https://cdn-icons-png.flaticon.com/128/1828/1828778.png" alt="x" style="
+                    width: 6px;
+                    height: auto;
+                    filter: invert(41%) sepia(2%) saturate(3212%)
+                      hue-rotate(212deg) brightness(102%) contrast(78%);
+                  " />
+                </button>
+              </div>
+              <!-- top section of right side -->
+              <div class="postTextBlock">
+                <!-- Name -->
+                <div class="postText" style="align-items: end; margin-right: auto">
+                  John Doe
+                </div>
+
+                <!-- Location(s) -->
+                <div class="postText locationText">Foster Walker Plex East</div>
+                <!-- ----------------------- -->
+                <div class="postLine"></div>
+                <!-- Date and Time -->
+                <div class="rowContainer" style="gap: 10px">
+                  <!-- Date -->
+                  <div class="postText">Thu 10/17</div>
+                  <!-- Time -->
+                  <div class="postText">04:00 PM - 06:00 PM</div>
+                </div>
+              </div>
+
+              <!-- Send and Save buttons -->
+              <div class="rowContainer" style="
+                width: 250px;
+                height: 0px;
+                gap: 5px;
+                justify-content: flex-end;
+              ">
+                <!-- Send button -->
+                <button class="sendSaveButtons">
+                  <img src="https://cdn-icons-png.flaticon.com/128/3024/3024593.png" alt="send" style="
+                    width: 12px;
+                    height: auto;
+                    filter: invert(31%) sepia(64%) saturate(229%)
+                      hue-rotate(212deg) brightness(89%) contrast(91%);
+                  " />
+                </button>
+                <!-- Save button -->
+                <button class="sendSaveButtons">
+                  <img src="https://cdn-icons-png.flaticon.com/128/102/102279.png" alt="saved" style="
+                    width: 12px;
+                    height: auto;
+                    filter: invert(31%) sepia(64%) saturate(229%)
+                      hue-rotate(212deg) brightness(89%) contrast(91%);
+                  " />
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Post 2 -->
+          <div class="post">
+            <button class="userIcon" style="background-color: var(--yellowIcon)">
+              SP
+            </button>
+            <!-- Right side of post -->
+            <div class="colContainer">
+              <!-- "x" button container -->
+              <div class="rowContainer" style="width: 250px; height: 0px; justify-content: flex-end">
+                <!-- "x" button -->
+                <button class="crossButton">
+                  <img src="https://cdn-icons-png.flaticon.com/128/1828/1828778.png" alt="x" style="
+                    width: 6px;
+                    height: auto;
+                    filter: invert(41%) sepia(2%) saturate(3212%)
+                      hue-rotate(212deg) brightness(102%) contrast(78%);
+                  " />
+                </button>
+              </div>
+              <!-- top section of right side -->
+              <div class="postTextBlock">
+                <!-- Name -->
+                <div class="postText" style="align-items: end; margin-right: auto">
+                  Some Person
+                </div>
+                <!-- Location(s) -->
+                <div class="postText locationText">
+                  Allison Dining Commons/ Sargent Dining Commons
+                </div>
+                <!-- ----------------------- -->
+                <div class="postLine"></div>
+                <!-- Date and Time -->
+                <div class="rowContainer" style="gap: 10px">
+                  <!-- Date -->
+                  <div class="postText">Mon 10/14</div>
+                  <!-- Time -->
+                  <div class="postText">08:00 PM - 09:30 PM</div>
+                </div>
+              </div>
+
+              <!-- Send and Save buttons -->
+              <div class="rowContainer" style="
+                width: 250px;
+                height: 0px;
+                gap: 5px;
+                justify-content: flex-end;
+              ">
+                <!-- Send button -->
+                <button class="sendSaveButtons">
+                  <img src="https://cdn-icons-png.flaticon.com/128/3024/3024593.png" alt="send" style="
+                    width: 12px;
+                    height: auto;
+                    filter: invert(31%) sepia(64%) saturate(229%)
+                      hue-rotate(212deg) brightness(89%) contrast(91%);
+                  " />
+                </button>
+                <!-- Save button -->
+                <button class="sendSaveButtons">
+                  <img src="https://cdn-icons-png.flaticon.com/128/5662/5662990.png" alt="save" style="
+                    width: 12px;
+                    height: auto;
+                    filter: invert(31%) sepia(64%) saturate(229%)
+                      hue-rotate(212deg) brightness(89%) contrast(91%);
+                  " />
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Create Button -->
+        <button class="createButton">
+          <img src="https://cdn-icons-png.flaticon.com/128/992/992651.png" alt="add"
+            style="width: 33px; height: auto; filter: invert(1)" />
+          CREATE
+        </button>
+      </section>
+      <!-- Right Content -->
+      <section class="rightFrame">
+        <!-- MONTH -->
+        <h4>OCTOBER</h4>
+        <!-- calendar -->
+        <div class="calendarBlock">
+          <!-- Calendar Nav -->
+          <nav class="calendarNav">
+            <!-- Empty Corner -->
+            <div class="emptyCorner"></div>
+            <!-- Back Button -->
+            <button class="calendarNavButton">
+              <img src="https://cdn-icons-png.flaticon.com/128/2989/2989988.png" alt="previous" style="
+                width: 25px;
+                height: auto;
+                transform: scaleX(-1);
+                filter: invert(29%) sepia(46%) saturate(312%) hue-rotate(212deg)
+                  brightness(98%) contrast(89%);
+              " />
+            </button>
+
+            <!-- Week Label -->
+            <div class="weekLabel">
+              <!-- Days of the Week -->
+              <div class="daysOfWeek">
+                <h5>SUN</h5>
+                <h5>MON</h5>
+                <h5>TUE</h5>
+                <h5>WED</h5>
+                <h5>THU</h5>
+                <h5>FRI</h5>
+                <h5>SAT</h5>
+              </div>
+              <!-- Dates of the Week -->
+              <div class="daysOfWeek">
+                <h5 class="dateStyle">06</h5>
+                <h5 class="dateStyle">07</h5>
+                <h5 class="dateStyle">08</h5>
+                <h5 class="dateStyle">09</h5>
+                <h5 class="dateStyle">10</h5>
+                <h5 class="dateStyle">11</h5>
+                <h5 class="dateStyle">12</h5>
+              </div>
+            </div>
+
+            <!-- Forwards Button -->
+            <button class="calendarNavButton">
+              <img src="https://cdn-icons-png.flaticon.com/128/2989/2989988.png" alt="next" style="
+                width: 25px;
+                height: auto;
+                filter: invert(29%) sepia(46%) saturate(312%) hue-rotate(212deg)
+                  brightness(98%) contrast(89%);
+              " />
+            </button>
+          </nav>
+          <!-- Below Calendar Nav Bar -->
+          <div class="calendarBodyContainer">
+            <!-- Time Markings -->
+            <div class="timeMarkings">
+              <h5 class="timeStyle">7 AM</h5>
+              <h5 class="timeStyle">8 AM</h5>
+              <h5 class="timeStyle">9 AM</h5>
+              <h5 class="timeStyle">10 AM</h5>
+              <h5 class="timeStyle">11 AM</h5>
+              <h5 class="timeStyle">12 PM</h5>
+              <h5 class="timeStyle">1 PM</h5>
+              <h5 class="timeStyle">2 PM</h5>
+              <h5 class="timeStyle">3 PM</h5>
+              <h5 class="timeStyle">4 PM</h5>
+              <h5 class="timeStyle">5 PM</h5>
+              <h5 class="timeStyle">6 PM</h5>
+              <h5 class="timeStyle">7 PM</h5>
+              <h5 class="timeStyle">8 PM</h5>
+              <h5 class="timeStyle">9 PM</h5>
+            </div>
+            <!-- Calendar Grid -->
+            <div class="calendarGrid">
+              <!-- Event: CLASS A Mon -->
+              <div class="eventContainer">
+                <!-- Side Bar -->
+                <div class="rect"></div>
+                <!-- Event Info -->
+                <div class="eventInfo">
+                  <!-- Time -->
+                  <div class="eventText">
+                    <!-- Number -->
+                    <div>10:00</div>
+                    <!-- AM/PM -->
+                    <div>AM</div>
+                  </div>
+                  <!-- Event Name -->
+                  <div class="eventName">CLASS A</div>
+                  <!-- Event Location -->
+                  Somewhere
+                </div>
+              </div>
+              <!-- Event: CLASS A Wed -->
+              <div class="eventContainer" style="grid-column: wedStart">
+                <!-- Side Bar -->
+                <div class="rect"></div>
+                <!-- Event Info -->
+                <div class="eventInfo">
+                  <!-- Time -->
+                  <div class="eventText">
+                    <!-- Number -->
+                    <div>10:00</div>
+                    <!-- AM/PM -->
+                    <div>AM</div>
+                  </div>
+                  <!-- Event Name -->
+                  <div class="eventName">CLASS A</div>
+                  <!-- Event Location -->
+                  Somewhere
+                </div>
+              </div>
+              <!-- Event: CLASS A Fri -->
+              <div class="eventContainer" style="grid-column: friStart">
+                <!-- Side Bar -->
+                <div class="rect"></div>
+                <!-- Event Info -->
+                <div class="eventInfo">
+                  <!-- Time -->
+                  <div class="eventText">
+                    <!-- Number -->
+                    <div>10:00</div>
+                    <!-- AM/PM -->
+                    <div>AM</div>
+                  </div>
+                  <!-- Event Name -->
+                  <div class="eventName">CLASS A</div>
+                  <!-- Event Location -->
+                  Somewhere
+                </div>
+              </div>
+
+              <!-- Event: CLASS B Tue -->
+              <div class="eventContainer" style="
+                grid-column: tueStart;
+                grid-row: AM9start / AM11start;
+                background-color: var(--blueEventO);
+              ">
+                <!-- Side Bar -->
+                <div class="rect" style="background-color: var(--blueEvent)"></div>
+                <!-- Event Info -->
+                <div class="eventInfo">
+                  <!-- Time -->
+                  <div class="eventText">
+                    <!-- Number -->
+                    <div>09:00</div>
+                    <!-- AM/PM -->
+                    <div>AM</div>
+                  </div>
+                  <!-- Event Name -->
+                  <div class="eventName">CLASS B</div>
+                  <!-- Event Location -->
+                  Someplace
+                </div>
+              </div>
+              <!-- Event: CLASS B Thu -->
+              <div class="eventContainer" style="
+                grid-column: thuStart;
+                grid-row: AM9start / AM11start;
+                background-color: var(--blueEventO);
+              ">
+                <!-- Side Bar -->
+                <div class="rect" style="background-color: var(--blueEvent)"></div>
+                <!-- Event Info -->
+                <div class="eventInfo">
+                  <!-- Time -->
+                  <div class="eventText">
+                    <!-- Number -->
+                    <div>09:00</div>
+                    <!-- AM/PM -->
+                    <div>AM</div>
+                  </div>
+                  <!-- Event Name -->
+                  <div class="eventName">CLASS B</div>
+                  <!-- Event Location -->
+                  Someplace
+                </div>
+              </div>
+
+              <!-- Event: LUNCH Tue -->
+              <div class="eventContainer" style="
+                grid-column: tueStart;
+                grid-row: PM130start / PM430start;
+                background-color: var(--greenEventO);
+              ">
+                <!-- Side Bar -->
+                <div class="rect" style="background-color: var(--greenEvent)"></div>
+                <!-- Event Info -->
+                <div class="eventInfo">
+                  <!-- Event Top Bar -->
+                  <div class="eventTopBar">
+                    <!-- Time -->
+                    <div class="eventText">
+                      <!-- Number -->
+                      <div>01:30</div>
+                      <!-- AM/PM -->
+                      <div>PM</div>
+                    </div>
+                    <!-- Person Involved -->
+                    <button class="userIcon calendarVariation" style="background-color: var(--blueIcon)">
+                      PO
+                    </button>
+                  </div>
+                  <!-- Event Name -->
+                  <div class="eventName">LUNCH</div>
+                  <!-- Event Location -->
+                  Elder Dining Commons
+                </div>
+              </div>
+              <!-- Background Grid -->
+              <div class="gridLine" style="grid-row: 1; grid-column: 1"></div>
+              <div class="gridLine" style="grid-row: 1; grid-column: 2"></div>
+              <div class="gridLine" style="grid-row: 1; grid-column: 3"></div>
+              <div class="gridLine" style="grid-row: 1; grid-column: 4"></div>
+              <div class="gridLine" style="grid-row: 1; grid-column: 5"></div>
+              <div class="gridLine" style="grid-row: 1; grid-column: 6"></div>
+              <div class="gridLine" style="grid-row: 1; grid-column: 7"></div>
+              <div class="gridLine" style="grid-row: 2; grid-column: 1"></div>
+              <div class="gridLine" style="grid-row: 2; grid-column: 2"></div>
+              <div class="gridLine" style="grid-row: 2; grid-column: 3"></div>
+              <div class="gridLine" style="grid-row: 2; grid-column: 4"></div>
+              <div class="gridLine" style="grid-row: 2; grid-column: 5"></div>
+              <div class="gridLine" style="grid-row: 2; grid-column: 6"></div>
+              <div class="gridLine" style="grid-row: 2; grid-column: 7"></div>
+              <div class="gridLine" style="grid-row: 3; grid-column: 1"></div>
+              <div class="gridLine" style="grid-row: 3; grid-column: 2"></div>
+              <div class="gridLine" style="grid-row: 3; grid-column: 3"></div>
+              <div class="gridLine" style="grid-row: 3; grid-column: 4"></div>
+              <div class="gridLine" style="grid-row: 3; grid-column: 5"></div>
+              <div class="gridLine" style="grid-row: 3; grid-column: 6"></div>
+              <div class="gridLine" style="grid-row: 3; grid-column: 7"></div>
+              <div class="gridLine" style="grid-row: 4; grid-column: 1"></div>
+              <div class="gridLine" style="grid-row: 4; grid-column: 2"></div>
+              <div class="gridLine" style="grid-row: 4; grid-column: 3"></div>
+              <div class="gridLine" style="grid-row: 4; grid-column: 4"></div>
+              <div class="gridLine" style="grid-row: 4; grid-column: 5"></div>
+              <div class="gridLine" style="grid-row: 4; grid-column: 6"></div>
+              <div class="gridLine" style="grid-row: 4; grid-column: 7"></div>
+              <div class="gridLine" style="grid-row: 5; grid-column: 1"></div>
+              <div class="gridLine" style="grid-row: 5; grid-column: 2"></div>
+              <div class="gridLine" style="grid-row: 5; grid-column: 3"></div>
+              <div class="gridLine" style="grid-row: 5; grid-column: 4"></div>
+              <div class="gridLine" style="grid-row: 5; grid-column: 5"></div>
+              <div class="gridLine" style="grid-row: 5; grid-column: 6"></div>
+              <div class="gridLine" style="grid-row: 5; grid-column: 7"></div>
+              <div class="gridLine" style="grid-row: 6; grid-column: 1"></div>
+              <div class="gridLine" style="grid-row: 6; grid-column: 2"></div>
+              <div class="gridLine" style="grid-row: 6; grid-column: 3"></div>
+              <div class="gridLine" style="grid-row: 6; grid-column: 4"></div>
+              <div class="gridLine" style="grid-row: 6; grid-column: 5"></div>
+              <div class="gridLine" style="grid-row: 6; grid-column: 6"></div>
+              <div class="gridLine" style="grid-row: 6; grid-column: 7"></div>
+              <div class="gridLine" style="grid-row: 7; grid-column: 1"></div>
+              <div class="gridLine" style="grid-row: 7; grid-column: 2"></div>
+              <div class="gridLine" style="grid-row: 7; grid-column: 3"></div>
+              <div class="gridLine" style="grid-row: 7; grid-column: 4"></div>
+              <div class="gridLine" style="grid-row: 7; grid-column: 5"></div>
+              <div class="gridLine" style="grid-row: 7; grid-column: 6"></div>
+              <div class="gridLine" style="grid-row: 7; grid-column: 7"></div>
+              <div class="gridLine" style="grid-row: 8; grid-column: 1"></div>
+              <div class="gridLine" style="grid-row: 8; grid-column: 2"></div>
+              <div class="gridLine" style="grid-row: 8; grid-column: 3"></div>
+              <div class="gridLine" style="grid-row: 8; grid-column: 4"></div>
+              <div class="gridLine" style="grid-row: 8; grid-column: 5"></div>
+              <div class="gridLine" style="grid-row: 8; grid-column: 6"></div>
+              <div class="gridLine" style="grid-row: 8; grid-column: 7"></div>
+              <div class="gridLine" style="grid-row: 9; grid-column: 1"></div>
+              <div class="gridLine" style="grid-row: 9; grid-column: 2"></div>
+              <div class="gridLine" style="grid-row: 9; grid-column: 3"></div>
+              <div class="gridLine" style="grid-row: 9; grid-column: 4"></div>
+              <div class="gridLine" style="grid-row: 9; grid-column: 5"></div>
+              <div class="gridLine" style="grid-row: 9; grid-column: 6"></div>
+              <div class="gridLine" style="grid-row: 9; grid-column: 7"></div>
+              <div class="gridLine" style="grid-row: 10; grid-column: 1"></div>
+              <div class="gridLine" style="grid-row: 10; grid-column: 2"></div>
+              <div class="gridLine" style="grid-row: 10; grid-column: 3"></div>
+              <div class="gridLine" style="grid-row: 10; grid-column: 4"></div>
+              <div class="gridLine" style="grid-row: 10; grid-column: 5"></div>
+              <div class="gridLine" style="grid-row: 10; grid-column: 6"></div>
+              <div class="gridLine" style="grid-row: 10; grid-column: 7"></div>
+              <div class="gridLine" style="grid-row: 11; grid-column: 1"></div>
+              <div class="gridLine" style="grid-row: 11; grid-column: 2"></div>
+              <div class="gridLine" style="grid-row: 11; grid-column: 3"></div>
+              <div class="gridLine" style="grid-row: 11; grid-column: 4"></div>
+              <div class="gridLine" style="grid-row: 11; grid-column: 5"></div>
+              <div class="gridLine" style="grid-row: 11; grid-column: 6"></div>
+              <div class="gridLine" style="grid-row: 11; grid-column: 7"></div>
+              <div class="gridLine" style="grid-row: 12; grid-column: 1"></div>
+              <div class="gridLine" style="grid-row: 12; grid-column: 2"></div>
+              <div class="gridLine" style="grid-row: 12; grid-column: 3"></div>
+              <div class="gridLine" style="grid-row: 12; grid-column: 4"></div>
+              <div class="gridLine" style="grid-row: 12; grid-column: 5"></div>
+              <div class="gridLine" style="grid-row: 12; grid-column: 6"></div>
+              <div class="gridLine" style="grid-row: 12; grid-column: 7"></div>
+              <div class="gridLine" style="grid-row: 13; grid-column: 1"></div>
+              <div class="gridLine" style="grid-row: 13; grid-column: 2"></div>
+              <div class="gridLine" style="grid-row: 13; grid-column: 3"></div>
+              <div class="gridLine" style="grid-row: 13; grid-column: 4"></div>
+              <div class="gridLine" style="grid-row: 13; grid-column: 5"></div>
+              <div class="gridLine" style="grid-row: 13; grid-column: 6"></div>
+              <div class="gridLine" style="grid-row: 13; grid-column: 7"></div>
+              <div class="gridLine" style="grid-row: 14; grid-column: 1"></div>
+              <div class="gridLine" style="grid-row: 14; grid-column: 2"></div>
+              <div class="gridLine" style="grid-row: 14; grid-column: 3"></div>
+              <div class="gridLine" style="grid-row: 14; grid-column: 4"></div>
+              <div class="gridLine" style="grid-row: 14; grid-column: 5"></div>
+              <div class="gridLine" style="grid-row: 14; grid-column: 6"></div>
+              <div class="gridLine" style="grid-row: 14; grid-column: 7"></div>
+              <div class="gridLine" style="grid-row: 15; grid-column: 1"></div>
+              <div class="gridLine" style="grid-row: 15; grid-column: 2"></div>
+              <div class="gridLine" style="grid-row: 15; grid-column: 3"></div>
+              <div class="gridLine" style="grid-row: 15; grid-column: 4"></div>
+              <div class="gridLine" style="grid-row: 15; grid-column: 5"></div>
+              <div class="gridLine" style="grid-row: 15; grid-column: 6"></div>
+              <div class="gridLine" style="grid-row: 15; grid-column: 7"></div>
+              <div class="gridLine" style="grid-row: 16; grid-column: 1"></div>
+              <div class="gridLine" style="grid-row: 16; grid-column: 2"></div>
+              <div class="gridLine" style="grid-row: 16; grid-column: 3"></div>
+              <div class="gridLine" style="grid-row: 16; grid-column: 4"></div>
+              <div class="gridLine" style="grid-row: 16; grid-column: 5"></div>
+              <div class="gridLine" style="grid-row: 16; grid-column: 6"></div>
+              <div class="gridLine" style="grid-row: 16; grid-column: 7"></div>
+              <div class="gridLine" style="grid-row: 17; grid-column: 1"></div>
+              <div class="gridLine" style="grid-row: 17; grid-column: 2"></div>
+              <div class="gridLine" style="grid-row: 17; grid-column: 3"></div>
+              <div class="gridLine" style="grid-row: 17; grid-column: 4"></div>
+              <div class="gridLine" style="grid-row: 17; grid-column: 5"></div>
+              <div class="gridLine" style="grid-row: 17; grid-column: 6"></div>
+              <div class="gridLine" style="grid-row: 17; grid-column: 7"></div>
+              <div class="gridLine" style="grid-row: 18; grid-column: 1"></div>
+              <div class="gridLine" style="grid-row: 18; grid-column: 2"></div>
+              <div class="gridLine" style="grid-row: 18; grid-column: 3"></div>
+              <div class="gridLine" style="grid-row: 18; grid-column: 4"></div>
+              <div class="gridLine" style="grid-row: 18; grid-column: 5"></div>
+              <div class="gridLine" style="grid-row: 18; grid-column: 6"></div>
+              <div class="gridLine" style="grid-row: 18; grid-column: 7"></div>
+              <div class="gridLine" style="grid-row: 19; grid-column: 1"></div>
+              <div class="gridLine" style="grid-row: 19; grid-column: 2"></div>
+              <div class="gridLine" style="grid-row: 19; grid-column: 3"></div>
+              <div class="gridLine" style="grid-row: 19; grid-column: 4"></div>
+              <div class="gridLine" style="grid-row: 19; grid-column: 5"></div>
+              <div class="gridLine" style="grid-row: 19; grid-column: 6"></div>
+              <div class="gridLine" style="grid-row: 19; grid-column: 7"></div>
+              <div class="gridLine" style="grid-row: 20; grid-column: 1"></div>
+              <div class="gridLine" style="grid-row: 20; grid-column: 2"></div>
+              <div class="gridLine" style="grid-row: 20; grid-column: 3"></div>
+              <div class="gridLine" style="grid-row: 20; grid-column: 4"></div>
+              <div class="gridLine" style="grid-row: 20; grid-column: 5"></div>
+              <div class="gridLine" style="grid-row: 20; grid-column: 6"></div>
+              <div class="gridLine" style="grid-row: 20; grid-column: 7"></div>
+              <div class="gridLine" style="grid-row: 21; grid-column: 1"></div>
+              <div class="gridLine" style="grid-row: 21; grid-column: 2"></div>
+              <div class="gridLine" style="grid-row: 21; grid-column: 3"></div>
+              <div class="gridLine" style="grid-row: 21; grid-column: 4"></div>
+              <div class="gridLine" style="grid-row: 21; grid-column: 5"></div>
+              <div class="gridLine" style="grid-row: 21; grid-column: 6"></div>
+              <div class="gridLine" style="grid-row: 21; grid-column: 7"></div>
+              <div class="gridLine" style="grid-row: 22; grid-column: 1"></div>
+              <div class="gridLine" style="grid-row: 22; grid-column: 2"></div>
+              <div class="gridLine" style="grid-row: 22; grid-column: 3"></div>
+              <div class="gridLine" style="grid-row: 22; grid-column: 4"></div>
+              <div class="gridLine" style="grid-row: 22; grid-column: 5"></div>
+              <div class="gridLine" style="grid-row: 22; grid-column: 6"></div>
+              <div class="gridLine" style="grid-row: 22; grid-column: 7"></div>
+              <div class="gridLine" style="grid-row: 23; grid-column: 1"></div>
+              <div class="gridLine" style="grid-row: 23; grid-column: 2"></div>
+              <div class="gridLine" style="grid-row: 23; grid-column: 3"></div>
+              <div class="gridLine" style="grid-row: 23; grid-column: 4"></div>
+              <div class="gridLine" style="grid-row: 23; grid-column: 5"></div>
+              <div class="gridLine" style="grid-row: 23; grid-column: 6"></div>
+              <div class="gridLine" style="grid-row: 23; grid-column: 7"></div>
+              <div class="gridLine" style="grid-row: 24; grid-column: 1"></div>
+              <div class="gridLine" style="grid-row: 24; grid-column: 2"></div>
+              <div class="gridLine" style="grid-row: 24; grid-column: 3"></div>
+              <div class="gridLine" style="grid-row: 24; grid-column: 4"></div>
+              <div class="gridLine" style="grid-row: 24; grid-column: 5"></div>
+              <div class="gridLine" style="grid-row: 24; grid-column: 6"></div>
+              <div class="gridLine" style="grid-row: 24; grid-column: 7"></div>
+              <div class="gridLine" style="grid-row: 25; grid-column: 1"></div>
+              <div class="gridLine" style="grid-row: 25; grid-column: 2"></div>
+              <div class="gridLine" style="grid-row: 25; grid-column: 3"></div>
+              <div class="gridLine" style="grid-row: 25; grid-column: 4"></div>
+              <div class="gridLine" style="grid-row: 25; grid-column: 5"></div>
+              <div class="gridLine" style="grid-row: 25; grid-column: 6"></div>
+              <div class="gridLine" style="grid-row: 25; grid-column: 7"></div>
+              <div class="gridLine" style="grid-row: 26; grid-column: 1"></div>
+              <div class="gridLine" style="grid-row: 26; grid-column: 2"></div>
+              <div class="gridLine" style="grid-row: 26; grid-column: 3"></div>
+              <div class="gridLine" style="grid-row: 26; grid-column: 4"></div>
+              <div class="gridLine" style="grid-row: 26; grid-column: 5"></div>
+              <div class="gridLine" style="grid-row: 26; grid-column: 6"></div>
+              <div class="gridLine" style="grid-row: 26; grid-column: 7"></div>
+              <div class="gridLine" style="grid-row: 27; grid-column: 1"></div>
+              <div class="gridLine" style="grid-row: 27; grid-column: 2"></div>
+              <div class="gridLine" style="grid-row: 27; grid-column: 3"></div>
+              <div class="gridLine" style="grid-row: 27; grid-column: 4"></div>
+              <div class="gridLine" style="grid-row: 27; grid-column: 5"></div>
+              <div class="gridLine" style="grid-row: 27; grid-column: 6"></div>
+              <div class="gridLine" style="grid-row: 27; grid-column: 7"></div>
+              <div class="gridLine" style="grid-row: 28; grid-column: 1"></div>
+              <div class="gridLine" style="grid-row: 28; grid-column: 2"></div>
+              <div class="gridLine" style="grid-row: 28; grid-column: 3"></div>
+              <div class="gridLine" style="grid-row: 28; grid-column: 4"></div>
+              <div class="gridLine" style="grid-row: 28; grid-column: 5"></div>
+              <div class="gridLine" style="grid-row: 28; grid-column: 6"></div>
+              <div class="gridLine" style="grid-row: 28; grid-column: 7"></div>
+              <div class="gridLine" style="grid-row: 29; grid-column: 1"></div>
+              <div class="gridLine" style="grid-row: 29; grid-column: 2"></div>
+              <div class="gridLine" style="grid-row: 29; grid-column: 3"></div>
+              <div class="gridLine" style="grid-row: 29; grid-column: 4"></div>
+              <div class="gridLine" style="grid-row: 29; grid-column: 5"></div>
+              <div class="gridLine" style="grid-row: 29; grid-column: 6"></div>
+              <div class="gridLine" style="grid-row: 29; grid-column: 7"></div>
+              <div class="gridLine" style="grid-row: 30; grid-column: 1"></div>
+              <div class="gridLine" style="grid-row: 30; grid-column: 2"></div>
+              <div class="gridLine" style="grid-row: 30; grid-column: 3"></div>
+              <div class="gridLine" style="grid-row: 30; grid-column: 4"></div>
+              <div class="gridLine" style="grid-row: 30; grid-column: 5"></div>
+              <div class="gridLine" style="grid-row: 30; grid-column: 6"></div>
+              <div class="gridLine" style="grid-row: 30; grid-column: 7"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+</body>
+
+</html>
