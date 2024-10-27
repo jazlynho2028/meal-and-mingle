@@ -69,6 +69,7 @@ h4 {
   font-weight: 300;
   font-size: 40pt;
   color: var(--purple1);
+  text-transform: uppercase;
 }
 
 /* calendar days of the week */
@@ -78,6 +79,7 @@ h5 {
   font-weight: 600;
   font-size: 17pt;
   color: var(--darkPurple2);
+  text-transform: uppercase;
 }
 
 img {
@@ -138,7 +140,7 @@ img {
   padding-bottom: 32px;
 }
 
-.calendarBlock {
+.calendarHeader {
   background-color: var(--white);
 
   display: flex;
@@ -214,7 +216,7 @@ img {
 
   width: 54px;
   /* minus padding */
-  height: 680px;
+  height: 97%;
 
   text-align: end;
 }
