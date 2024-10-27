@@ -129,10 +129,8 @@ const PostList = () => {
                 initials={post.initials} 
                 iconColor={post.iconColor} 
                 location={post.location} 
-                day={post.day} 
-                date={post.date} 
-                startTime={post.startTime} 
-                endTime={post.endTime} 
+                start={post.start} 
+                end={post.end} 
                 bookmarked={post.bookmarked} 
                 show={post.show} 
                 handleBookmark={() => handleBookmark(index)}/>
@@ -145,6 +143,11 @@ const PostList = () => {
 function Post(props) {
   // Determine which bookmark image to show
   const bookmarkImg = props.bookmarked ? 'https://cdn-icons-png.flaticon.com/128/102/102279.png' : 'https://cdn-icons-png.flaticon.com/128/5662/5662990.png'; 
+  const day = props.start.toLocaleString('default', {weekday: 'short'});
+  const month = ((props.start.getMonth()) + 1).toString().padStart(2, '0');
+  const date = props.start.getDate().toString().padStart(2, '0');
+  const startTime = props.start.toLocaleString('default', {hour: '2-digit', minute: '2-digit'});
+  const endTime = props.end.toLocaleString('default', {hour: '2-digit', minute: '2-digit'});
 
   return (
     <div className='post' onClick={props.handleBookmark}>
@@ -179,9 +182,9 @@ function Post(props) {
           {/* Date and Time */}
           <div className='rowContainer' style={{ gap: 10 }}>
             {/* Date */}
-            <div className='postText'>{`${props.day} ${props.date}`}</div>
+            <div className='postText'>{`${day} ${month}/${date}`}</div>
             {/* Time */}
-            <div className='postText'>{`${props.startTime} - ${props.endTime}`}</div>
+            <div className='postText'>{`${startTime} - ${endTime}`}</div>
           </div>
         </div>
         {/* Send and Save buttons */}
@@ -222,10 +225,8 @@ const POSTS = [
     initials: 'JD',
     iconColor: getCSSVar('--pinkIcon'),
     location: 'Foster Walker Plex East',
-    day: 'Thu',
-    date: '10/17',
-    startTime: '04:00PM',
-    endTime: '06:00PM',
+    start: new Date('2024-10-17T16:00'),
+    end: new Date('2024-10-17T18:00'),
     bookmarked: true,
     show: true
   },
@@ -234,10 +235,8 @@ const POSTS = [
     initials: 'SP',
     iconColor: getCSSVar('--yellowIcon'),
     location: 'Allison Dining Commons/ Sargent Dining Commons',
-    day: 'Mon',
-    date: '10/14',
-    startTime: '08:00PM',
-    endTime: '09:30PM',
+    start: new Date('2024-10-14T20:00'),
+    end: new Date('2024-10-14T21:30'),
     bookmarked: false,
     show: true
   }
@@ -249,6 +248,8 @@ const TIMES = [
   '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', 
   '7 PM', '8 PM', '9 PM'
 ]
+
+
 
 
 function App() {
