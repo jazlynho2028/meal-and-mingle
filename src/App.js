@@ -5,6 +5,36 @@ const getCSSVar = (variable) => {
   return getComputedStyle(document.documentElement).getPropertyValue(variable).trim();
 };
 
+function NavBar(props) {
+  return (
+    <nav className='nav'>
+      {/* Top left */}
+      <section className='navTopLeft'>
+        <button className='navButton'>
+            <div className='logoCircle' />
+            <h1>MEAL AND MINGLE</h1>
+        </button>
+      </section>
+      {/* Top right */}
+      <section className='navTopRight'>
+        <button className='navButton'>
+            <h1>HOME</h1>
+        </button>
+        <button className='navButton'>
+            <h1>MESSAGES</h1>
+        </button>
+        {/* PROFILE */}
+        <div className='navProfile'>
+          <button className='navButton'>
+          <h1>{props.name}</h1>
+          </button>
+          <button className='userIcon headerVariation'>{props.initials}</button>
+        </div>
+      </section>
+    </nav>
+  );
+}
+
 function Post(props) {
   // Determine which bookmark image to show
   const bookmarkImg = props.bookmarked ? 'https://cdn-icons-png.flaticon.com/128/102/102279.png' : 'https://cdn-icons-png.flaticon.com/128/5662/5662990.png'; 
@@ -128,31 +158,7 @@ function App() {
         <title>INDEX</title>
         <link rel='stylesheet' href='App.css' />
         {/* nav bar */}
-        <nav className='nav'>
-            {/* Top left */}
-            <section className='navTopLeft'>
-            <button className='navButton'>
-                <div className='logoCircle' />
-                <h1>MEAL AND MINGLE</h1>
-            </button>
-            </section>
-            {/* Top right */}
-            <section className='navTopRight'>
-            <button className='navButton'>
-                <h1>HOME</h1>
-            </button>
-            <button className='navButton'>
-                <h1>MESSAGES</h1>
-            </button>
-            {/* PROFILE */}
-            <div className='navProfile'>
-                <button className='navButton'>
-                <h1>FIRST LAST</h1>
-                </button>
-                <button className='userIcon headerVariation'>FL</button>
-            </div>
-            </section>
-        </nav>
+        <NavBar name="FIRST LAST" initials="FL"/>
         {/* body */}
         <section className='body'>
             {/* Left Content */}
