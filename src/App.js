@@ -216,7 +216,7 @@ function Post(props) {
         </div>
       </div>
     </div>
-  );
+  )
 }
 // stores information for all posts
 const POSTS = [
@@ -242,15 +242,226 @@ const POSTS = [
   }
 ]
 
-// stores all timestamps
+// stores all timestamps for calendar side display
 const TIMES = [
   '7 AM', '8 AM', '9 AM', '10 AM', '11 AM', '12 PM', 
   '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', 
   '7 PM', '8 PM', '9 PM'
 ]
 
+// the following 2 functions determines grid placement for a time
+const getGridCol = (date) => {
+  switch (date.getDay()) {
+    case 0:
+      return 'sunStart';
+    case 1:
+      return 'monStart';
+    case 2:
+      return 'tueStart';
+    case 3:
+      return 'wedStart';
+    case 4:
+      return 'thuStart';
+    case 5:
+      return 'friStart';
+    case 6:
+      return 'satStart';
+    default:
+      return;
+  }
+}
+const getGridRow = (date) => {
+  switch (date.toLocaleString('default', {hour: '2-digit', minute: '2-digit'})) {
+    case '07:00 AM':
+      return 'AM7start';
+    case '07:30 AM':
+      return 'AM730start';
+    case '08:00 AM':
+      return 'AM8start';
+    case '08:30 AM':
+      return 'AM830start';
+    case '09:00 AM':
+      return 'AM9start';
+    case '09:30 AM':
+      return 'AM930start';
+    case '10:00 AM':
+      return 'AM10start';
+    case '10:30 AM':
+      return 'AM1030start';
+    case '11:00 AM':
+      return 'AM11start';
+    case '11:30 AM':
+      return 'AM1130start';
+    case '12:00 PM':
+      return 'PM12start';
+    case '12:30 PM':
+      return 'PM1230start';
+    case '01:00 PM':
+      return 'PM1start';
+    case '01:30 PM':
+      return 'PM130start';
+    case '02:00 PM':
+      return 'PM2start';
+    case '02:30 PM':
+      return 'PM230start';
+    case '03:00 PM':
+      return 'PM3start';
+    case '03:30 PM':
+      return 'PM330start';
+    case '04:00 PM':
+      return 'PM4start';
+    case '04:30 PM':
+      return 'PM430start';
+    case '05:00 PM':
+      return 'PM5start';
+    case '05:30 PM':
+      return 'PM530start';
+    case '06:00 PM':
+      return 'PM6start';
+    case '06:30 PM':
+      return 'PM630start';
+    case '07:00 PM':
+      return 'PM7start';
+    case '07:30 PM':
+      return 'PM730start';
+    case '08:00 PM':
+      return 'PM8start';
+    case '08:30 PM':
+      return 'PM830start';
+    case '09:00 PM':
+      return 'PM9start';
+    case '09:30 PM':
+      return 'PM930start';
+    case '10:00 PM':
+      return 'PM10start';
+    default:
+      return;
+  }
+}
 
+// contains the displayed list of events
+const CalendarEvents = () => {
+  const gridLines = [];
 
+  // Background Grid
+  for (let row = 1; row <= getCSSVar('--gridRowCount'); row++) {
+    for (let col = 1; col <= getCSSVar('--gridColCount'); col++) {
+      gridLines.push(
+        <div className='gridLine' key={`${row}-${col}`} style={{gridRow: row, gridColumn: col}} div/>
+      )
+    }
+  }
+
+  return (
+    <section className='calendarGrid'>
+      {EVENTS.map((event) => {
+          return (
+            <Event name={event.name} 
+                  start={event.start} 
+                  end={event.end} 
+                  location={event.location} 
+                  sideColor={event.sideColor} 
+                  bgColor={event.bgColor}
+                  otherParty={event.otherParty}
+                  initials1={event.initials1}
+                  iconColor1={event.iconColor1}
+            />
+          )
+        })}
+      {gridLines}
+    </section>
+  )
+}
+// defines how an event is displayed
+function Event(props) {
+  const startTime = props.start.toLocaleString('default', {hour: '2-digit', minute: '2-digit'});
+
+  return (
+    <div className='eventContainer' style={{gridColumn: getGridCol(props.start), 
+                                                        gridRow: `${getGridRow(props.start)} / ${getGridRow(props.end)}`, 
+                                                        backgroundColor: props.bgColor}}>
+      {/* Side Bar */}
+      <div className='rect' style={{backgroundColor: props.sideColor}} />
+      {/* Event Info */}
+      <div className='eventInfo'>
+        {/* Event Top Bar */}
+        <div className='eventTopBar'>
+          {/* Time */}
+          <div className='eventTime'>{startTime}</div>
+          {/* Person Involved (if applicable) */}
+          <div> {props.otherParty && 
+            <button className='userIcon calendarVariation' style={{backgroundColor: props.iconColor1}}>
+              {props.initials1}
+            </button>} 
+          </div>
+        </div>
+        {/* Event Name */}
+        <div className='eventName'>{props.name}</div>
+        {/* Event Location */}
+        {props.location}
+      </div>
+    </div>
+  )
+}
+// stores information for all events
+const EVENTS = [
+  {
+    name: 'Class A',
+    start: new Date('2024-10-07T10:00'),
+    end: new Date('2024-10-07T13:00'),
+    location: 'Somewhere',
+    sideColor: getCSSVar('--purpleEvent'),
+    bgColor: getCSSVar('--purpleEventBg'),
+    otherParty: false
+  },
+  {
+    name: 'Class A',
+    start: new Date('2024-10-09T10:00'),
+    end: new Date('2024-10-09T13:00'),
+    location: 'Somewhere',
+    sideColor: getCSSVar('--purpleEvent'),
+    bgColor: getCSSVar('--purpleEventBg'),
+    otherParty: false
+  },
+  {
+    name: 'Class A',
+    start: new Date('2024-10-11T10:00'),
+    end: new Date('2024-10-11T13:00'),
+    location: 'Somewhere',
+    sideColor: getCSSVar('--purpleEvent'),
+    bgColor: getCSSVar('--purpleEventBg'),
+    otherParty: false
+  },
+  {
+    name: 'Class B',
+    start: new Date('2024-10-08T09:00'),
+    end: new Date('2024-10-08T11:00'),
+    location: 'Someplace',
+    sideColor: getCSSVar('--blueEvent'),
+    bgColor: getCSSVar('--blueEventBg'),
+    otherParty: false
+  },
+  {
+    name: 'Class B',
+    start: new Date('2024-10-10T09:00'),
+    end: new Date('2024-10-10T11:00'),
+    location: 'Someplace',
+    sideColor: getCSSVar('--blueEvent'),
+    bgColor: getCSSVar('--blueEventBg'),
+    otherParty: false
+  },
+  {
+    name: 'Lunch',
+    start: new Date('2024-10-08T13:30'),
+    end: new Date('2024-10-08T16:30'),
+    location: 'Elder Dining Commons',
+    sideColor: getCSSVar('--greenEvent'),
+    bgColor: getCSSVar('--greenEventBg'),
+    otherParty: true,
+      initials1: 'PO',
+      iconColor1: getCSSVar('--blueIcon')
+  }
+]
 
 function App() {
   return (
@@ -262,14 +473,14 @@ function App() {
       <title>INDEX</title>
       <link rel='stylesheet' href='App.css' />
       {/* nav bar */}
-      <NavBar name='FIRST LAST' initials='FL'/>
+      <NavBar name='First Last' initials='FL'/>
       {/* body */}
       <section className='body'>
           {/* Left Content */}
           <section className='leftFrame'>
           {/* Subheader */}
           <div className='subHeader'>
-              <h2 style={{marginRight: 'auto'}}>POSTS</h2>
+              <h2 style={{marginRight: 'auto'}}>Posts</h2>
               <button className='filterButton'>
               <img src='https://cdn-icons-png.flaticon.com/128/7693/7693332.png' style={{width: 15, height: 'auto', filter: 'invert(1)'}} />
               </button>
@@ -279,7 +490,7 @@ function App() {
           {/* Create Button */}
           <button className='createButton'>
               <img src='https://cdn-icons-png.flaticon.com/128/992/992651.png' alt='add' style={{width: 33, height: 'auto', filter: 'invert(1)'}} />
-              CREATE
+              Create
           </button>
           </section>
           {/* Right Content */}
@@ -295,340 +506,7 @@ function App() {
               ))}
             </section>
             {/* Calendar Grid */}
-            <section className='calendarGrid'>
-                {/* Event: CLASS A Mon */}
-                <div className='eventContainer'>
-                {/* Side Bar */}
-                <div className='rect' />
-                {/* Event Info */}
-                <div className='eventInfo'>
-                    {/* Time */}
-                    <div className='eventText'>
-                    {/* Number */}
-                    <div>10:00</div>
-                    {/* AM/PM */}
-                    <div>AM</div>
-                    </div>
-                    {/* Event Name */}
-                    <div className='eventName'>CLASS A</div>
-                    {/* Event Location */}
-                    Somewhere
-                </div>
-                </div>
-                {/* Event: CLASS A Wed */}
-                <div className='eventContainer' style={{gridColumn: 'wedStart'}}>
-                {/* Side Bar */}
-                <div className='rect' />
-                {/* Event Info */}
-                <div className='eventInfo'>
-                    {/* Time */}
-                    <div className='eventText'>
-                    {/* Number */}
-                    <div>10:00</div>
-                    {/* AM/PM */}
-                    <div>AM</div>
-                    </div>
-                    {/* Event Name */}
-                    <div className='eventName'>CLASS A</div>
-                    {/* Event Location */}
-                    Somewhere
-                </div>
-                </div>
-                {/* Event: CLASS A Fri */}
-                <div className='eventContainer' style={{gridColumn: 'friStart'}}>
-                {/* Side Bar */}
-                <div className='rect' />
-                {/* Event Info */}
-                <div className='eventInfo'>
-                    {/* Time */}
-                    <div className='eventText'>
-                    {/* Number */}
-                    <div>10:00</div>
-                    {/* AM/PM */}
-                    <div>AM</div>
-                    </div>
-                    {/* Event Name */}
-                    <div className='eventName'>CLASS A</div>
-                    {/* Event Location */}
-                    Somewhere
-                </div>
-                </div>
-                {/* Event: CLASS B Tue */}
-                <div className='eventContainer' style={{gridColumn: 'tueStart', gridRow: 'AM9start / AM11start', backgroundColor: 'var(--blueEventO)'}}>
-                {/* Side Bar */}
-                <div className='rect' style={{backgroundColor: 'var(--blueEvent)'}} />
-                {/* Event Info */}
-                <div className='eventInfo'>
-                    {/* Time */}
-                    <div className='eventText'>
-                    {/* Number */}
-                    <div>09:00</div>
-                    {/* AM/PM */}
-                    <div>AM</div>
-                    </div>
-                    {/* Event Name */}
-                    <div className='eventName'>CLASS B</div>
-                    {/* Event Location */}
-                    Someplace
-                </div>
-                </div>
-                {/* Event: CLASS B Thu */}
-                <div className='eventContainer' style={{gridColumn: 'thuStart', gridRow: 'AM9start / AM11start', backgroundColor: 'var(--blueEventO)'}}>
-                {/* Side Bar */}
-                <div className='rect' style={{backgroundColor: 'var(--blueEvent)'}} />
-                {/* Event Info */}
-                <div className='eventInfo'>
-                    {/* Time */}
-                    <div className='eventText'>
-                    {/* Number */}
-                    <div>09:00</div>
-                    {/* AM/PM */}
-                    <div>AM</div>
-                    </div>
-                    {/* Event Name */}
-                    <div className='eventName'>CLASS B</div>
-                    {/* Event Location */}
-                    Someplace
-                </div>
-                </div>
-                {/* Event: LUNCH Tue */}
-                <div className='eventContainer' style={{gridColumn: 'tueStart', gridRow: 'PM130start / PM430start', backgroundColor: 'var(--greenEventO)'}}>
-                {/* Side Bar */}
-                <section className='rect' style={{backgroundColor: 'var(--greenEvent)'}} />
-                {/* Event Info */}
-                <div className='eventInfo'>
-                    {/* Event Top Bar */}
-                    <div className='eventTopBar'>
-                    {/* Time */}
-                    <div className='eventText'>
-                        {/* Number */}
-                        <div>01:30</div>
-                        {/* AM/PM */}
-                        <div>PM</div>
-                    </div>
-                    {/* Person Involved */}
-                    <button className='userIcon calendarVariation' style={{backgroundColor: 'var(--blueIcon)'}}>
-                        PO
-                    </button>
-                    </div>
-                    {/* Event Name */}
-                    <div className='eventName'>LUNCH</div>
-                    {/* Event Location */}
-                    Elder Dining Commons
-                </div>
-                </div>
-                {/* Background Grid */}
-                <div className='gridLine' style={{gridRow: 1, gridColumn: 1}} />
-                <div className='gridLine' style={{gridRow: 1, gridColumn: 2}} />
-                <div className='gridLine' style={{gridRow: 1, gridColumn: 3}} />
-                <div className='gridLine' style={{gridRow: 1, gridColumn: 4}} />
-                <div className='gridLine' style={{gridRow: 1, gridColumn: 5}} />
-                <div className='gridLine' style={{gridRow: 1, gridColumn: 6}} />
-                <div className='gridLine' style={{gridRow: 1, gridColumn: 7}} />
-                <div className='gridLine' style={{gridRow: 2, gridColumn: 1}} />
-                <div className='gridLine' style={{gridRow: 2, gridColumn: 2}} />
-                <div className='gridLine' style={{gridRow: 2, gridColumn: 3}} />
-                <div className='gridLine' style={{gridRow: 2, gridColumn: 4}} />
-                <div className='gridLine' style={{gridRow: 2, gridColumn: 5}} />
-                <div className='gridLine' style={{gridRow: 2, gridColumn: 6}} />
-                <div className='gridLine' style={{gridRow: 2, gridColumn: 7}} />
-                <div className='gridLine' style={{gridRow: 3, gridColumn: 1}} />
-                <div className='gridLine' style={{gridRow: 3, gridColumn: 2}} />
-                <div className='gridLine' style={{gridRow: 3, gridColumn: 3}} />
-                <div className='gridLine' style={{gridRow: 3, gridColumn: 4}} />
-                <div className='gridLine' style={{gridRow: 3, gridColumn: 5}} />
-                <div className='gridLine' style={{gridRow: 3, gridColumn: 6}} />
-                <div className='gridLine' style={{gridRow: 3, gridColumn: 7}} />
-                <div className='gridLine' style={{gridRow: 4, gridColumn: 1}} />
-                <div className='gridLine' style={{gridRow: 4, gridColumn: 2}} />
-                <div className='gridLine' style={{gridRow: 4, gridColumn: 3}} />
-                <div className='gridLine' style={{gridRow: 4, gridColumn: 4}} />
-                <div className='gridLine' style={{gridRow: 4, gridColumn: 5}} />
-                <div className='gridLine' style={{gridRow: 4, gridColumn: 6}} />
-                <div className='gridLine' style={{gridRow: 4, gridColumn: 7}} />
-                <div className='gridLine' style={{gridRow: 5, gridColumn: 1}} />
-                <div className='gridLine' style={{gridRow: 5, gridColumn: 2}} />
-                <div className='gridLine' style={{gridRow: 5, gridColumn: 3}} />
-                <div className='gridLine' style={{gridRow: 5, gridColumn: 4}} />
-                <div className='gridLine' style={{gridRow: 5, gridColumn: 5}} />
-                <div className='gridLine' style={{gridRow: 5, gridColumn: 6}} />
-                <div className='gridLine' style={{gridRow: 5, gridColumn: 7}} />
-                <div className='gridLine' style={{gridRow: 6, gridColumn: 1}} />
-                <div className='gridLine' style={{gridRow: 6, gridColumn: 2}} />
-                <div className='gridLine' style={{gridRow: 6, gridColumn: 3}} />
-                <div className='gridLine' style={{gridRow: 6, gridColumn: 4}} />
-                <div className='gridLine' style={{gridRow: 6, gridColumn: 5}} />
-                <div className='gridLine' style={{gridRow: 6, gridColumn: 6}} />
-                <div className='gridLine' style={{gridRow: 6, gridColumn: 7}} />
-                <div className='gridLine' style={{gridRow: 7, gridColumn: 1}} />
-                <div className='gridLine' style={{gridRow: 7, gridColumn: 2}} />
-                <div className='gridLine' style={{gridRow: 7, gridColumn: 3}} />
-                <div className='gridLine' style={{gridRow: 7, gridColumn: 4}} />
-                <div className='gridLine' style={{gridRow: 7, gridColumn: 5}} />
-                <div className='gridLine' style={{gridRow: 7, gridColumn: 6}} />
-                <div className='gridLine' style={{gridRow: 7, gridColumn: 7}} />
-                <div className='gridLine' style={{gridRow: 8, gridColumn: 1}} />
-                <div className='gridLine' style={{gridRow: 8, gridColumn: 2}} />
-                <div className='gridLine' style={{gridRow: 8, gridColumn: 3}} />
-                <div className='gridLine' style={{gridRow: 8, gridColumn: 4}} />
-                <div className='gridLine' style={{gridRow: 8, gridColumn: 5}} />
-                <div className='gridLine' style={{gridRow: 8, gridColumn: 6}} />
-                <div className='gridLine' style={{gridRow: 8, gridColumn: 7}} />
-                <div className='gridLine' style={{gridRow: 9, gridColumn: 1}} />
-                <div className='gridLine' style={{gridRow: 9, gridColumn: 2}} />
-                <div className='gridLine' style={{gridRow: 9, gridColumn: 3}} />
-                <div className='gridLine' style={{gridRow: 9, gridColumn: 4}} />
-                <div className='gridLine' style={{gridRow: 9, gridColumn: 5}} />
-                <div className='gridLine' style={{gridRow: 9, gridColumn: 6}} />
-                <div className='gridLine' style={{gridRow: 9, gridColumn: 7}} />
-                <div className='gridLine' style={{gridRow: 10, gridColumn: 1}} />
-                <div className='gridLine' style={{gridRow: 10, gridColumn: 2}} />
-                <div className='gridLine' style={{gridRow: 10, gridColumn: 3}} />
-                <div className='gridLine' style={{gridRow: 10, gridColumn: 4}} />
-                <div className='gridLine' style={{gridRow: 10, gridColumn: 5}} />
-                <div className='gridLine' style={{gridRow: 10, gridColumn: 6}} />
-                <div className='gridLine' style={{gridRow: 10, gridColumn: 7}} />
-                <div className='gridLine' style={{gridRow: 11, gridColumn: 1}} />
-                <div className='gridLine' style={{gridRow: 11, gridColumn: 2}} />
-                <div className='gridLine' style={{gridRow: 11, gridColumn: 3}} />
-                <div className='gridLine' style={{gridRow: 11, gridColumn: 4}} />
-                <div className='gridLine' style={{gridRow: 11, gridColumn: 5}} />
-                <div className='gridLine' style={{gridRow: 11, gridColumn: 6}} />
-                <div className='gridLine' style={{gridRow: 11, gridColumn: 7}} />
-                <div className='gridLine' style={{gridRow: 12, gridColumn: 1}} />
-                <div className='gridLine' style={{gridRow: 12, gridColumn: 2}} />
-                <div className='gridLine' style={{gridRow: 12, gridColumn: 3}} />
-                <div className='gridLine' style={{gridRow: 12, gridColumn: 4}} />
-                <div className='gridLine' style={{gridRow: 12, gridColumn: 5}} />
-                <div className='gridLine' style={{gridRow: 12, gridColumn: 6}} />
-                <div className='gridLine' style={{gridRow: 12, gridColumn: 7}} />
-                <div className='gridLine' style={{gridRow: 13, gridColumn: 1}} />
-                <div className='gridLine' style={{gridRow: 13, gridColumn: 2}} />
-                <div className='gridLine' style={{gridRow: 13, gridColumn: 3}} />
-                <div className='gridLine' style={{gridRow: 13, gridColumn: 4}} />
-                <div className='gridLine' style={{gridRow: 13, gridColumn: 5}} />
-                <div className='gridLine' style={{gridRow: 13, gridColumn: 6}} />
-                <div className='gridLine' style={{gridRow: 13, gridColumn: 7}} />
-                <div className='gridLine' style={{gridRow: 14, gridColumn: 1}} />
-                <div className='gridLine' style={{gridRow: 14, gridColumn: 2}} />
-                <div className='gridLine' style={{gridRow: 14, gridColumn: 3}} />
-                <div className='gridLine' style={{gridRow: 14, gridColumn: 4}} />
-                <div className='gridLine' style={{gridRow: 14, gridColumn: 5}} />
-                <div className='gridLine' style={{gridRow: 14, gridColumn: 6}} />
-                <div className='gridLine' style={{gridRow: 14, gridColumn: 7}} />
-                <div className='gridLine' style={{gridRow: 15, gridColumn: 1}} />
-                <div className='gridLine' style={{gridRow: 15, gridColumn: 2}} />
-                <div className='gridLine' style={{gridRow: 15, gridColumn: 3}} />
-                <div className='gridLine' style={{gridRow: 15, gridColumn: 4}} />
-                <div className='gridLine' style={{gridRow: 15, gridColumn: 5}} />
-                <div className='gridLine' style={{gridRow: 15, gridColumn: 6}} />
-                <div className='gridLine' style={{gridRow: 15, gridColumn: 7}} />
-                <div className='gridLine' style={{gridRow: 16, gridColumn: 1}} />
-                <div className='gridLine' style={{gridRow: 16, gridColumn: 2}} />
-                <div className='gridLine' style={{gridRow: 16, gridColumn: 3}} />
-                <div className='gridLine' style={{gridRow: 16, gridColumn: 4}} />
-                <div className='gridLine' style={{gridRow: 16, gridColumn: 5}} />
-                <div className='gridLine' style={{gridRow: 16, gridColumn: 6}} />
-                <div className='gridLine' style={{gridRow: 16, gridColumn: 7}} />
-                <div className='gridLine' style={{gridRow: 17, gridColumn: 1}} />
-                <div className='gridLine' style={{gridRow: 17, gridColumn: 2}} />
-                <div className='gridLine' style={{gridRow: 17, gridColumn: 3}} />
-                <div className='gridLine' style={{gridRow: 17, gridColumn: 4}} />
-                <div className='gridLine' style={{gridRow: 17, gridColumn: 5}} />
-                <div className='gridLine' style={{gridRow: 17, gridColumn: 6}} />
-                <div className='gridLine' style={{gridRow: 17, gridColumn: 7}} />
-                <div className='gridLine' style={{gridRow: 18, gridColumn: 1}} />
-                <div className='gridLine' style={{gridRow: 18, gridColumn: 2}} />
-                <div className='gridLine' style={{gridRow: 18, gridColumn: 3}} />
-                <div className='gridLine' style={{gridRow: 18, gridColumn: 4}} />
-                <div className='gridLine' style={{gridRow: 18, gridColumn: 5}} />
-                <div className='gridLine' style={{gridRow: 18, gridColumn: 6}} />
-                <div className='gridLine' style={{gridRow: 18, gridColumn: 7}} />
-                <div className='gridLine' style={{gridRow: 19, gridColumn: 1}} />
-                <div className='gridLine' style={{gridRow: 19, gridColumn: 2}} />
-                <div className='gridLine' style={{gridRow: 19, gridColumn: 3}} />
-                <div className='gridLine' style={{gridRow: 19, gridColumn: 4}} />
-                <div className='gridLine' style={{gridRow: 19, gridColumn: 5}} />
-                <div className='gridLine' style={{gridRow: 19, gridColumn: 6}} />
-                <div className='gridLine' style={{gridRow: 19, gridColumn: 7}} />
-                <div className='gridLine' style={{gridRow: 20, gridColumn: 1}} />
-                <div className='gridLine' style={{gridRow: 20, gridColumn: 2}} />
-                <div className='gridLine' style={{gridRow: 20, gridColumn: 3}} />
-                <div className='gridLine' style={{gridRow: 20, gridColumn: 4}} />
-                <div className='gridLine' style={{gridRow: 20, gridColumn: 5}} />
-                <div className='gridLine' style={{gridRow: 20, gridColumn: 6}} />
-                <div className='gridLine' style={{gridRow: 20, gridColumn: 7}} />
-                <div className='gridLine' style={{gridRow: 21, gridColumn: 1}} />
-                <div className='gridLine' style={{gridRow: 21, gridColumn: 2}} />
-                <div className='gridLine' style={{gridRow: 21, gridColumn: 3}} />
-                <div className='gridLine' style={{gridRow: 21, gridColumn: 4}} />
-                <div className='gridLine' style={{gridRow: 21, gridColumn: 5}} />
-                <div className='gridLine' style={{gridRow: 21, gridColumn: 6}} />
-                <div className='gridLine' style={{gridRow: 21, gridColumn: 7}} />
-                <div className='gridLine' style={{gridRow: 22, gridColumn: 1}} />
-                <div className='gridLine' style={{gridRow: 22, gridColumn: 2}} />
-                <div className='gridLine' style={{gridRow: 22, gridColumn: 3}} />
-                <div className='gridLine' style={{gridRow: 22, gridColumn: 4}} />
-                <div className='gridLine' style={{gridRow: 22, gridColumn: 5}} />
-                <div className='gridLine' style={{gridRow: 22, gridColumn: 6}} />
-                <div className='gridLine' style={{gridRow: 22, gridColumn: 7}} />
-                <div className='gridLine' style={{gridRow: 23, gridColumn: 1}} />
-                <div className='gridLine' style={{gridRow: 23, gridColumn: 2}} />
-                <div className='gridLine' style={{gridRow: 23, gridColumn: 3}} />
-                <div className='gridLine' style={{gridRow: 23, gridColumn: 4}} />
-                <div className='gridLine' style={{gridRow: 23, gridColumn: 5}} />
-                <div className='gridLine' style={{gridRow: 23, gridColumn: 6}} />
-                <div className='gridLine' style={{gridRow: 23, gridColumn: 7}} />
-                <div className='gridLine' style={{gridRow: 24, gridColumn: 1}} />
-                <div className='gridLine' style={{gridRow: 24, gridColumn: 2}} />
-                <div className='gridLine' style={{gridRow: 24, gridColumn: 3}} />
-                <div className='gridLine' style={{gridRow: 24, gridColumn: 4}} />
-                <div className='gridLine' style={{gridRow: 24, gridColumn: 5}} />
-                <div className='gridLine' style={{gridRow: 24, gridColumn: 6}} />
-                <div className='gridLine' style={{gridRow: 24, gridColumn: 7}} />
-                <div className='gridLine' style={{gridRow: 25, gridColumn: 1}} />
-                <div className='gridLine' style={{gridRow: 25, gridColumn: 2}} />
-                <div className='gridLine' style={{gridRow: 25, gridColumn: 3}} />
-                <div className='gridLine' style={{gridRow: 25, gridColumn: 4}} />
-                <div className='gridLine' style={{gridRow: 25, gridColumn: 5}} />
-                <div className='gridLine' style={{gridRow: 25, gridColumn: 6}} />
-                <div className='gridLine' style={{gridRow: 25, gridColumn: 7}} />
-                <div className='gridLine' style={{gridRow: 26, gridColumn: 1}} />
-                <div className='gridLine' style={{gridRow: 26, gridColumn: 2}} />
-                <div className='gridLine' style={{gridRow: 26, gridColumn: 3}} />
-                <div className='gridLine' style={{gridRow: 26, gridColumn: 4}} />
-                <div className='gridLine' style={{gridRow: 26, gridColumn: 5}} />
-                <div className='gridLine' style={{gridRow: 26, gridColumn: 6}} />
-                <div className='gridLine' style={{gridRow: 26, gridColumn: 7}} />
-                <div className='gridLine' style={{gridRow: 27, gridColumn: 1}} />
-                <div className='gridLine' style={{gridRow: 27, gridColumn: 2}} />
-                <div className='gridLine' style={{gridRow: 27, gridColumn: 3}} />
-                <div className='gridLine' style={{gridRow: 27, gridColumn: 4}} />
-                <div className='gridLine' style={{gridRow: 27, gridColumn: 5}} />
-                <div className='gridLine' style={{gridRow: 27, gridColumn: 6}} />
-                <div className='gridLine' style={{gridRow: 27, gridColumn: 7}} />
-                <div className='gridLine' style={{gridRow: 28, gridColumn: 1}} />
-                <div className='gridLine' style={{gridRow: 28, gridColumn: 2}} />
-                <div className='gridLine' style={{gridRow: 28, gridColumn: 3}} />
-                <div className='gridLine' style={{gridRow: 28, gridColumn: 4}} />
-                <div className='gridLine' style={{gridRow: 28, gridColumn: 5}} />
-                <div className='gridLine' style={{gridRow: 28, gridColumn: 6}} />
-                <div className='gridLine' style={{gridRow: 28, gridColumn: 7}} />
-                <div className='gridLine' style={{gridRow: 29, gridColumn: 1}} />
-                <div className='gridLine' style={{gridRow: 29, gridColumn: 2}} />
-                <div className='gridLine' style={{gridRow: 29, gridColumn: 3}} />
-                <div className='gridLine' style={{gridRow: 29, gridColumn: 4}} />
-                <div className='gridLine' style={{gridRow: 29, gridColumn: 5}} />
-                <div className='gridLine' style={{gridRow: 29, gridColumn: 6}} />
-                <div className='gridLine' style={{gridRow: 29, gridColumn: 7}} />
-                <div className='gridLine' style={{gridRow: 30, gridColumn: 1}} />
-                <div className='gridLine' style={{gridRow: 30, gridColumn: 2}} />
-                <div className='gridLine' style={{gridRow: 30, gridColumn: 3}} />
-                <div className='gridLine' style={{gridRow: 30, gridColumn: 4}} />
-                <div className='gridLine' style={{gridRow: 30, gridColumn: 5}} />
-                <div className='gridLine' style={{gridRow: 30, gridColumn: 6}} />
-                <div className='gridLine' style={{gridRow: 30, gridColumn: 7}} />
-            </section>
+            <CalendarEvents/>
             </section>
         </section>
       </section>
