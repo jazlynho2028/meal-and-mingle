@@ -12,16 +12,16 @@ function NavBar(props) {
       <section className='navTopLeft'>
         <button className='navButton'>
             <div className='logoCircle' />
-            <h1>MEAL AND MINGLE</h1>
+            <h1>Meal and Mingle</h1>
         </button>
       </section>
       {/* Top right */}
       <section className='navTopRight'>
         <button className='navButton'>
-            <h1>HOME</h1>
+            <h1>Home</h1>
         </button>
         <button className='navButton'>
-            <h1>MESSAGES</h1>
+            <h1>Messages</h1>
         </button>
         {/* PROFILE */}
         <div className='navProfile'>
@@ -132,15 +132,35 @@ const PostList = () => {
     setPosts(newPosts);
   }
 
+  const handleShow = (index) => {
+    const newPosts = posts;
+    newPosts[index].show = false;
+    setPosts(newPosts.filter(item => item.show));
+  }
+
+  // when saved button is clicked
   useEffect(() => {
-    posts.forEach((post, index) => {
+    POSTS.forEach((post, index) => {
       if (post.bookmarked) {
         console.log('Post ' + index + ' is saved');
-      } else {
+      } 
+      else {
         console.log('Post ' + index + ' is not saved');
       }
     })
-  })
+  }, [posts])
+
+  // when x button is clicked
+  useEffect(() => {
+    POSTS.forEach((post, index) => {
+      if (post.show) {
+        console.log('Post ' + index + ' is shown');
+      }
+      else {
+        console.log('Post ' + index + " is not shown");
+      }
+    })
+  },  [posts])
 
   return (
     <section className='postList'>
@@ -154,7 +174,8 @@ const PostList = () => {
                 end={post.end} 
                 bookmarked={post.bookmarked} 
                 show={post.show} 
-                handleBookmark={() => handleBookmark(index)}/>
+                handleBookmark={() => handleBookmark(index)}
+                handleShow={() => handleShow(index)}/>
         )
       })}
     </section>
@@ -173,7 +194,7 @@ function Post(props) {
       <button className='userIcon' style={{backgroundColor: props.iconColor}}>{props.initials}</button>
       {/* Right side of post */}
       <div className='colContainer'>
-        <XButton/>
+        <XButton handleShow={props.handleShow}/>
         {/* Top section of right side */}
         <div className='postTextBlock'>
           {/* Name */}
@@ -474,11 +495,11 @@ const CreateButton = () => {
   )
 }
 // display x button
-const XButton = () => {
+const XButton = ({handleShow}) => {
   return (
     <div className='xButtonContainer'>
       {/* 'x' button */}
-      <button className='crossButton'>
+      <button className='crossButton' onClick={handleShow}>
         <img 
           src='https://cdn-icons-png.flaticon.com/128/1828/1828778.png' 
           alt='Close' 
