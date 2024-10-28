@@ -150,7 +150,7 @@ function Post(props) {
   const endTime = props.end.toLocaleString('default', {hour: '2-digit', minute: '2-digit'});
 
   return (
-    <div className='post' onClick={props.handleBookmark}>
+    <div className='post'>
       <button className='userIcon' style={{backgroundColor: props.iconColor}}>{props.initials}</button>
       {/* Right side of post */}
       <div className='colContainer'>
@@ -202,7 +202,7 @@ function Post(props) {
             />
           </button>
           {/* Save button */}
-          <button className='sendSaveButtons'>
+          <button className='sendSaveButtons' onClick={props.handleBookmark}>
             <img 
               src={bookmarkImg}
               alt='Saved' 
@@ -389,11 +389,10 @@ function Event(props) {
           {/* Time */}
           <div className='eventTime'>{startTime}</div>
           {/* Person Involved (if applicable) */}
-          <div> {props.otherParty && 
+          {props.otherParty && 
             <button className='userIcon calendarVariation' style={{backgroundColor: props.iconColor1}}>
               {props.initials1}
             </button>} 
-          </div>
         </div>
         {/* Event Name */}
         <div className='eventName'>{props.name}</div>
@@ -499,14 +498,14 @@ function App() {
             <CalendarHead/>
             {/* Below Calendar Nav Bar */}
             <section className='calendarBodyContainer'>
-            {/* Time Markings */}
-            <section className='timeMarkings'>
-              {TIMES.map(time => (
-                <h5 className='timeStyle' key={time}>{time}</h5>
-              ))}
-            </section>
-            {/* Calendar Grid */}
-            <CalendarEvents/>
+              {/* Time Markings */}
+              <section className='timeMarkings'>
+                {TIMES.map(time => (
+                  <h5 className='timeStyle' key={time}>{time}</h5>
+                ))}
+              </section>
+              {/* Calendar Grid */}
+              <CalendarEvents/>
             </section>
         </section>
       </section>
