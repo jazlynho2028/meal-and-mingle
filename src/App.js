@@ -50,17 +50,6 @@ const CalendarHead = () => {
   const [startDate, setStartDate] = useState(new Date('2024-10-06T00:00:00'));
   const currentDates = WEEKDATES(startDate);
   
-  const handlePrevWeek = () => {
-    const newStartDate = new Date(startDate);
-    newStartDate.setDate(startDate.getDate() - 7);
-    setStartDate(newStartDate);
-  }
-  const handleNextWeek = () => {
-    const newStartDate = new Date(startDate);
-    newStartDate.setDate(startDate.getDate() + 7);
-    setStartDate(newStartDate);
-  }
-  
   useEffect(() => {
     console.log(currentDates);
   }, [currentDates])
@@ -71,10 +60,7 @@ const CalendarHead = () => {
       <h4>{currentDates[0].toLocaleString('default', {month: 'long'})}</h4>
       {/* Calendar Nav */}
       <nav className='calendarNav'>
-        {/* Backwards Button */}
-        <button className='calendarNavButton' onClick={handlePrevWeek}>
-            <img src='https://cdn-icons-png.flaticon.com/128/2989/2989988.png' alt='previous' style={{width: 25, height: 'auto', transform: 'scaleX(-1)', filter: 'invert(29%) sepia(46%) saturate(312%) hue-rotate(212deg) brightness(98%) contrast(89%)'}} />
-        </button>
+        <BackButton startDate={startDate} setStartDate={(setStartDate)}/>
         {/* Week Label */}
         <div className='weekLabel'>
             {/* Days of the Week */}
@@ -90,16 +76,51 @@ const CalendarHead = () => {
               ))}
             </div>
         </div>
-        {/* Forwards Button */}
-        <button className='calendarNavButton' onClick={handleNextWeek}>
-            <img src='https://cdn-icons-png.flaticon.com/128/2989/2989988.png' alt='next' style={{width: 25, height: 'auto', filter: 'invert(29%) sepia(46%) saturate(312%) hue-rotate(212deg) brightness(98%) contrast(89%)'}} />
-        </button>
+        <ForwardsButton startDate={startDate} setStartDate={setStartDate}/>
       </nav>
     </div>
 
     
   )
 }
+// display back button
+const BackButton = ({startDate, setStartDate}) => {
+  const handlePrevWeek = () => {
+    const newStartDate = new Date(startDate);
+    newStartDate.setDate(startDate.getDate() - 7);
+    setStartDate(newStartDate);
+  }
+
+  return (
+    <button className='calendarNavButton' onClick={handlePrevWeek}>
+      <img src='https://cdn-icons-png.flaticon.com/128/2989/2989988.png' 
+      alt='previous' 
+      style={{width: 25, 
+              height: 'auto', 
+              transform: 'scaleX(-1)', 
+              filter: 'invert(29%) sepia(46%) saturate(312%) hue-rotate(212deg) brightness(98%) contrast(89%)'}} />
+    </button>
+  )
+}
+// display forwards button
+const ForwardsButton = ({startDate, setStartDate}) => {
+  const handleNextWeek = () => {
+    const newStartDate = new Date(startDate);
+    newStartDate.setDate(startDate.getDate() + 7);
+    setStartDate(newStartDate);
+  }
+
+  return (
+    <button className='calendarNavButton' onClick={handleNextWeek}>
+            <img src='https://cdn-icons-png.flaticon.com/128/2989/2989988.png' 
+            alt='next' 
+            style={{width: 25, 
+                    height: 'auto', 
+                    filter: 'invert(29%) sepia(46%) saturate(312%) hue-rotate(212deg) brightness(98%) contrast(89%)'}} />
+        </button>
+  )
+}
+
 
 // contains the displayed list of posts
 const PostList = () => {
@@ -141,8 +162,6 @@ const PostList = () => {
 }
 // defines how a post is displayed
 function Post(props) {
-  // Determine which bookmark image to show
-  const bookmarkImg = props.bookmarked ? 'https://cdn-icons-png.flaticon.com/128/102/102279.png' : 'https://cdn-icons-png.flaticon.com/128/5662/5662990.png'; 
   const day = props.start.toLocaleString('default', {weekday: 'short'});
   const month = ((props.start.getMonth()) + 1).toString().padStart(2, '0');
   const date = props.start.getDate().toString().padStart(2, '0');
@@ -154,33 +173,17 @@ function Post(props) {
       <button className='userIcon' style={{backgroundColor: props.iconColor}}>{props.initials}</button>
       {/* Right side of post */}
       <div className='colContainer'>
-        {/* 'x' button container */}
-        <div className='xButtonContainer'>
-          {/* 'x' button */}
-          <button className='crossButton'>
-            <img 
-              src='https://cdn-icons-png.flaticon.com/128/1828/1828778.png' 
-              alt='Close' 
-              style={{
-                width: 6,
-                height: 'auto',
-                filter: 'invert(41%) sepia(2%) saturate(3212%) hue-rotate(212deg) brightness(102%) contrast(78%)'
-              }} 
-            />
-          </button>
-        </div>
+        <XButton/>
         {/* Top section of right side */}
         <div className='postTextBlock'>
           {/* Name */}
-          <div className='postText' style={{ alignItems: 'end', marginRight: 'auto' }}>
-            {props.name}
-          </div>
+          <div className='postText'>{props.name}</div>
           {/* Location(s) */}
           <div className='postText locationText'>{props.location}</div>
           {/* Separator line */}
           <div className='postLine' />
           {/* Date and Time */}
-          <div className='rowContainer' style={{ gap: 10 }}>
+          <div className='postDateTime'>
             {/* Date */}
             <div className='postText'>{`${day} ${month}/${date}`}</div>
             {/* Time */}
@@ -189,30 +192,10 @@ function Post(props) {
         </div>
         {/* Send and Save buttons */}
         <div className='sendSaveContainer'>
-          {/* Send button */}
-          <button className='sendSaveButtons'>
-            <img 
-              src='https://cdn-icons-png.flaticon.com/128/3024/3024593.png' 
-              alt='Send' 
-              style={{
-                width: 12,
-                height: 'auto',
-                filter: 'invert(31%) sepia(64%) saturate(229%) hue-rotate(212deg) brightness(89%) contrast(91%)'
-              }} 
-            />
-          </button>
+          <SendButton/>
           {/* Save button */}
-          <button className='sendSaveButtons' onClick={props.handleBookmark}>
-            <img 
-              src={bookmarkImg}
-              alt='Saved' 
-              style={{
-                width: 12,
-                height: 'auto',
-                filter: 'invert(31%) sepia(64%) saturate(229%) hue-rotate(212deg) brightness(89%) contrast(91%)'
-              }} 
-            />
-          </button>
+          <SaveButton bookmarked={props.bookmarked}
+                      handleBookmark={props.handleBookmark}/>
         </div>
       </div>
     </div>
@@ -242,6 +225,17 @@ const POSTS = [
   }
 ]
 
+
+// displays timestamps for calendar side display
+const Times = () => {
+  return (
+    <section className='timeMarkings'>
+      {TIMES.map(time => (
+        <h5 className='timeStyle' key={time}>{time}</h5>
+      ))}
+    </section>
+  )
+}
 // stores all timestamps for calendar side display
 const TIMES = [
   '7 AM', '8 AM', '9 AM', '10 AM', '11 AM', '12 PM', 
@@ -462,6 +456,77 @@ const EVENTS = [
   }
 ]
 
+// display filter button
+const Filter = () => {
+  return (
+    <button className='filterButton'>
+      <img src='https://cdn-icons-png.flaticon.com/128/7693/7693332.png' style={{width: 15, height: 'auto', filter: 'invert(1)'}} />
+    </button>
+  )
+}
+// display create button
+const CreateButton = () => {
+  return (
+    <button className='createButton'>
+      <img src='https://cdn-icons-png.flaticon.com/128/992/992651.png' alt='add' style={{width: 33, height: 'auto', filter: 'invert(1)'}} />
+      Create
+    </button>
+  )
+}
+// display x button
+const XButton = () => {
+  return (
+    <div className='xButtonContainer'>
+      {/* 'x' button */}
+      <button className='crossButton'>
+        <img 
+          src='https://cdn-icons-png.flaticon.com/128/1828/1828778.png' 
+          alt='Close' 
+          style={{
+            width: 6,
+            height: 'auto',
+            filter: 'invert(41%) sepia(2%) saturate(3212%) hue-rotate(212deg) brightness(102%) contrast(78%)'
+          }} 
+        />
+      </button>
+    </div>
+  )
+}
+// display send button
+const SendButton = () => {
+  return (
+    <button className='sendSaveButtons'>
+      <img 
+        src='https://cdn-icons-png.flaticon.com/128/3024/3024593.png' 
+        alt='Send' 
+        style={{
+        width: 12,
+        height: 'auto',
+        filter: 'invert(31%) sepia(64%) saturate(229%) hue-rotate(212deg) brightness(89%) contrast(91%)'
+              }} 
+      />
+    </button>
+  )
+}
+// display save button
+function SaveButton({bookmarked, handleBookmark}) {
+  const bookmarkImg = bookmarked ? 'https://cdn-icons-png.flaticon.com/128/102/102279.png' : 'https://cdn-icons-png.flaticon.com/128/5662/5662990.png'; 
+  
+  return (
+    <button className='sendSaveButtons' onClick={handleBookmark}>
+      <img 
+        src={bookmarkImg}
+        alt='Saved' 
+        style={{
+          width: 12,
+          height: 'auto',
+          filter: 'invert(31%) sepia(64%) saturate(229%) hue-rotate(212deg) brightness(89%) contrast(91%)'
+        }} 
+      />
+    </button>
+  )
+}
+
 function App() {
   return (
     <div className='App'>
@@ -471,40 +536,21 @@ function App() {
       <meta httpEquiv='X-UA-Compatible' content='ie=edge' />
       <title>INDEX</title>
       <link rel='stylesheet' href='App.css' />
-      {/* nav bar */}
+
       <NavBar name='First Last' initials='FL'/>
-      {/* body */}
       <section className='body'>
-          {/* Left Content */}
           <section className='leftFrame'>
-          {/* Subheader */}
           <div className='subHeader'>
-              <h2 style={{marginRight: 'auto'}}>Posts</h2>
-              <button className='filterButton'>
-              <img src='https://cdn-icons-png.flaticon.com/128/7693/7693332.png' style={{width: 15, height: 'auto', filter: 'invert(1)'}} />
-              </button>
+              <h2>Posts</h2>
+              <Filter/>
           </div>
-          {/* List of posts */}
           <PostList/>
-          {/* Create Button */}
-          <button className='createButton'>
-              <img src='https://cdn-icons-png.flaticon.com/128/992/992651.png' alt='add' style={{width: 33, height: 'auto', filter: 'invert(1)'}} />
-              Create
-          </button>
+          <CreateButton/>
           </section>
-          {/* Right Content */}
           <section className='rightFrame'>
-            {/* Calendar Header */}
             <CalendarHead/>
-            {/* Below Calendar Nav Bar */}
             <section className='calendarBodyContainer'>
-              {/* Time Markings */}
-              <section className='timeMarkings'>
-                {TIMES.map(time => (
-                  <h5 className='timeStyle' key={time}>{time}</h5>
-                ))}
-              </section>
-              {/* Calendar Grid */}
+              <Times/>
               <CalendarEvents/>
             </section>
         </section>

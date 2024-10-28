@@ -58,6 +58,7 @@ h2 {
   font-size: 14pt;
   color: var(--purple1);
   text-transform: uppercase;
+  margin-right: auto;
 }
 
 /* change to something else */
@@ -366,6 +367,14 @@ img {
   line-height: 1;
   text-align: left;
   color: var(--darkPurple1);
+}
+
+.postDateTime {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  gap: 10;
 }
 
 .nameText {
