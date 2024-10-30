@@ -3,7 +3,7 @@ import './App.css';
 
 const getCSSVar = (variable) => {
   return getComputedStyle(document.documentElement).getPropertyValue(variable).trim();
-};
+}
 
 function NavBar(props) {
   return (
@@ -32,7 +32,7 @@ function NavBar(props) {
         </div>
       </section>
     </nav>
-  );
+  )
 }
 
 // gets the 7 dates of current week
@@ -112,12 +112,12 @@ const ForwardsButton = ({startDate, setStartDate}) => {
 
   return (
     <button className='calendarNavButton' onClick={handleNextWeek}>
-            <img src='https://cdn-icons-png.flaticon.com/128/2989/2989988.png' 
-            alt='next' 
-            style={{width: 25, 
-                    height: 'auto', 
-                    filter: 'invert(29%) sepia(46%) saturate(312%) hue-rotate(212deg) brightness(98%) contrast(89%)'}} />
-        </button>
+      <img src='https://cdn-icons-png.flaticon.com/128/2989/2989988.png' 
+      alt='next' 
+      style={{width: 25, 
+              height: 'auto', 
+              filter: 'invert(29%) sepia(46%) saturate(312%) hue-rotate(212deg) brightness(98%) contrast(89%)'}} />
+    </button>
   )
 }
 
@@ -481,7 +481,7 @@ const EVENTS = [
 const Filter = () => {
   return (
     <button className='filterButton'>
-      <img src='https://cdn-icons-png.flaticon.com/128/7693/7693332.png' style={{width: 15, height: 'auto', filter: 'invert(1)'}} />
+      <img src='https://cdn-icons-png.flaticon.com/128/7693/7693332.png' alt='filter' style={{width: 15, height: 'auto', filter: 'invert(1)'}} />
     </button>
   )
 }
