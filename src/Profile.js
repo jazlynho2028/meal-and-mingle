@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import './App.css';
-import './App.js';
+import App, { user } from './App.js';
 import './Profile.css';
+import { Filter, CreateButton, PostList } from './Home.js';
 import { getCSSVar } from './variables.js';
 
 // displays profile page
@@ -44,19 +45,28 @@ function Profile(props) {
                 </div>
                 {/* Bio and Details */}
                 <div className='subjectDetails'>
-                    {/* Bio */}
-                    <div className='schoolMajorBioTextHead'>Bio:</div>
-                    {/* Details */}
-                    <div className='detailsContainer'>
-                      <p className='bioText'>{props.bio}</p>
-                    </div>
+                  {/* Bio */}
+                  <div className='schoolMajorBioTextHead'>Bio:</div>
+                  {/* Details */}
+                  <div className='detailsContainer'>
+                    <p className='bioText'>{props.bio}</p>
                   </div>
+                </div>
               </div>
-
             </section>
         </section>
+        <div className='profileFilterButton'><Filter/></div>
+        <CreateButton/>
         <section className='bottomFrame'>
-            hi again
+          <section className='postList profilePostList'>
+            <h2 className='profileBottomHead'>My Posts</h2>
+            <PostList POSTS={user.posts} userList={true} userSavedList={false}/>
+          </section>
+          <section className='postList profilePostList'>
+            <h2 className='profileBottomHead'>Saved Posts</h2>
+            <PostList POSTS={user.saved} userList={true} userSavedList={true}/>
+          </section>
+
         </section>
       </section>
     )

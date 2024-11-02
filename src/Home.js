@@ -115,13 +115,21 @@ const POSTS = [
   ]
   
   // contains the displayed list of posts
-  const PostList = () => {
+  // userList: true if list is the user's personal or saved lists
+  // userSavedList: true if list is the user's saved list
+  const PostList = ({POSTS, userList, userSavedList}) => {
     const [posts, setPosts] = useState(POSTS);
   
     const handleBookmark = (index) => {
       const newPosts = [...posts];
       newPosts[index].bookmarked = !newPosts[index].bookmarked;
-      setPosts(newPosts);
+
+      if (userList && userSavedList && !newPosts[index].bookmarked) {
+        setPosts(newPosts.filter((_,i) => i !== index));
+      }
+      else {
+        setPosts(newPosts);
+      }
     }
   
     const handleShow = (index) => {
@@ -167,14 +175,17 @@ const POSTS = [
                   bookmarked={post.bookmarked} 
                   show={post.show} 
                   handleBookmark={() => handleBookmark(index)}
-                  handleShow={() => handleShow(index)}/>
+                  handleShow={() => handleShow(index)}
+                  userList={userList}
+                  userSavedList={userSavedList}/>
           )
         })}
       </section>
     )
   }
   // defines how a post is displayed
-  function Post(props) {
+  function Post({userList, 
+    ...props}) {
     const day = props.start.toLocaleString('default', {weekday: 'short'});
     const month = ((props.start.getMonth()) + 1).toString().padStart(2, '0');
     const date = props.start.getDate().toString().padStart(2, '0');
@@ -186,7 +197,7 @@ const POSTS = [
         <button className='userIcon' style={{backgroundColor: props.iconColor}}>{props.initials}</button>
         {/* Right side of post */}
         <div className='colContainer'>
-          <XButton handleShow={props.handleShow}/>
+          {!userList && <XButton handleShow={props.handleShow}/>}
           {/* Top section of right side */}
           <div className='postTextBlock'>
             {/* Name */}
@@ -525,7 +536,7 @@ const POSTS = [
             <h2>Posts</h2>
             <Filter/>
             </div>
-            <PostList/>
+            <PostList POSTS={POSTS} userList={false} userSavedList={false}/>
             <CreateButton/>
         </section>
         <section className='rightFrame'>
@@ -540,3 +551,4 @@ const POSTS = [
   }
 
   export default Home;
+  export { Filter, CreateButton, POSTS, PostList };
