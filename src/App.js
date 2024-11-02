@@ -1,6 +1,18 @@
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import './App.css';
-import { Home } from './Home.js';
+import Home from './Home.js';
+import Profile from './Profile.js';
+import { getCSSVar } from './variables.js';
+
+const user = {
+  name: 'First Last',
+  initials: 'FL',
+  color: getCSSVar('--purpleIcon'),
+  class: '202X',
+  school: ['A School'],
+  major: ['Some Interesting Major', 'Some Other Major'],
+  bio: 'Really interesting things about my background, interests, hobbies, etc.'
+}
 
 function NavBar(props) {
   return (
@@ -22,19 +34,10 @@ function NavBar(props) {
         </Link>
         <Link to='/profile' className='link navProfile'>
           <button className='navButton'><h1>{props.name}</h1></button>
-          <button className='userIcon headerVariation'>{props.initials}</button>
+          <button className='userIcon headerVariation' style={{backgroundColor: props.color}}>{props.initials}</button>
         </Link>
       </section>
     </nav>
-  )
-}
-
-
-
-// displays profile page
-function Profile() {
-  return (
-    <div>Profile Page (coming soon)</div>
   )
 }
 
@@ -49,11 +52,11 @@ function App() {
           <title>INDEX</title>
           <link rel='stylesheet' href='App.css' />
 
-          <NavBar name='First Last' initials='FL'/>
+          <NavBar name={user.name} initials={user.initials} color={user.color}/>
           <Routes>
             <Route path='/' element={<Home/>}/>
             <Route path='/messages' element={<div>Messages Page (coming soon)</div>}/>
-            <Route path='/profile' element={<Profile/>}/>
+            <Route path='/profile' element={<Profile name='First Last' initials='FL' color={user.color} class={user.class} school={user.school} major={user.major} bio={user.bio}/>}/>
           </Routes>
         </div>
       </div>

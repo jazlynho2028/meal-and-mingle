@@ -42,6 +42,14 @@ h6 {
   margin-bottom: 0;
 }
 
+p {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  line-height: normal;
+  color: inherit;
+}
+
 /* nav bar headers */
 h1 {
   font-family: var(--headerFont);
@@ -49,6 +57,7 @@ h1 {
   font-size: 13pt;
   color: var(--white);
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 /* left side header */
@@ -59,14 +68,6 @@ h2 {
   color: var(--purple1);
   text-transform: uppercase;
   margin-right: auto;
-}
-
-/* change to something else */
-h3 {
-  font-family: var(--headerFont);
-  font-weight: 100;
-  font-size: 25pt;
-  color: var(--purple1);
 }
 
 img {
@@ -111,6 +112,7 @@ img {
   gap: 9px;
   width: 317px;
   margin-bottom: auto;
+  overflow: hidden;
 }
 
 .postTextBlock {
@@ -143,11 +145,6 @@ img {
   align-items: center;
 
   gap: 10;
-}
-
-.nameText {
-  align-items: end; 
-  margin-right: auto;
 }
 
 .locationText {
@@ -227,8 +224,6 @@ img {
   border-radius: 50%;
 
   flex-shrink: 0;
-
-  flex-shrink: 0;
 }
 
 button {
@@ -282,7 +277,6 @@ button {
 
   margin-right: auto;
 }
-
 .headerVariation {
   width: 48px;
   height: 48px;

@@ -517,9 +517,9 @@ const POSTS = [
   }
   
   // displays home page
-  export function Home() {
+  function Home() {
     return(
-      <section className='body'>
+      <section className='homeBody'>
         <section className='leftFrame'>
           <div className='leftHead'>
             <h2>Posts</h2>
@@ -538,3 +538,5 @@ const POSTS = [
       </section>
     )
   }
+
+  export default Home;

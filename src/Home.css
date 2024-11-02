@@ -17,14 +17,13 @@ h4 {
     text-transform: uppercase;
   }
   
-  .body {
+  .homeBody {
     background-color: var(--white);
     /* placeholder */
   
     display: flex;
     flex-direction: row;
   
-    height: 100vh;
     height: 100vh;
   }
   
