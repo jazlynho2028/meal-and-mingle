@@ -1,3 +1,4 @@
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import './App.css';
 
@@ -10,26 +11,23 @@ function NavBar(props) {
     <nav className='nav'>
       {/* Top left */}
       <section className='navTopLeft'>
-        <button className='navButton'>
-            <div className='logoCircle' />
+        <Link to='/' className='link logoButton'>
+            <div className='logoCircle'></div>
             <h1>Meal and Mingle</h1>
-        </button>
+        </Link>
       </section>
       {/* Top right */}
       <section className='navTopRight'>
-        <button className='navButton'>
+        <Link to='/' className='link navButton'>
             <h1>Home</h1>
-        </button>
-        <button className='navButton'>
+        </Link>
+        <Link to='/messages' className='link navButton'>
             <h1>Messages</h1>
-        </button>
-        {/* PROFILE */}
-        <div className='navProfile'>
-          <button className='navButton'>
-          <h1>{props.name}</h1>
-          </button>
+        </Link>
+        <Link to='/profile' className='link navProfile'>
+          <button className='navButton'><h1>{props.name}</h1></button>
           <button className='userIcon headerVariation'>{props.initials}</button>
-        </div>
+        </Link>
       </section>
     </nav>
   )
@@ -548,36 +546,49 @@ function SaveButton({bookmarked, handleBookmark}) {
   )
 }
 
-function App() {
-  return (
-    <div className='App'>
-      <div>
-      <meta charSet='UTF-8' />
-      <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-      <meta httpEquiv='X-UA-Compatible' content='ie=edge' />
-      <title>INDEX</title>
-      <link rel='stylesheet' href='App.css' />
-
-      <NavBar name='First Last' initials='FL'/>
-      <section className='body'>
-          <section className='leftFrame'>
-          <div className='subHeader'>
-              <h2>Posts</h2>
-              <Filter/>
+// displays home page
+const Home = () => {
+  return(
+    <section className='body'>
+      <section className='leftFrame'>
+        <div className='subHeader'>
+          <h2>Posts</h2>
+          <Filter/>
           </div>
           <PostList/>
           <CreateButton/>
-          </section>
-          <section className='rightFrame'>
-            <CalendarHead/>
-            <section className='calendarBodyContainer'>
-              <Times/>
-              <CalendarEvents/>
-            </section>
-        </section>
       </section>
+      <section className='rightFrame'>
+        <CalendarHead/>
+          <section className='calendarBodyContainer'>
+            <Times/>
+            <CalendarEvents/>
+          </section>
+      </section> 
+    </section>
+  )
+}
+
+function App() {
+  return (
+    <Router>
+      <div className='App'>
+        <div>
+          <meta charSet='UTF-8' />
+          <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+          <meta httpEquiv='X-UA-Compatible' content='ie=edge' />
+          <title>INDEX</title>
+          <link rel='stylesheet' href='App.css' />
+
+          <NavBar name='First Last' initials='FL'/>
+          <Routes>
+            <Route path='/' element={<Home/>}/>
+            <Route path='/messages' element={<div>Messages Page (coming soon)</div>}/>
+            <Route path='/profile' element={<div>Profile Page (coming soon)</div>}/>
+          </Routes>
+        </div>
       </div>
-    </div>
+    </Router>
   )
 }
 

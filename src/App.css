@@ -93,6 +93,11 @@ img {
   font-size: 4pt;
 }
 
+.link {
+  color: inherit;
+  text-decoration: none;
+}
+
 .nav {
   background-color: var(--barPurple);
 
@@ -507,6 +512,13 @@ button {
 .navButton {
   border-radius: 0;
   background-color: var(--nullColor);
+  gap: 17px;
+}
+
+.logoButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   gap: 17px;
 }
 
