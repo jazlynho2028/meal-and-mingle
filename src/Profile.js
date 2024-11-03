@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
 import './App.css';
-import App, { user } from './App.js';
 import './Profile.css';
-import { Filter, CreateButton, PostList } from './Home.js';
-import { getCSSVar } from './variables.js';
+import { getCSSVar, User, Filter, CreateButton, PostList } from './variables.js';
 
 // displays profile page
 function Profile(props) {
@@ -60,13 +58,12 @@ function Profile(props) {
         <section className='bottomFrame'>
           <section className='postList profilePostList'>
             <h2 className='profileBottomHead'>My Posts</h2>
-            <PostList POSTS={user.posts} userList={true} userSavedList={false}/>
+            <PostList Posts={User.posts} profileList={true} userSavedList={false}/>
           </section>
           <section className='postList profilePostList'>
             <h2 className='profileBottomHead'>Saved Posts</h2>
-            <PostList POSTS={user.saved} userList={true} userSavedList={true}/>
+            <PostList Posts={User.saved} profileList={true} userSavedList={true}/>
           </section>
-
         </section>
       </section>
     )

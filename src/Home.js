@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import './App.css';
-import './App.js';
 import './Home.css';
-import { getCSSVar } from './variables.js';
+import { getCSSVar, User, POSTS, Filter, CreateButton, PostList } from './variables.js';
+
 
 // gets the 7 dates of current week
 const WEEKDATES = (startDate) => {
@@ -87,142 +87,6 @@ const WEEKDATES = (startDate) => {
                 height: 'auto', 
                 filter: 'invert(29%) sepia(46%) saturate(312%) hue-rotate(212deg) brightness(98%) contrast(89%)'}} />
       </button>
-    )
-  }
-  
-  // stores information for all posts
-const POSTS = [
-    {
-      name: 'John Doe',
-      initials: 'JD',
-      iconColor: getCSSVar('--pinkIcon'),
-      location: 'Foster Walker Plex East',
-      start: new Date('2024-10-17T16:00'),
-      end: new Date('2024-10-17T18:00'),
-      bookmarked: true,
-      show: true
-    },
-    {
-      name: 'Some Person',
-      initials: 'SP',
-      iconColor: getCSSVar('--yellowIcon'),
-      location: 'Allison Dining Commons/ Sargent Dining Commons',
-      start: new Date('2024-10-14T20:00'),
-      end: new Date('2024-10-14T21:30'),
-      bookmarked: false,
-      show: true
-    }
-  ]
-  
-  // contains the displayed list of posts
-  // userList: true if list is the user's personal or saved lists
-  // userSavedList: true if list is the user's saved list
-  const PostList = ({POSTS, userList, userSavedList}) => {
-    const [posts, setPosts] = useState(POSTS);
-  
-    const handleBookmark = (index) => {
-      const newPosts = [...posts];
-      newPosts[index].bookmarked = !newPosts[index].bookmarked;
-
-      if (userList && userSavedList && !newPosts[index].bookmarked) {
-        setPosts(newPosts.filter((_,i) => i !== index));
-      }
-      else {
-        setPosts(newPosts);
-      }
-    }
-  
-    const handleShow = (index) => {
-      const newPosts = posts;
-      newPosts[index].show = false;
-      setPosts(newPosts.filter(item => item.show));
-    }
-  
-    // when saved button is clicked
-    useEffect(() => {
-      POSTS.forEach((post, index) => {
-        if (post.bookmarked) {
-          console.log('Post ' + index + ' is saved');
-        } 
-        else {
-          console.log('Post ' + index + ' is not saved');
-        }
-      })
-    }, [posts])
-  
-    // when x button is clicked
-    useEffect(() => {
-      POSTS.forEach((post, index) => {
-        if (post.show) {
-          console.log('Post ' + index + ' is shown');
-        }
-        else {
-          console.log('Post ' + index + " is not shown");
-        }
-      })
-    },  [posts])
-  
-    return (
-      <section className='postList'>
-        {posts.map((post, index) => {
-          return (
-            <Post name={post.name} 
-                  initials={post.initials} 
-                  iconColor={post.iconColor} 
-                  location={post.location} 
-                  start={post.start} 
-                  end={post.end} 
-                  bookmarked={post.bookmarked} 
-                  show={post.show} 
-                  handleBookmark={() => handleBookmark(index)}
-                  handleShow={() => handleShow(index)}
-                  userList={userList}
-                  userSavedList={userSavedList}/>
-          )
-        })}
-      </section>
-    )
-  }
-  // defines how a post is displayed
-  function Post({userList, 
-    ...props}) {
-    const day = props.start.toLocaleString('default', {weekday: 'short'});
-    const month = ((props.start.getMonth()) + 1).toString().padStart(2, '0');
-    const date = props.start.getDate().toString().padStart(2, '0');
-    const startTime = props.start.toLocaleString('default', {hour: '2-digit', minute: '2-digit'});
-    const endTime = props.end.toLocaleString('default', {hour: '2-digit', minute: '2-digit'});
-  
-    return (
-      <div className='post'>
-        <button className='userIcon' style={{backgroundColor: props.iconColor}}>{props.initials}</button>
-        {/* Right side of post */}
-        <div className='colContainer'>
-          {!userList && <XButton handleShow={props.handleShow}/>}
-          {/* Top section of right side */}
-          <div className='postTextBlock'>
-            {/* Name */}
-            <div className='postText'>{props.name}</div>
-            {/* Location(s) */}
-            <div className='postText locationText'>{props.location}</div>
-            {/* Separator line */}
-            <div className='postLine' />
-            {/* Date and Time */}
-            <div className='postDateTime'>
-              {/* Date */}
-              <div className='postText'>{`${day} ${month}/${date}`}</div>
-              {/* Time */}
-              <div className='postText'>{`${startTime} - ${endTime}`}</div>
-            </div>
-          </div>
-          {/* Send and Save buttons */}
-          <div className='sendSaveContainer'>
-            <SendButton/>
-            {/* Save button */}
-            <SaveButton bookmarked={props.bookmarked}
-                        handleBookmark={props.handleBookmark}/>
-          </div>
-        </div>
-      </div>
     )
   }
   
@@ -456,76 +320,9 @@ const POSTS = [
     }
   ]
   
-  // display filter button
-  const Filter = () => {
-    return (
-      <button className='filterButton'>
-        <img src='https://cdn-icons-png.flaticon.com/128/7693/7693332.png' alt='filter' style={{width: 15, height: 'auto', filter: 'invert(1)'}} />
-      </button>
-    )
-  }
-  // display create button
-  const CreateButton = () => {
-    return (
-      <button className='createButton'>
-        <img src='https://cdn-icons-png.flaticon.com/128/992/992651.png' alt='add' style={{width: 33, height: 'auto', filter: 'invert(1)'}} />
-        Create
-      </button>
-    )
-  }
-  // display x button
-  const XButton = ({handleShow}) => {
-    return (
-      <div className='xButtonContainer'>
-        {/* 'x' button */}
-        <button className='xButton' onClick={handleShow}>
-          <img 
-            src='https://cdn-icons-png.flaticon.com/128/1828/1828778.png' 
-            alt='Close' 
-            style={{
-              width: 6,
-              height: 'auto',
-              filter: 'invert(41%) sepia(2%) saturate(3212%) hue-rotate(212deg) brightness(102%) contrast(78%)'
-            }} 
-          />
-        </button>
-      </div>
-    )
-  }
-  // display send button
-  const SendButton = () => {
-    return (
-      <button className='sendSaveButtons'>
-        <img 
-          src='https://cdn-icons-png.flaticon.com/128/3024/3024593.png' 
-          alt='Send' 
-          style={{
-          width: 12,
-          height: 'auto',
-          filter: 'invert(31%) sepia(64%) saturate(229%) hue-rotate(212deg) brightness(89%) contrast(91%)'
-                }} 
-        />
-      </button>
-    )
-  }
-  // display save button
-  function SaveButton({bookmarked, handleBookmark}) {
-    const bookmarkImg = bookmarked ? 'https://cdn-icons-png.flaticon.com/128/102/102279.png' : 'https://cdn-icons-png.flaticon.com/128/5662/5662990.png'; 
-    
-    return (
-      <button className='sendSaveButtons' onClick={handleBookmark}>
-        <img 
-          src={bookmarkImg}
-          alt='Saved' 
-          style={{
-            width: 12,
-            height: 'auto',
-            filter: 'invert(31%) sepia(64%) saturate(229%) hue-rotate(212deg) brightness(89%) contrast(91%)'
-          }} 
-        />
-      </button>
-    )
-  }
+  
+
+  
   
   // displays home page
   function Home() {
@@ -536,7 +333,7 @@ const POSTS = [
             <h2>Posts</h2>
             <Filter/>
             </div>
-            <PostList POSTS={POSTS} userList={false} userSavedList={false}/>
+            <PostList Posts={POSTS} profileList={false} userSavedList={false}/>
             <CreateButton/>
         </section>
         <section className='rightFrame'>

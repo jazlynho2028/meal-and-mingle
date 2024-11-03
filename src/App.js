@@ -1,27 +1,8 @@
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import './App.css';
-import Home, { POSTS } from './Home.js';
+import Home from './Home.js';
 import Profile from './Profile.js';
-import { getCSSVar } from './variables.js';
-
-const user = {
-  name: 'First Last',
-  initials: 'FL',
-  color: getCSSVar('--purpleIcon'),
-  class: '202X',
-  school: ['A School'],
-  major: ['Some Interesting Major', 'Some Other Major'],
-  bio: 'Really interesting things about my background, interests, hobbies, etc.',
-  posts: [{name: 'First Last',
-            initials: 'FL',
-            iconColor: getCSSVar('--purpleIcon'),
-            location: 'Sargent Dining Commons',
-            start: new Date('2024-09-25T12:30'),
-            end: new Date('2024-09-25T13:00'),
-            bookmarked: false,
-            show: true}],
-  saved: [POSTS[0]]
-}
+import { User } from './variables.js';
 
 function NavBar(props) {
   return (
@@ -61,11 +42,11 @@ function App() {
           <title>INDEX</title>
           <link rel='stylesheet' href='App.css' />
 
-          <NavBar name={user.name} initials={user.initials} color={user.color}/>
+          <NavBar name={User.name} initials={User.initials} color={User.color}/>
           <Routes>
             <Route path='/' element={<Home/>}/>
             <Route path='/messages' element={<div>Messages Page (coming soon)</div>}/>
-            <Route path='/profile' element={<Profile name='First Last' initials='FL' color={user.color} class={user.class} school={user.school} major={user.major} bio={user.bio}/>}/>
+            <Route path='/profile' element={<Profile name='First Last' initials='FL' color={User.color} class={User.class} school={User.school} major={User.major} bio={User.bio}/>}/>
           </Routes>
         </div>
       </div>
@@ -74,4 +55,3 @@ function App() {
 }
 
 export default App;
-export { user };
