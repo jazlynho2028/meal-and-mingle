@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import './Home.css';
-import { getCSSVar, User, POSTS, Filter, CreateButton, PostList } from './variables.js';
+import { getCSSVar, POSTS, Filter, CreateButton, PostList } from './variables.js';
 
 
 // gets the 7 dates of current week

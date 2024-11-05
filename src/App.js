@@ -46,7 +46,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Home/>}/>
             <Route path='/messages' element={<div>Messages Page (coming soon)</div>}/>
-            <Route path='/profile' element={<Profile name='First Last' initials='FL' color={User.color} class={User.class} school={User.school} major={User.major} bio={User.bio}/>}/>
+            <Route path='/profile' element={<Profile name={User.name} initials={User.initials} color={User.color} class={User.class} school={User.school} major={User.major} bio={User.bio}/>}/>
           </Routes>
         </div>
       </div>

@@ -14,7 +14,7 @@ const Users = [
     name: 'First Last',
     initials: 'FL',
     color: getCSSVar('--purpleIcon'),
-    class: '202X',
+    class: 2023,
     school: ['A School'],
     major: ['Some Interesting Major', 'Some Other Major'],
     bio: 'Really interesting things about my background, interests, hobbies, etc.',
@@ -25,7 +25,7 @@ const Users = [
     name: 'John Doe',
     initials: 'JD',
     color: getCSSVar('--pinkIcon'),
-    class: '2025',
+    class: 2025,
     school: ['Bienen, Weinberg'],
     major: ['Trumpet Performance', 'Psychology'],
     bio: 'I like touching grass.',
@@ -36,7 +36,7 @@ const Users = [
     name: 'Some Person',
     initials: 'SP',
     color: getCSSVar('--yellowIcon'),
-    class: '2027',
+    class: 2027,
     school: ['McCormick'],
     major: ['Mechanical Engineering'],
     bio: 'I don\'t like touching grass.',
@@ -60,6 +60,43 @@ const createPost = (user, location, start, end) => {
   user.posts.push(post);
   POSTS.push(post);
 } 
+
+// fetch users from database and add them to User
+async function getAllUsers() {
+  try {
+      const response = await fetch("https://disc-assignment-5-users-api.onrender.com/api/users");
+      if (!response.ok) {
+          throw new Error(`Error: ${response.status} - ${response.statusText}`);
+      }
+
+      const fetchedUsers = await response.json();
+      
+      // Map over fetched users to add missing properties with default values
+      const newUsers = fetchedUsers.map(user => ({
+          name: `${user.firstName} ${user.lastName}`,
+          initials: `${user.firstName[0]}${user.lastName[0]}`,
+          color: getCSSVar('--lightGray'),
+          class: user.graduationYear,
+          school: 'NA',
+          major: user.major,
+          bio: user.bio,
+          posts: [],
+          saved: []
+      }))
+
+      // Add new users to the Users array
+      Users.push(...newUsers);
+
+      console.log("Updated Users array:", Users);
+      return Users;
+  } catch (error) {
+      console.error("Failed to fetch users:", error);
+  }
+}
+
+// fetch and add users
+getAllUsers();
+
 
 // placeholders before create button functions are implemented
 createPost(Users[0], 'Sargent Dining Commons', new Date('2024-09-25T12:30'), new Date('2024-09-25T13:00'));

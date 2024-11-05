@@ -1,7 +1,6 @@
-import { useState, useEffect } from 'react';
 import './App.css';
 import './Profile.css';
-import { getCSSVar, User, Filter, CreateButton, PostList } from './variables.js';
+import { User, Filter, CreateButton, PostList } from './variables.js';
 
 // displays profile page
 function Profile(props) {
