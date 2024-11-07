@@ -7,60 +7,56 @@ function Profile(props) {
     return (
       <section className='profileBody'>
         <section className='topFrame'>
-            <button className='userIcon profileVariation' style={{backgroundColor: props.color}}>{props.initials}</button>
+            <button className='userIcon' style={{backgroundColor: props.color}}>{props.initials}</button>
             <section className='infoContainer'>
               <div className='nameClassContainer'>
                 <h3>{props.name}</h3>
-                <p className='postText profileClass'>Class of {props.class}</p>
+                <p className='postText'>Class of {props.class}</p>
               </div>
               {/* bottom info container */}
               <div className='schoolMajorBioContainer'>
                 {/* separate school/major and bio */}              
                 <div className='schoolMajorContainer'>
                   {/* School and Details */}
-                  <div className='subjectDetails'>
+                  <section>
                     {/* School */}
-                    <div className='schoolMajorBioTextHead'>School:</div>
-                    {/* Details */}
-                      {/* Get all schools */}
+                    <h3>School:</h3>
+                    <div>
                       {props.school.map((school) => {
-                        return (<button className='detail'>{school}</button>)
-                      })}
-                  </div>
-                  {/* Major and Details */}
-                  <div className='subjectDetails'>
-                    {/* Major */}
-                    <div className='schoolMajorBioTextHead'>Major:</div>
-                    {/* Details */}
-                    <div className='detailsContainer'>
-                      {/* Get all majors */}
-                      {props.major.map((major) => {
-                        return (<button className='detail'>{major}</button>)
+                        return (<button>{school}</button>)
                       })}
                     </div>
-                  </div>
+                  </section>
+                  {/* Major and Details */}
+                  <section>
+                    <h3>Major:</h3>
+                    <div>
+                      {/* Get all majors */}
+                      {props.major.map((major) => {
+                        return (<button>{major}</button>)
+                      })}
+                    </div>
+                  </section>
                 </div>
                 {/* Bio and Details */}
-                <div className='subjectDetails'>
-                  {/* Bio */}
-                  <div className='schoolMajorBioTextHead'>Bio:</div>
-                  {/* Details */}
-                  <div className='detailsContainer'>
-                    <p className='bioText'>{props.bio}</p>
+                <section>
+                  <h3>Bio:</h3>
+                  <div>
+                    <p>{props.bio}</p>
                   </div>
-                </div>
+                </section>
               </div>
             </section>
         </section>
         <div className='profileFilterButton'><Filter/></div>
         <CreateButton/>
         <section className='bottomFrame'>
-          <section className='postList profilePostList'>
-            <h2 className='profileBottomHead'>My Posts</h2>
+          <section className='postList'>
+            <h2>My Posts</h2>
             <PostList Posts={User.posts} profileList={true} userSavedList={false}/>
           </section>
-          <section className='postList profilePostList'>
-            <h2 className='profileBottomHead'>Saved Posts</h2>
+          <section className='postList'>
+            <h2>Saved Posts</h2>
             <PostList Posts={User.saved} profileList={true} userSavedList={true}/>
           </section>
         </section>

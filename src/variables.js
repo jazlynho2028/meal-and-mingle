@@ -203,17 +203,17 @@ function Post({profileList, userSavedList,
         {/* Top section of right side */}
         <div className='postTextBlock'>
           {/* Name */}
-          <div className='postText'>{props.name}</div>
+          <p>{props.name}</p>
           {/* Location(s) */}
-          <div className='postText locationText'>{props.location}</div>
+          <p className='locationText'>{props.location}</p>
           {/* Separator line */}
           <div className='postLine' />
           {/* Date and Time */}
           <div className='postDateTime'>
             {/* Date */}
-            <div className='postText'>{`${day} ${month}/${date}`}</div>
+            <p>{`${day} ${month}/${date}`}</p>
             {/* Time */}
-            <div className='postText'>{`${startTime} - ${endTime}`}</div>
+            <p>{`${startTime} - ${endTime}`}</p>
           </div>
         </div>
         {/* Send and Save buttons */}
@@ -251,7 +251,7 @@ const XButton = ({handleShow}) => {
   return (
     <div className='xButtonContainer'>
       {/* 'x' button */}
-      <button className='xButton' onClick={handleShow}>
+      <button onClick={handleShow}>
         <img 
           src='https://cdn-icons-png.flaticon.com/128/1828/1828778.png' 
           alt='Close' 
@@ -268,7 +268,7 @@ const XButton = ({handleShow}) => {
 // display send button
 const SendButton = () => {
   return (
-    <button className='sendSaveButtons'>
+    <button>
       <img 
         src='https://cdn-icons-png.flaticon.com/128/3024/3024593.png' 
         alt='Send' 
@@ -286,7 +286,7 @@ function SaveButton({bookmarked, handleBookmark}) {
   const bookmarkImg = bookmarked ? 'https://cdn-icons-png.flaticon.com/128/102/102279.png' : 'https://cdn-icons-png.flaticon.com/128/5662/5662990.png'; 
   
   return (
-    <button className='sendSaveButtons' onClick={handleBookmark}>
+    <button onClick={handleBookmark}>
       <img 
         src={bookmarkImg}
         alt='Saved' 

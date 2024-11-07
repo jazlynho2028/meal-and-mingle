@@ -48,8 +48,6 @@ const WEEKDATES = (startDate) => {
           <ForwardsButton startDate={startDate} setStartDate={setStartDate}/>
         </nav>
       </div>
-  
-      
     )
   }
   // display back button
@@ -248,7 +246,7 @@ const WEEKDATES = (startDate) => {
             <div className='eventTime'>{startTime}</div>
             {/* Person Involved (if applicable) */}
             {props.otherParty && 
-              <button className='userIcon calendarVariation' style={{backgroundColor: props.iconColor1}}>
+              <button className='userIcon' style={{backgroundColor: props.iconColor1}}>
                 {props.initials1}
               </button>} 
           </div>

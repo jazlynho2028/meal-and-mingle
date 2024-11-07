@@ -9,22 +9,22 @@ function NavBar(props) {
     <nav className='nav'>
       {/* Top left */}
       <section className='navTopLeft'>
-        <Link to='/' className='link logoButton'>
-            <div className='logoCircle'></div>
+        <Link to='/' className='link circleTextButtonContainer'>
+            <button></button>
             <h1>Meal and Mingle</h1>
         </Link>
       </section>
       {/* Top right */}
       <section className='navTopRight'>
-        <Link to='/' className='link navButton'>
+        <Link to='/' className='link'>
             <h1>Home</h1>
         </Link>
-        <Link to='/messages' className='link navButton'>
+        <Link to='/messages' className='link'>
             <h1>Messages</h1>
         </Link>
-        <Link to='/profile' className='link navProfile'>
-          <button className='navButton'><h1>{props.name}</h1></button>
-          <button className='userIcon headerVariation' style={{backgroundColor: props.color}}>{props.initials}</button>
+        <Link to='/profile' className='link circleTextButtonContainer'>
+          <h1>{props.name}</h1>
+          <button className='userIcon' style={{backgroundColor: props.color}}>{props.initials}</button>
         </Link>
       </section>
     </nav>
