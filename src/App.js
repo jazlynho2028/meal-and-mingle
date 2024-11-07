@@ -9,7 +9,7 @@ function NavBar(props) {
     <nav className='nav'>
       {/* Top left */}
       <section className='navTopLeft'>
-        <Link to='/' className='link circleTextButtonContainer'>
+        <Link to='/' className='link'>
             <button></button>
             <h1>Meal and Mingle</h1>
         </Link>
@@ -22,7 +22,7 @@ function NavBar(props) {
         <Link to='/messages' className='link'>
             <h1>Messages</h1>
         </Link>
-        <Link to='/profile' className='link circleTextButtonContainer'>
+        <Link to='/profile' className='link'>
           <h1>{props.name}</h1>
           <button className='userIcon' style={{backgroundColor: props.color}}>{props.initials}</button>
         </Link>

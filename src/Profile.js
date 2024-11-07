@@ -48,9 +48,9 @@ function Profile(props) {
               </div>
             </section>
         </section>
-        <div className='profileFilterButton'><Filter/></div>
         <CreateButton/>
         <section className='bottomFrame'>
+          <button><Filter/></button>
           <section className='postList'>
             <h2>My Posts</h2>
             <PostList Posts={User.posts} profileList={true} userSavedList={false}/>

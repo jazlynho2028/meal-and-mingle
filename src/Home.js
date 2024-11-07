@@ -28,18 +28,18 @@ const WEEKDATES = (startDate) => {
         {/* MONTH */}
         <h4>{currentDates[0].toLocaleString('default', {month: 'long'})}</h4>
         {/* Calendar Nav */}
-        <nav className='calendarNav'>
+        <nav>
           <BackButton startDate={startDate} setStartDate={(setStartDate)}/>
           {/* Week Label */}
           <div className='weekLabel'>
               {/* Days of the Week */}
-              <div className='daysOfWeek'>
+              <div>
                 {currentDates.map((date, index) => (
                   <div key={index}><h5>{date.toLocaleString('default', {weekday: 'short'})}</h5></div>    
                 ))}
               </div>
               {/* Dates of the Week */}
-              <div className='daysOfWeek'>
+              <div>
                 {currentDates.map((date, index) => (
                   <div key={index}><h5 className='dateStyle'>{date.getDate().toString().padStart(2, '0')}</h5></div>    
                 ))}
@@ -93,7 +93,7 @@ const WEEKDATES = (startDate) => {
     return (
       <section className='timeMarkings'>
         {TIMES.map(time => (
-          <h5 className='timeStyle' key={time}>{time}</h5>
+          <h5 key={time}>{time}</h5>
         ))}
       </section>
     )
@@ -238,22 +238,15 @@ const WEEKDATES = (startDate) => {
                                                           backgroundColor: props.bgColor}}>
         {/* Side Bar */}
         <div className='rect' style={{backgroundColor: props.sideColor}} />
-        {/* Event Info */}
         <div className='eventInfo'>
-          {/* Event Top Bar */}
-          <div className='eventTopBar'>
-            {/* Time */}
-            <div className='eventTime'>{startTime}</div>
-            {/* Person Involved (if applicable) */}
-            {props.otherParty && 
+          {startTime}
+          <p className='eventName'>{props.name}</p>
+          {props.location}
+          {/* Person Involved (if applicable) */}
+          {props.otherParty && 
               <button className='userIcon' style={{backgroundColor: props.iconColor1}}>
                 {props.initials1}
               </button>} 
-          </div>
-          {/* Event Name */}
-          <div className='eventName'>{props.name}</div>
-          {/* Event Location */}
-          {props.location}
         </div>
       </div>
     )

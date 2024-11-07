@@ -145,6 +145,8 @@ h3 ~ div {
 .bottomFrame {
   background-color: var(--lightGray);
 
+  position: relative;
+
   width: 100%;
   height: 66.67%;
 
@@ -158,10 +160,11 @@ h3 ~ div {
   overflow: hidden;
 }
 
-.profileFilterButton {
-  position: fixed;
-  top: 647px;
-  right: 32px;
+.bottomFrame > button {
+  position: absolute;
+  z-index: 1;
+  right: 25px;
+  top: 25px;
 }
 
 .bottomFrame h2 {
