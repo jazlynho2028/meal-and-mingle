@@ -22,11 +22,14 @@
   --greenIcon: #8FE3CA;
 
   --purpleEvent: #876ddf;
-  --purpleEventO: #876ddf99;
+  --purpleEventBg: #876ddf99;
   --blueEvent: #5c76eb;
-  --blueEventO: #5c76eb99;
+  --blueEventBg: #5c76eb99;
   --greenEvent: #36cec1;
-  --greenEventO: #36cec199;
+  --greenEventBg: #36cec199;
+  
+  --gridRowCount: 30;
+  --gridColCount: 7;
 }
 
 h1,
@@ -35,8 +38,16 @@ h3,
 h4,
 h5,
 h6 {
-  margin-top: 0;
-  margin-bottom: 0;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  line-height: normal;
+  color: inherit;
 }
 
 /* nav bar headers */
@@ -45,6 +56,8 @@ h1 {
   font-weight: var(--headerWeight);
   font-size: 13pt;
   color: var(--white);
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
 /* left side header */
@@ -53,36 +66,18 @@ h2 {
   font-weight: var(--headerWeight);
   font-size: 14pt;
   color: var(--purple1);
-}
-
-/* change to something else */
-h3 {
-  font-family: var(--headerFont);
-  font-weight: 100;
-  font-size: 25pt;
-  color: var(--purple1);
-}
-
-/* calendar month */
-h4 {
-  font-family: var(--regularFont);
-  font-weight: 300;
-  font-size: 40pt;
-  color: var(--purple1);
-}
-
-/* calendar days of the week */
-h5 {
-  font-family: var(--iconFont);
-  transform: scale(1, 0.9);
-  font-weight: 600;
-  font-size: 17pt;
-  color: var(--darkPurple2);
+  text-transform: uppercase;
+  margin-right: auto;
 }
 
 img {
   color: var(--darkPurple2);
   font-size: 4pt;
+}
+
+.link {
+  color: inherit;
+  text-decoration: none;
 }
 
 .nav {
@@ -101,222 +96,7 @@ img {
   gap: 16px;
 }
 
-.body {
-  background-color: var(--white);
-  /* placeholder */
-
-  display: flex;
-  flex-direction: row;
-
-  height: 100vh;
-  height: 100vh;
-}
-
-.leftFrame {
-  background-color: var(--lightGray);
-
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-
-  /* minus padding */
-  padding-left: 32px;
-  padding-right: 32px;
-  padding-top: 32px;
-  padding-bottom: 32px;
-}
-
-.rightFrame {
-  background-color: var(--white);
-
-  display: flex;
-  flex-direction: column;
-
-  padding-left: 38px;
-  padding-right: 38px;
-  padding-top: 32px;
-  padding-bottom: 32px;
-}
-
-.calendarBlock {
-  background-color: var(--white);
-
-  display: flex;
-  flex-direction: column;
-}
-
-.calendarNav {
-  background-color: var(--white);
-
-  display: flex;
-  flex-direction: row;
-
-  align-items: center;
-  justify-content: space-between;
-  justify-content: space-between;
-
-  height: 72px;
-  margin-left: 30px;
-  margin-right: -30px;
-  margin-left: 30px;
-  margin-right: -30px;
-}
-
-.weekLabel {
-  background-color: var(--white);
-
-  display: flex;
-  flex-direction: column;
-  flex-grow: 70;
-  flex-grow: 70;
-
-  justify-content: space-evenly;
-
-  height: 72px;
-}
-
-.daysOfWeek {
-  background-color: var(--white);
-  display: flex;
-  flex-direction: row;
-
-  justify-content: space-around;
-  gap: 5px;
-}
-
-.dateStyle {
-  font-size: 14pt;
-  font-weight: 400;
-  color: var(--darkPurple1);
-}
-
-.timeStyle {
-  font-size: 12pt;
-  font-weight: 400;
-  word-spacing: -5px;
-  color: var(--darkPurple1);
-}
-
-.calendarBodyContainer {
-  display: flex;
-  flex-direction: row;
-
-  align-items: flex-start;
-}
-
-.timeMarkings {
-  background-color: var(--white);
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding-right: 10px;
-
-  width: 54px;
-  /* minus padding */
-  height: 680px;
-
-  text-align: end;
-}
-
-.eventContainer {
-  background-color: var(--purpleEventO);
-
-  z-index: 2;
-  border-radius: 4px;
-
-  grid-column: monStart;
-  grid-row: AM10start / PM1start;
-
-  display: flex;
-  flex-direction: row;
-
-  align-items: flex-start;
-  overflow: hidden;
-  overflow: hidden;
-
-  gap: 6px;
-}
-
-.rect {
-  background-color: var(--purpleEvent);
-  border-radius: 4px 0 0 4px;
-  width: 5px;
-  height: 100%;
-}
-
-.eventInfo {
-  width: 100%;
-  width: 100%;
-  height: auto;
-
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-
-  padding-right: 5px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-
-  font-family: var(--regularFont);
-  font-weight: 300;
-  font-size: 12pt;
-  color: var(--white);
-  transform: scale(1, 0.95);
-}
-
-.eventTopBar {
-  display: flex;
-  flex-direction: row;
-
-  justify-content: space-between;
-}
-
-.eventText {
-  display: flex;
-  flex-direction: row;
-
-  font-size: 11pt;
-
-  gap: 3px;
-}
-
-.eventName {
-  font-size: 14pt;
-  font-weight: 500;
-}
-
-.calendarGrid {
-  background-color: var(--lightGray);
-
-  display: grid;
-  width: 100%;
-  height: 100%;
-  width: 100%;
-  height: 100%;
-
-  grid-template-rows: [AM7start] 1fr [AM730start] 1fr [AM8start]1fr [AM830start] 1fr [AM9start]1fr [AM930start]1fr [AM10start]1fr [AM1030start]1fr [AM11start]1fr [AM1130start]1fr [PM12start]1fr[PM1230start]1fr [PM1start]1fr [PM130start]1fr [PM2start]1fr [PM230start]1fr [PM3start]1fr [PM330start]1fr [PM4start]1fr [PM430start]1fr [PM5start]1fr [PM530start]1fr [PM6start]1fr [PM630start]1fr [PM7start]1fr [PM730start]1fr [PM8start]1fr [PM830start]1fr [PM9start]1fr [PM930start] 1fr [PM10start];
-  grid-template-columns: [sunStart]3fr [monStart]3fr [tueStart]3fr [wedStart]3fr [thuStart]3fr [friStart]3fr [satStart]3fr [weekEnd];
-
-  overflow: hidden;
-  border: 2px solid var(--lightGray);
-}
-
-.gridLine {
-  background-color: var(--white);
-
-  z-index: 1;
-  margin-right: 1px;
-  margin-left: 1px;
-  margin-top: 1px;
-  margin-bottom: 1px;
-  margin-right: 1px;
-  margin-left: 1px;
-  margin-top: 1px;
-  margin-bottom: 1px;
-}
-
-.subHeader {
+.leftHead {
   display: flex;
   flex-direction: row;
 
@@ -332,6 +112,7 @@ img {
   gap: 9px;
   width: 317px;
   margin-bottom: auto;
+  overflow: hidden;
 }
 
 .postTextBlock {
@@ -358,9 +139,12 @@ img {
   color: var(--darkPurple1);
 }
 
-.nameText {
-  align-items: end; 
-  margin-right: auto;
+.postDateTime {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  gap: 10px;
 }
 
 .locationText {
@@ -399,23 +183,6 @@ img {
   flex-direction: row;
   align-items: center;
   gap: 16px;
-}
-.xButtonContainer {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 250px; 
-  height: 0px; 
-  justify-content: flex-end;
-}
-.sendSaveContainer {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 250px;
-  height: 0px;
-  gap: 5px;
-  justify-content: flex-end;
 }
 .dateTimeContainer {
   display: flex;
@@ -457,8 +224,6 @@ img {
   border-radius: 50%;
 
   flex-shrink: 0;
-
-  flex-shrink: 0;
 }
 
 button {
@@ -474,6 +239,7 @@ button {
   font-weight: var(--headerWeight);
   font-size: 13pt;
   color: var(--white);
+  text-transform: 'uppercase';
 }
 
 .calendarNavButton {
@@ -490,6 +256,13 @@ button {
   gap: 17px;
 }
 
+.logoButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 17px;
+}
+
 .userIcon {
   background-color: var(--pinkIcon);
 
@@ -500,10 +273,10 @@ button {
   width: 40px;
   height: 40px;
   font-size: 16pt;
+  text-transform: uppercase;
 
   margin-right: auto;
 }
-
 .headerVariation {
   width: 48px;
   height: 48px;
@@ -514,26 +287,36 @@ button {
   margin-right: 0;
 }
 
-.calendarVariation {
-  width: 20px;
-  height: 20px;
-  font-size: 8pt;
-  margin-right: 0;
-}
-
 .filterButton {
   background-color: var(--purple1);
   width: 25px;
   height: 25px;
 }
 
-.crossButton {
+.xButtonContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 250px; 
+  height: 0px; 
+  justify-content: flex-end;
+}
+.xButton {
   background-color: var(--white);
   /* placeholder */
   width: 10px;
   height: 10px;
 }
 
+.sendSaveContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 250px;
+  height: 0px;
+  gap: 5px;
+  justify-content: flex-end;
+}
 .sendSaveButtons {
   background-color: var(--white);
   width: 15px;
@@ -549,10 +332,6 @@ button {
   bottom: 32px;
   left: 32px;
 
-  position: fixed;
-  bottom: 32px;
-  left: 32px;
-
   width: 140px;
   height: 56px;
   padding-top: 11px;
@@ -561,4 +340,6 @@ button {
   padding-right: 18px;
 
   box-shadow: 2px 2px 4px var(--shadowColor);
+
+  text-transform: uppercase;
 }
