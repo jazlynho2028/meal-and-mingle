@@ -1,35 +1,8 @@
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Home from './Home.js';
 import Profile from './Profile.js';
-import { User } from './variables.js';
-
-function NavBar(props) {
-  return (
-    <nav className='nav'>
-      {/* Top left */}
-      <section className='navTopLeft'>
-        <Link to='/' className='link'>
-            <button></button>
-            <h1>Meal and Mingle</h1>
-        </Link>
-      </section>
-      {/* Top right */}
-      <section className='navTopRight'>
-        <Link to='/' className='link'>
-            <h1>Home</h1>
-        </Link>
-        <Link to='/messages' className='link'>
-            <h1>Messages</h1>
-        </Link>
-        <Link to='/profile' className='link'>
-          <h1>{props.name}</h1>
-          <button className='userIcon' style={{backgroundColor: props.color}}>{props.initials}</button>
-        </Link>
-      </section>
-    </nav>
-  )
-}
+import { NavBar, User } from './variables.js';
 
 function App() {
   return (

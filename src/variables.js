@@ -1,10 +1,37 @@
 import { useState, useEffect } from 'react';
-
+import { Link } from 'react-router-dom';
 
 
 const getCSSVar = (variable) => {
     return getComputedStyle(document.documentElement).getPropertyValue(variable).trim();
   }
+
+function NavBar(props) {
+  return (
+    <nav className='nav'>
+      {/* Top left */}
+      <section className='navTopLeft'>
+        <Link to='/' className='link'>
+            <button></button>
+            <h1>Meal and Mingle</h1>
+        </Link>
+      </section>
+      {/* Top right */}
+      <section className='navTopRight'>
+        <Link to='/' className='link'>
+            <h1>Home</h1>
+        </Link>
+        <Link to='/messages' className='link'>
+            <h1>Messages</h1>
+        </Link>
+        <Link to='/profile' className='link'>
+          <h1>{props.name}</h1>
+          <button className='userIcon' style={{backgroundColor: props.color}}>{props.initials}</button>
+        </Link>
+      </section>
+    </nav>
+  )
+}
 
 // stores information for all posts
 const POSTS = [];
@@ -202,24 +229,16 @@ function Post({profileList, userSavedList,
         {!profileList && <XButton handleShow={props.handleShow}/>}
         {/* Top section of right side */}
         <div className='postTextBlock'>
-          {/* Name */}
           <p>{props.name}</p>
-          {/* Location(s) */}
           <p className='locationText'>{props.location}</p>
-          {/* Separator line */}
           <div className='postLine' />
-          {/* Date and Time */}
           <div className='postDateTime'>
-            {/* Date */}
             <p>{`${day} ${month}/${date}`}</p>
-            {/* Time */}
             <p>{`${startTime} - ${endTime}`}</p>
           </div>
         </div>
-        {/* Send and Save buttons */}
         <div className='sendSaveContainer'>
           <SendButton/>
-          {/* Save button */}
           <SaveButton bookmarked={props.bookmarked}
                       handleBookmark={props.handleBookmark}/>
         </div>
@@ -300,4 +319,4 @@ function SaveButton({bookmarked, handleBookmark}) {
   )
 }
 
-export { getCSSVar, User, POSTS, PostList, Post, Filter, CreateButton, XButton, SendButton, SaveButton };
+export { getCSSVar, NavBar, User, POSTS, PostList, Post, Filter, CreateButton, XButton, SendButton, SaveButton };

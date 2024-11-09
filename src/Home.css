@@ -193,13 +193,13 @@ h5 {
   text-transform: uppercase;
 }
 
-.eventContainer .userIcon {
+.eventContainer .userIconTest {
   width: 30px;
   height: 30px;
   font-size: 12pt;
   position: absolute;
   right: 5px;
-
+  top: 5px;
 
   background-color: var(--purpleIcon);
 
