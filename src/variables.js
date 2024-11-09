@@ -75,9 +75,9 @@ function NavBar(props) {
 }
 
 // stores information for all posts
-const POSTS = [];
+const AllPosts = [];
 
-const Users = [
+const AllUsers = [
   {
     name: 'First Last',
     initials: 'FL',
@@ -86,6 +86,7 @@ const Users = [
     school: ['A School'],
     major: ['Some Interesting Major', 'Some Other Major'],
     bio: 'Really interesting things about my background, interests, hobbies, etc.',
+    events: [],
     posts: [],
     saved: [],
     display: []
@@ -98,6 +99,7 @@ const Users = [
     school: ['Bienen, Weinberg'],
     major: ['Trumpet Performance', 'Psychology'],
     bio: 'I like touching grass.',
+    events: [],
     posts: [],
     saved: [],
     display: []
@@ -110,6 +112,20 @@ const Users = [
     school: ['McCormick'],
     major: ['Mechanical Engineering'],
     bio: 'I don\'t like touching grass.',
+    events: [],
+    posts: [],
+    saved: [],
+    display: []
+  },
+  {
+    name: 'Person One',
+    initials: 'PO',
+    color: getCSSVar('--greenIcon'),
+    class: 2026,
+    school: ['Medill'],
+    major: ['Journalism'],
+    bio: 'I like food.',
+    events: [],
     posts: [],
     saved: [],
     display: []
@@ -127,7 +143,7 @@ async function getAllUsers() {
     const fetchedUsers = await response.json();
     
     // Map over fetched users to add missing properties with default values
-    const newUsers = fetchedUsers.map(user => ({
+    const newAllUsers = fetchedUsers.map(user => ({
         name: `${user.firstName} ${user.lastName}`,
         initials: `${user.firstName[0]}${user.lastName[0]}`,
         color: getCSSVar('--lightGray'),
@@ -135,16 +151,17 @@ async function getAllUsers() {
         school: 'NA',
         major: user.major,
         bio: user.bio,
+        events: [],
         posts: [],
         saved: [],
         display: []
     }))
 
     // Add new users to the Users array
-    Users.push(...newUsers);
+    AllUsers.push(...newAllUsers);
 
-    console.log("Updated Users array:", Users);
-    return Users;
+    console.log("Updated Users array:", AllUsers);
+    return AllUsers;
   } 
   catch (error) {
     console.error("Failed to fetch users:", error);
@@ -166,20 +183,20 @@ const createPost = (user, location, start, end) => {
     show: true,
   }
   user.posts.push(post);
-  POSTS.push(post);
+  AllPosts.push(post);
 
-  Users.forEach(user => {
+  AllUsers.forEach(user => {
     user.display.push(post);
   })
 } 
 
 // placeholders before create button functions are implemented
-createPost(Users[0], 'Sargent Dining Commons', new Date('2024-09-25T12:30'), new Date('2024-09-25T13:00'));
-createPost(Users[1], 'Foster Walker Plex East', new Date('2024-10-17T16:00'), new Date('2024-10-17T18:00'));
-createPost(Users[2], 'Allison Dining Commons/ Sargent Dining Commons', new Date('2024-10-14T20:00'), new Date('2024-10-14T21:30'));
+createPost(AllUsers[0], 'Sargent Dining Commons', new Date('2024-09-25T12:30'), new Date('2024-09-25T13:00'));
+createPost(AllUsers[1], 'Foster Walker Plex East', new Date('2024-10-17T16:00'), new Date('2024-10-17T18:00'));
+createPost(AllUsers[2], 'Allison Dining Commons/ Sargent Dining Commons', new Date('2024-10-14T20:00'), new Date('2024-10-14T21:30'));
 
 // current user
-const User = Users[0];
+const User = AllUsers[0];
 
 // contains the displayed list of posts
 // isProfileList: true if list is the user's personal or saved lists
@@ -422,4 +439,4 @@ function SaveButton({bookmarked, handleBookmark}) {
   )
 }
 
-export { getCSSVar, UserIcon, NavBar, User, PostList, Post, Filter, CreateButton, XButton, SendButton, SaveButton };
+export { getCSSVar, UserIcon, NavBar, AllUsers, User, PostList, Post, Filter, CreateButton, XButton, SendButton, SaveButton };
