@@ -105,94 +105,12 @@ const TIMES = [
   '7 PM', '8 PM', '9 PM'
 ]
 
-// the following 2 functions determines grid placement for a time
+// determine grid placement for a time
 const getGridCol = (date) => {
-  switch (date.getDay()) {
-    case 0:
-      return 'sunStart';
-    case 1:
-      return 'monStart';
-    case 2:
-      return 'tueStart';
-    case 3:
-      return 'wedStart';
-    case 4:
-      return 'thuStart';
-    case 5:
-      return 'friStart';
-    case 6:
-      return 'satStart';
-    default:
-      return;
-  }
+  return date.getDay()+1;
 }
 const getGridRow = (date) => {
-  switch (date.toLocaleString('default', {hour: '2-digit', minute: '2-digit'})) {
-    case '07:00 AM':
-      return 'AM7start';
-    case '07:30 AM':
-      return 'AM730start';
-    case '08:00 AM':
-      return 'AM8start';
-    case '08:30 AM':
-      return 'AM830start';
-    case '09:00 AM':
-      return 'AM9start';
-    case '09:30 AM':
-      return 'AM930start';
-    case '10:00 AM':
-      return 'AM10start';
-    case '10:30 AM':
-      return 'AM1030start';
-    case '11:00 AM':
-      return 'AM11start';
-    case '11:30 AM':
-      return 'AM1130start';
-    case '12:00 PM':
-      return 'PM12start';
-    case '12:30 PM':
-      return 'PM1230start';
-    case '01:00 PM':
-      return 'PM1start';
-    case '01:30 PM':
-      return 'PM130start';
-    case '02:00 PM':
-      return 'PM2start';
-    case '02:30 PM':
-      return 'PM230start';
-    case '03:00 PM':
-      return 'PM3start';
-    case '03:30 PM':
-      return 'PM330start';
-    case '04:00 PM':
-      return 'PM4start';
-    case '04:30 PM':
-      return 'PM430start';
-    case '05:00 PM':
-      return 'PM5start';
-    case '05:30 PM':
-      return 'PM530start';
-    case '06:00 PM':
-      return 'PM6start';
-    case '06:30 PM':
-      return 'PM630start';
-    case '07:00 PM':
-      return 'PM7start';
-    case '07:30 PM':
-      return 'PM730start';
-    case '08:00 PM':
-      return 'PM8start';
-    case '08:30 PM':
-      return 'PM830start';
-    case '09:00 PM':
-      return 'PM9start';
-    case '09:30 PM':
-      return 'PM930start';
-    case '10:00 PM':
-      return 'PM10start';
-    default:
-      return;
-  }
+  return (date.getHours()-7)*2 + 1*date.getMinutes()/30 + 1;
 }
 
 const EventContainer = (props) => {
@@ -377,4 +295,3 @@ function Home() {
 }
 
 export default Home;
-export { Filter, CreateButton, POSTS, PostList };
