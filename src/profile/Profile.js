@@ -77,7 +77,7 @@ const Bio = (props) => {
   return (
     <section>
       <h3>Bio:</h3>
-      <div class='subjectDetails'>
+      <div className='subjectDetails'>
         <p>{props.bio}</p>
       </div>
     </section>

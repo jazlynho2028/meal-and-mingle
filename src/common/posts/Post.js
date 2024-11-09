@@ -1,15 +1,16 @@
+import React from "react";
 import XButton from "../buttons/XButton";
 import UserIcon from "../buttons/UserIcon";
 import SendButton from "../buttons/SendButton";
 import SaveButton from "../buttons/SaveButton";
 import './Post.css';
 
-const APost = (props) => {
+const APost = React.memo((props) => {
     return (
       ((!props.isUserSavedList && props.isProfileList) || (props.isUserSavedList && props.bookmarked) || (!props.isProfileList && props.show)) &&
       <div className='post'>{props.children}</div>
     )
-  }
+  })
   const PostBody = (props) => {
     return (
       <div className='colContainer'>{props.children}</div>
@@ -63,7 +64,7 @@ const APost = (props) => {
     )
   }
   // defines how a post is displayed
-  function Post(props) {
+  const Post = React.memo((props) => {
     const day = props.start.toLocaleString('default', {weekday: 'short'});
     const month = ((props.start.getMonth()) + 1).toString().padStart(2, '0');
     const date = props.start.getDate().toString().padStart(2, '0');
@@ -95,6 +96,6 @@ const APost = (props) => {
         </PostBody>
       </APost>
     )
-}
+})
 
 export default Post;
