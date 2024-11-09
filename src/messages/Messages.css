@@ -1,0 +1,10 @@
+.leftFrame .postsSection + .postsSection {
+    min-height: 80%;
+    flex-grow: 1;
+}
+
+.leftFrame .postsSection + .postsSection > .postList {
+    background-color: white;
+    border-radius: 10px 3px 10px 10px;
+    height: 100%;
+}

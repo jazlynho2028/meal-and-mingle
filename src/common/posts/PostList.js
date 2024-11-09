@@ -57,26 +57,28 @@ const PostList = ({header, Posts, isProfileList, isUserSavedList}) => {
     },  [posts])
   
     return (
-      <section className='postList'>
+      <section className='postsSection'>
         <h2>{header}</h2>
-        {posts.map((post, index) => {
-          return (
-            <Post key={post.id}
-                  name={post.name} 
-                  initials={post.initials} 
-                  iconColor={post.iconColor} 
-                  location={post.location} 
-                  start={post.start} 
-                  end={post.end} 
-                  bookmarked={post.bookmarked} 
-                  show={post.show} 
-                  handleBookmark={() => handleBookmark(index)}
-                  handleShow={() => handleShow(index)}
-                  isProfileList={isProfileList}
-                  isUserSavedList={isUserSavedList}
-            />
-          )
-        })}
+        <div className='postList'>
+          {posts.map((post, index) => {
+            return (
+              <Post key={post.id}
+                    name={post.name} 
+                    initials={post.initials} 
+                    iconColor={post.iconColor} 
+                    location={post.location} 
+                    start={post.start} 
+                    end={post.end} 
+                    bookmarked={post.bookmarked} 
+                    show={post.show} 
+                    handleBookmark={() => handleBookmark(index)}
+                    handleShow={() => handleShow(index)}
+                    isProfileList={isProfileList}
+                    isUserSavedList={isUserSavedList}
+              />
+            )
+          })}
+        </div>
       </section>
     )
   }

@@ -28,7 +28,7 @@ createEvent(6, User, 'Lunch', new Date('2024-10-08T13:30'), new Date('2024-10-08
 
 const HomeBody = (props) => {
   return (
-    <section className='homeBody'>{props.children}</section>
+    <section className='rowBody'>{props.children}</section>
   )
 }
 

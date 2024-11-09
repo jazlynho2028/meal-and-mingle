@@ -1,4 +1,14 @@
-.postList {
+.postsSection {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    width: 317px;
+    margin-bottom: auto;
+    overflow: hidden;
+    justify-items: stretch;
+  }
+
+  .postList {
     display: flex;
     flex-direction: column;
     gap: 9px;

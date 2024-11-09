@@ -1,5 +1,10 @@
 import getCSSVar from "../getCSSVar";
 
+// events: list of user's events in calendar
+// posts: list of user's created posts
+// saved: list of user's saved posts
+// display: list of posts to display in Home
+// contacts: user's messaging contact list
 const AllUsers = [
     {
       id: 1,
@@ -13,7 +18,8 @@ const AllUsers = [
       events: [],
       posts: [],
       saved: [],
-      display: []
+      display: [],
+      contacts: []
     },
     {
       id: 2,
@@ -27,7 +33,8 @@ const AllUsers = [
       events: [],
       posts: [],
       saved: [],
-      display: []
+      display: [],
+      contacts: []
     },
     {
       id: 3,
@@ -41,7 +48,8 @@ const AllUsers = [
       events: [],
       posts: [],
       saved: [],
-      display: []
+      display: [],
+      contacts: []
     },
     {
       id: 4,
@@ -55,7 +63,8 @@ const AllUsers = [
       events: [],
       posts: [],
       saved: [],
-      display: []
+      display: [],
+      contacts: []
     }
 ]
 

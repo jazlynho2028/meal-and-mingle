@@ -24,7 +24,8 @@ async function getAllUsers() {
           events: [],
           posts: [],
           saved: [],
-          display: []
+          display: [],
+          contacts: []
       }))
   
       // Add new users to the Users array
