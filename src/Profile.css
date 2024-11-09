@@ -131,7 +131,7 @@ h3 ~ div {
   white-space: nowrap;
 }
 
-.subjectDetails p {
+.schoolMajorBioContainer p {
   font-family: var(--headerFont);
   font-weight: var(--headerWeight);
   font-size: 13pt;

@@ -264,7 +264,7 @@ const APost = (props) => {
     <div className='post'>{props.children}</div>
   )
 }
-const RightSide = (props) => {
+const PostBody = (props) => {
   return (
     <div className='colContainer'>{props.children}</div>
   )
@@ -329,7 +329,7 @@ function Post(props) {
   return (
     <APost isProfileList={props.isProfileList} isUserSavedList={props.isUserSavedList} bookmarked={props.bookmarked} show={props.show}>
       <UserIcon initials={props.initials} iconColor={props.iconColor}/>
-      <RightSide>
+      <PostBody>
           <X isProfileList={props.isProfileList} handleShow={props.handleShow}/>
           {/* Top section of right side */}
           <PostInfo>
@@ -346,7 +346,7 @@ function Post(props) {
             <SaveButton bookmarked={props.bookmarked}
                         handleBookmark={props.handleBookmark}/>
           </SendSave>
-      </RightSide>
+      </PostBody>
     </APost>
   )
 }

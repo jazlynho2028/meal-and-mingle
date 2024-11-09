@@ -62,7 +62,6 @@ const Major = (props) => {
     <section>
       <h3>Major:</h3>
       <div>
-        {/* Get all majors */}
         {props.major.map((major) => {
           return (<button>{major}</button>)
         })}
@@ -74,7 +73,7 @@ const Bio = (props) => {
   return (
     <section>
       <h3>Bio:</h3>
-      <div>
+      <div class='subjectDetails'>
         <p>{props.bio}</p>
       </div>
     </section>
