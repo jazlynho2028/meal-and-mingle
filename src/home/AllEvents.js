@@ -1,8 +1,9 @@
 // stores information for all events
 const AllEvents = [];
 
-const createEvent = (user, title, start, end, location, sideColor, bgColor, initials1, iconColor1) => {
+const createEvent = (id, user, title, start, end, location, sideColor, bgColor, initials1, iconColor1) => {
   const event = {
+    id: id,
     title: title,
     start: start,
     end: end,

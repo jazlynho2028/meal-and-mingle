@@ -61,7 +61,8 @@ const PostList = ({header, Posts, isProfileList, isUserSavedList}) => {
         <h2>{header}</h2>
         {posts.map((post, index) => {
           return (
-            <Post name={post.name} 
+            <Post key={post.id}
+                  name={post.name} 
                   initials={post.initials} 
                   iconColor={post.iconColor} 
                   location={post.location} 

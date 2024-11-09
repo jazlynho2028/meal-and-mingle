@@ -3,8 +3,9 @@ import AllUsers from "../users/AllUsers";
 // stores information for all posts
 const AllPosts = [];
 
-const createPost = (user, location, start, end) => {
+const createPost = (id, user, location, start, end) => {
     const post = {
+      id: id,
       name: user.name,
       initials: user.initials,
       iconColor: user.color,

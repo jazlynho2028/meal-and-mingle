@@ -13,6 +13,7 @@ async function getAllUsers() {
       
       // Map over fetched users to add missing properties with default values
       const newAllUsers = fetchedUsers.map(user => ({
+          id: user.id,
           name: `${user.firstName} ${user.lastName}`,
           initials: `${user.firstName[0]}${user.lastName[0]}`,
           color: getCSSVar('--lightGray'),
@@ -36,6 +37,5 @@ async function getAllUsers() {
       console.error("Failed to fetch users:", error);
     }
   }
-  
-  // fetch and add users
-  getAllUsers();
+
+  export default getAllUsers;

@@ -2,6 +2,7 @@ import getCSSVar from "../getCSSVar";
 
 const AllUsers = [
     {
+      id: 1,
       name: 'First Last',
       initials: 'FL',
       color: getCSSVar('--purpleIcon'),
@@ -15,6 +16,7 @@ const AllUsers = [
       display: []
     },
     {
+      id: 2,
       name: 'John Doe',
       initials: 'JD',
       color: getCSSVar('--pinkIcon'),
@@ -28,6 +30,7 @@ const AllUsers = [
       display: []
     },
     {
+      id: 3,
       name: 'Some Person',
       initials: 'SP',
       color: getCSSVar('--yellowIcon'),
@@ -41,6 +44,7 @@ const AllUsers = [
       display: []
     },
     {
+      id: 4,
       name: 'Person One',
       initials: 'PO',
       color: getCSSVar('--greenIcon'),

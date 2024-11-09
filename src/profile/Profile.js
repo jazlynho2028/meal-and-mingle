@@ -55,7 +55,7 @@ const School = (props) => {
       <h3>School:</h3>
       <div>
         {props.school.map((school) => {
-          return (<button>{school}</button>)
+          return (<button key={school}>{school}</button>)
         })}
       </div>
     </section>
@@ -67,7 +67,7 @@ const Major = (props) => {
       <h3>Major:</h3>
       <div>
         {props.major.map((major) => {
-          return (<button>{major}</button>)
+          return (<button key={major}>{major}</button>)
         })}
       </div>
     </section>
