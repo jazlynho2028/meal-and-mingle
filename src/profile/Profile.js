@@ -1,6 +1,10 @@
-import './App.css';
+import '../App.css';
 import './Profile.css';
-import { UserIcon, User, Filter, CreateButton, PostList } from './variables.js';
+import UserIcon from '../common/buttons/UserIcon.js';
+import Filter from '../common/Filter.js';
+import CreateButton from '../common/buttons/CreateButton.js';
+import User from '../common/users/User.js';
+import PostList from '../common/posts/PostList.js';
 
 const ProfileBody = (props) => {
   return (
