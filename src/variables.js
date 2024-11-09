@@ -421,7 +421,5 @@ function SaveButton({bookmarked, handleBookmark}) {
     </button>
   )
 }
-console.log("LOOK AT ME")
-console.log(Users);
 
 export { getCSSVar, UserIcon, NavBar, User, PostList, Post, Filter, CreateButton, XButton, SendButton, SaveButton };
