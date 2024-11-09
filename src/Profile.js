@@ -107,8 +107,8 @@ function Profile(props) {
         </TopFrame>
         <BottomFrame>
           <Filter/>
-          <PostList header='My Posts' Posts={User.posts} profileList={true} userSavedList={false}/>
-          <PostList header='Saved Posts' Posts={User.saved} profileList={true} userSavedList={true}/>
+          <PostList header='My Posts' Posts={User.posts} isProfileList={true} isUserSavedList={false}/>
+          <PostList header='Saved Posts' Posts={User.saved} isProfileList={true} isUserSavedList={true}/>
           <CreateButton/>
         </BottomFrame>
       </ProfileBody>

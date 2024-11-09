@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import './Home.css';
-import { getCSSVar, UserIcon, POSTS, Filter, CreateButton, PostList } from './variables.js';
+import { getCSSVar, UserIcon, User, Filter, CreateButton, PostList } from './variables.js';
 
 
 // gets the 7 dates of current week
@@ -14,8 +14,48 @@ const WEEKDATES = (startDate) => {
   }
   return dates;
 }
+
+
+const CalendarHead = (props) => {
+  return (
+    <div className='calendarHead'>{props.children}</div>
+  )
+}
+const Month = (props) => {
+  return (
+    <h4>{props.currentDates[0].toLocaleString('default', {month: 'long'})}</h4>
+  )
+}
+const CalendarNav = (props) => {
+  return (
+    <nav>{props.children}</nav>
+  )
+}
+const WeekLabel = (props) => {
+  return (
+    <div className='weekLabel'>{props.children}</div>
+  )
+}
+const WeekDays = (props) => {
+  return (
+    <div>
+      {props.currentDates.map((date, index) => (
+        <div key={index}><h5>{date.toLocaleString('default', {weekday: 'short'})}</h5></div>    
+      ))}
+    </div>
+  )
+}
+const WeekDates = (props) => {
+  return (
+    <div>
+      {props.currentDates.map((date, index) => (
+        <div key={index}><h5 className='dateStyle'>{date.getDate().toString().padStart(2, '0')}</h5></div>    
+      ))}
+    </div>
+  )
+}
 // displays calendar header
-const CalendarHead = () => {
+const CalendarHeader = () => {
   const [startDate, setStartDate] = useState(new Date('2024-10-06T00:00:00'));
   const currentDates = WEEKDATES(startDate);
   
@@ -24,30 +64,17 @@ const CalendarHead = () => {
   }, [currentDates])
   
   return (
-    <div className='calendarHeader'>
-      {/* MONTH */}
-      <h4>{currentDates[0].toLocaleString('default', {month: 'long'})}</h4>
-      {/* Calendar Nav */}
-      <nav>
+    <CalendarHead>
+      <Month currentDates={currentDates}/>
+      <CalendarNav>
         <BackButton startDate={startDate} setStartDate={(setStartDate)}/>
-        {/* Week Label */}
-        <div className='weekLabel'>
-            {/* Days of the Week */}
-            <div>
-              {currentDates.map((date, index) => (
-                <div key={index}><h5>{date.toLocaleString('default', {weekday: 'short'})}</h5></div>    
-              ))}
-            </div>
-            {/* Dates of the Week */}
-            <div>
-              {currentDates.map((date, index) => (
-                <div key={index}><h5 className='dateStyle'>{date.getDate().toString().padStart(2, '0')}</h5></div>    
-              ))}
-            </div>
-        </div>
+        <WeekLabel>
+          <WeekDays currentDates={currentDates}/>
+          <WeekDates currentDates={currentDates}/>
+        </WeekLabel>
         <ForwardsButton startDate={startDate} setStartDate={setStartDate}/>
-      </nav>
-    </div>
+      </CalendarNav>
+    </CalendarHead>
   )
 }
 // display back button
@@ -57,7 +84,6 @@ const BackButton = ({startDate, setStartDate}) => {
     newStartDate.setDate(startDate.getDate() - 7);
     setStartDate(newStartDate);
   }
-
   return (
     <button className='calendarNavButton' onClick={handlePrevWeek}>
       <img src='https://cdn-icons-png.flaticon.com/128/2989/2989988.png' 
@@ -76,7 +102,6 @@ const ForwardsButton = ({startDate, setStartDate}) => {
     newStartDate.setDate(startDate.getDate() + 7);
     setStartDate(newStartDate);
   }
-
   return (
     <button className='calendarNavButton' onClick={handleNextWeek}>
       <img src='https://cdn-icons-png.flaticon.com/128/2989/2989988.png' 
@@ -114,10 +139,15 @@ const getGridRow = (date) => {
 }
 
 const EventContainer = (props) => {
+  const startCol = getGridCol(props.start);
+  const startRow = getGridRow(props.start);
+  const endRow = getGridRow(props.end);
+  
   return (
-    <div className='eventContainer' style={{gridColumn: getGridCol(props.start), 
-      gridRow: `${getGridRow(props.start)} / ${getGridRow(props.end)}`, 
-      backgroundColor: props.bgColor}}>
+    <div className='eventContainer' 
+          style={{gridColumn: startCol, 
+                  gridRow: `${startRow} / ${endRow}`, 
+                  backgroundColor: props.bgColor}}>
       {props.children}
     </div>
   )
@@ -125,14 +155,14 @@ const EventContainer = (props) => {
 
 const SideBar = (props) => {
   return (
-    <div className='rect' style={{backgroundColor: props.sideColor}}></div>
+    <div className='rect' 
+          style={{backgroundColor: props.sideColor}}>
+    </div>
   )
 }
 const EventInfo = (props) => {
   return (
-    <div className='eventInfo'>
-        {props.children}
-    </div>
+    <div className='eventInfo'>{props.children}</div>
   )
 }
 const StartTime = (props) => {
@@ -154,7 +184,10 @@ const OtherParty = (props) => {
   return (
     <div>
       {props.otherParty && 
-      <UserIcon iconColor={props.iconColor1} initials={props.initials1}/>}
+        <UserIcon iconColor={props.iconColor1}
+                   initials={props.initials1}
+        />
+      }
     </div>
   )
 }
@@ -242,7 +275,10 @@ const gridLines = [];
 for (let row = 1; row <= getCSSVar('--gridRowCount'); row++) {
   for (let col = 1; col <= getCSSVar('--gridColCount'); col++) {
     gridLines.push(
-      <div className='gridLine' key={`${row}-${col}`} style={{gridRow: row, gridColumn: col}} div/>
+      <div className='gridLine' 
+            key={`${row}-${col}`} 
+            style={{gridRow: row, gridColumn: col}}
+      />
     )
   }
 }
@@ -254,14 +290,14 @@ const CalendarEvents = () => {
       {EVENTS.map((event) => {
           return (
             <Event name={event.name} 
-                  start={event.start} 
-                  end={event.end} 
-                  location={event.location} 
-                  sideColor={event.sideColor} 
-                  bgColor={event.bgColor}
-                  otherParty={event.otherParty}
-                  initials1={event.initials1}
-                  iconColor1={event.iconColor1}
+                    start={event.start} 
+                    end={event.end} 
+                    location={event.location} 
+                    sideColor={event.sideColor} 
+                    bgColor={event.bgColor}
+                    otherParty={event.otherParty}
+                    initials1={event.initials1}
+                    iconColor1={event.iconColor1}
             />
           )
         })}
@@ -272,30 +308,22 @@ const CalendarEvents = () => {
 
 const HomeBody = (props) => {
   return (
-    <section className='homeBody'>
-      {props.children}
-    </section>
+    <section className='homeBody'>{props.children}</section>
   )
 }
 const LeftFrame = (props) => {
   return (
-    <section className='leftFrame'>
-      {props.children}
-    </section>
+    <section className='leftFrame'>{props.children}</section>
   )
 }
 const RightFrame = (props) => {
   return (
-    <section className='rightFrame'>
-      {props.children}
-    </section>
+    <section className='rightFrame'>{props.children}</section>
   )
 }
 const CalendarBody = (props) => {
   return (
-    <section className='calendarBodyContainer'>
-      {props.children}
-    </section>
+    <section className='calendarBodyContainer'>{props.children}</section>
   )
 }
 
@@ -305,11 +333,11 @@ function Home() {
     <HomeBody>
       <LeftFrame>
         <Filter/>
-        <PostList header='Posts' Posts={POSTS} profileList={false} userSavedList={false}/>
+        <PostList header='Posts' Posts={User.display} isProfileList={false} isUserSavedList={false}/>
         <CreateButton/>
       </LeftFrame>
       <RightFrame>
-        <CalendarHead/>
+        <CalendarHeader/>
         <CalendarBody>
           <Times/>
           <CalendarEvents/>

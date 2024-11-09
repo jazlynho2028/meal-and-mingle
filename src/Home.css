@@ -55,14 +55,14 @@ h5 {
   padding-bottom: 32px;
 }
 
-.calendarHeader {
+.calendarHead {
   background-color: var(--white);
 
   display: flex;
   flex-direction: column;
 }
 
-.calendarHeader nav {
+.calendarHead nav {
   background-color: var(--white);
 
   display: flex;
