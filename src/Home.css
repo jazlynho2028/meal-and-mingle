@@ -33,6 +33,7 @@ h5 {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  position: relative;
 
   /* minus padding */
   padding-left: 32px;
@@ -193,7 +194,7 @@ h5 {
   text-transform: uppercase;
 }
 
-.eventContainer .userIconTest {
+.eventContainer .userIcon {
   width: 30px;
   height: 30px;
   font-size: 12pt;

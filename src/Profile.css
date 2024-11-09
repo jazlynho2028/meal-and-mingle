@@ -59,7 +59,6 @@ flex-shrink: 0;
 
   width: 100%;
 
-  /* background-color: aquamarine; */
   overflow: hidden;
 }
 
@@ -70,7 +69,6 @@ h3 {
   font-size: 70pt;
   color: var(--black);
 
-  /* background-color: aliceblue; */
   white-space: nowrap;
 }
 
@@ -80,7 +78,6 @@ h3 {
   font-weight: 500;
 }
 
-/* postText -> profileClass */
 .nameClassContainer p {
   font-size: 18pt;
   margin: 0;
@@ -160,12 +157,12 @@ h3 ~ div {
   overflow: hidden;
 }
 
-.bottomFrame > button {
+/* .bottomFrame > button {
   position: absolute;
   z-index: 1;
   right: 25px;
   top: 25px;
-}
+} */
 
 .bottomFrame h2 {
   font-size: 20pt;

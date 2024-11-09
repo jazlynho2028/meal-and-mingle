@@ -96,16 +96,6 @@ img {
   gap: 16px;
 }
 
-.leftHead {
-  display: flex;
-  flex-direction: row;
-
-  width: 318px;
-  height: 13px;
-
-  align-items: center;
-}
-
 .postList {
   display: flex;
   flex-direction: column;
@@ -287,6 +277,11 @@ button {
   background-color: var(--purple1);
   width: 25px;
   height: 25px;
+
+  position: absolute;
+  z-index: 1;
+  right: 25px;
+  top: 25px;
 }
 
 .xButtonContainer {
@@ -299,7 +294,6 @@ button {
 }
 .xButtonContainer button {
   background-color: var(--white);
-  /* placeholder */
   width: 10px;
   height: 10px;
 }

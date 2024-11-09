@@ -6,6 +6,14 @@ const getCSSVar = (variable) => {
     return getComputedStyle(document.documentElement).getPropertyValue(variable).trim();
   }
 
+const UserIcon = (props) => {
+  return (
+    <button className='userIcon' style={{backgroundColor: props.iconColor}}>
+      {props.initials}
+    </button>
+  )
+}
+
 function NavBar(props) {
   return (
     <nav className='nav'>
@@ -136,7 +144,7 @@ const User = Users[0];
 // contains the displayed list of posts
 // profileList: true if list is the user's personal or saved lists
 // userSavedList: true if list is the user's saved list
-const PostList = ({Posts, profileList, userSavedList}) => {
+const PostList = ({header, Posts, profileList, userSavedList}) => {
   const [posts, setPosts] = useState(Posts);
 
   const handleBookmark = (index) => {
@@ -190,6 +198,7 @@ const PostList = ({Posts, profileList, userSavedList}) => {
 
   return (
     <section className='postList'>
+      <h2>{header}</h2>
       {posts.map((post, index) => {
         return (
           <Post name={post.name} 
@@ -319,4 +328,4 @@ function SaveButton({bookmarked, handleBookmark}) {
   )
 }
 
-export { getCSSVar, NavBar, User, POSTS, PostList, Post, Filter, CreateButton, XButton, SendButton, SaveButton };
+export { getCSSVar, UserIcon, NavBar, User, POSTS, PostList, Post, Filter, CreateButton, XButton, SendButton, SaveButton };

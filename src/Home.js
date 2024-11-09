@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import './App.css';
 import './Home.css';
-import { getCSSVar, POSTS, Filter, CreateButton, PostList } from './variables.js';
+import { getCSSVar, UserIcon, POSTS, Filter, CreateButton, PostList } from './variables.js';
 
 
 // gets the 7 dates of current week
@@ -236,9 +236,7 @@ const OtherParty = (props) => {
   return (
     <div>
       {props.otherParty && 
-      <button className='userIconTest' style={{backgroundColor: props.iconColor1}}>
-        {props.initials1}
-      </button>} 
+      <UserIcon iconColor={props.iconColor1} initials={props.initials1}/>}
     </div>
   )
 }
@@ -363,11 +361,8 @@ function Home() {
   return(
     <section className='homeBody'>
       <section className='leftFrame'>
-        <div className='leftHead'>
-          <h2>Posts</h2>
           <Filter/>
-          </div>
-          <PostList Posts={POSTS} profileList={false} userSavedList={false}/>
+          <PostList header='Posts' Posts={POSTS} profileList={false} userSavedList={false}/>
           <CreateButton/>
       </section>
       <section className='rightFrame'>
