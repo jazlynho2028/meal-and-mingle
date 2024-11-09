@@ -101,15 +101,15 @@ function Profile(props) {
                 <School school={props.school}/>
                 <Major major={props.major}/>
               </SchoolMajor>
-              <Bio/>
+              <Bio bio={props.bio}/>
             </OtherInfo>
           </Info>
         </TopFrame>
-        <CreateButton/>
         <BottomFrame>
           <Filter/>
-            <PostList header='My Posts' Posts={User.posts} profileList={true} userSavedList={false}/>
-            <PostList header='Saved Posts' Posts={User.saved} profileList={true} userSavedList={true}/>
+          <PostList header='My Posts' Posts={User.posts} profileList={true} userSavedList={false}/>
+          <PostList header='Saved Posts' Posts={User.saved} profileList={true} userSavedList={true}/>
+          <CreateButton/>
         </BottomFrame>
       </ProfileBody>
     )

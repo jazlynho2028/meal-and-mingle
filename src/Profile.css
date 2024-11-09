@@ -157,13 +157,6 @@ h3 ~ div {
   overflow: hidden;
 }
 
-/* .bottomFrame > button {
-  position: absolute;
-  z-index: 1;
-  right: 25px;
-  top: 25px;
-} */
-
 .bottomFrame h2 {
   font-size: 20pt;
   font-weight: 600;

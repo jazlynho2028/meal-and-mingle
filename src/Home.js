@@ -270,27 +270,52 @@ const CalendarEvents = () => {
   )
 }
 
-
-
-
+const HomeBody = (props) => {
+  return (
+    <section className='homeBody'>
+      {props.children}
+    </section>
+  )
+}
+const LeftFrame = (props) => {
+  return (
+    <section className='leftFrame'>
+      {props.children}
+    </section>
+  )
+}
+const RightFrame = (props) => {
+  return (
+    <section className='rightFrame'>
+      {props.children}
+    </section>
+  )
+}
+const CalendarBody = (props) => {
+  return (
+    <section className='calendarBodyContainer'>
+      {props.children}
+    </section>
+  )
+}
 
 // displays home page
 function Home() {
   return(
-    <section className='homeBody'>
-      <section className='leftFrame'>
-          <Filter/>
-          <PostList header='Posts' Posts={POSTS} profileList={false} userSavedList={false}/>
-          <CreateButton/>
-      </section>
-      <section className='rightFrame'>
+    <HomeBody>
+      <LeftFrame>
+        <Filter/>
+        <PostList header='Posts' Posts={POSTS} profileList={false} userSavedList={false}/>
+        <CreateButton/>
+      </LeftFrame>
+      <RightFrame>
         <CalendarHead/>
-          <section className='calendarBodyContainer'>
-            <Times/>
-            <CalendarEvents/>
-          </section>
-      </section> 
-    </section>
+        <CalendarBody>
+          <Times/>
+          <CalendarEvents/>
+        </CalendarBody>
+      </RightFrame>
+    </HomeBody>
   )
 }
 
