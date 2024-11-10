@@ -1,4 +1,16 @@
 import { useState, useEffect } from 'react';
+import useCalendarNav from './useCalNav';
+
+// gets the 7 dates of current week
+const getCalendarDates = (startDate) => {
+  const dates = [];
+  const currentDate = new Date(startDate);
+  for (let i = 0; i < 7; i++) {
+    dates.push(new Date(currentDate));
+    currentDate.setDate(currentDate.getDate() + 1);
+  }
+  return dates;
+}
 
 const CalendarHead = (props) => {
   return (
@@ -16,11 +28,8 @@ const CalendarNav = (props) => {
   )
 }
 const BackButton = ({startDate, setStartDate}) => {
-  const handlePrevWeek = () => {
-    const newStartDate = new Date(startDate);
-    newStartDate.setDate(startDate.getDate() - 7);
-    setStartDate(newStartDate);
-  }
+  const handlePrevWeek = useCalendarNav(false, startDate, setStartDate);
+
   return (
     <button className='calendarNavButton' onClick={handlePrevWeek}>
       <img src='https://cdn-icons-png.flaticon.com/128/2989/2989988.png' 
@@ -56,11 +65,8 @@ const WeekDates = (props) => {
   )
 }
 const ForwardsButton = ({startDate, setStartDate}) => {
-  const handleNextWeek = () => {
-    const newStartDate = new Date(startDate);
-    newStartDate.setDate(startDate.getDate() + 7);
-    setStartDate(newStartDate);
-  }
+  const handleNextWeek = useCalendarNav(true, startDate, setStartDate);
+
   return (
     <button className='calendarNavButton' onClick={handleNextWeek}>
       <img src='https://cdn-icons-png.flaticon.com/128/2989/2989988.png' 
@@ -74,17 +80,6 @@ const ForwardsButton = ({startDate, setStartDate}) => {
 // displays calendar header
 const CalendarHeader = () => {
   const [startDate, setStartDate] = useState(new Date('2024-10-06T00:00:00'));
-
-  // gets the 7 dates of current week
-  const getCalendarDates = (startDate) => {
-      const dates = [];
-      const currentDate = new Date(startDate);
-      for (let i = 0; i < 7; i++) {
-        dates.push(new Date(currentDate));
-        currentDate.setDate(currentDate.getDate() + 1);
-      }
-    return dates;
-  }
 
   const currentDates = getCalendarDates(startDate);
   
@@ -108,3 +103,4 @@ const CalendarHeader = () => {
 }
 
 export default CalendarHeader;
+export { getCalendarDates };
