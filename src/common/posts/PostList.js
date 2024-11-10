@@ -5,9 +5,12 @@ import usePostList from './usePostList';
 // contains the displayed list of posts
 // isProfileList: true if list is the user's personal or saved lists
 // isUserSavedList: true if list is the user's saved list
-const PostList = ({ header, Posts, isProfileList, isUserSavedList }) => {
+const PostList = ({ header, Posts }) => {
   
   const { posts, handleBookmark, handleShow } = usePostList(header, Posts);
+
+  const isProfileList = header === 'My Posts' || header.split(' ')[0] === 'Saved';
+  const isUserSavedList = header.split(' ')[0] === 'Saved';
   
     return (
       <section className='postsSection'>

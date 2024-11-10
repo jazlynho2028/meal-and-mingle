@@ -107,7 +107,7 @@ function Home() {
     <HomeBody>
       <LeftFrame>
         <Filter/>
-        <PostList header='Posts' Posts={User.display} isProfileList={false} isUserSavedList={false}/>
+        <PostList header='Posts' Posts={User.display}/>
         <CreateButton/>
       </LeftFrame>
       <RightFrame>
