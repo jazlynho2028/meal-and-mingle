@@ -13,6 +13,7 @@ const createEvent = (id, user, title, start, end, location, sideColor, bgColor, 
     bgColor: bgColor,
     otherUser: otherUser
   }
+
   user.events.push(event);
   AllEvents.push(event);
 }

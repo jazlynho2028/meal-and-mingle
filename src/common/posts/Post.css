@@ -1,31 +1,12 @@
-.postsSection {
-    display: flex;
-    flex-direction: column;
-    gap: 9px;
-    min-width: 317px;
-    margin-bottom: auto;
-    overflow: hidden;
-    justify-items: stretch;
-  }
+ .postLine {
+  width: 230px;
+  height: 0.5px;
+  background-color: var(--darkPurple2);
+}
 
-  .postList {
-    display: flex;
-    flex-direction: column;
-    gap: 9px;
-    margin-bottom: 3px;
-    margin-right: 3px;
-  }
-
-  
-  .postLine {
-    width: 230px;
-    height: 0.5px;
-    background-color: var(--darkPurple2);
-  }
-
-  .dateTimeContainer {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 10px;
-  }
+.dateTimeContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}

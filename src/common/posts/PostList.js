@@ -13,9 +13,9 @@ const PostList = ({ header, Posts }) => {
   const isUserSavedList = header.split(' ')[0] === 'Saved';
   
     return (
-      <section className='postsSection'>
+      <section className='listsSection'>
         <h2>{header}</h2>
-        <div className='postList'>
+        <div className='list'>
           {posts.map((post, index) => {
 
             const day = post.start.toLocaleString('default', { weekday: 'short' });

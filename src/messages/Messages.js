@@ -4,7 +4,7 @@ import Filter from '../common/Filter.js';
 import User from '../common/users/User.js';
 import CreateButton from '../common/buttons/CreateButton.js';
 import PostList from '../common/posts/PostList.js';
-import Card from '../common/card/Card.js';
+import ContactsList from './ContactsList.js';
 
 
 const MessagesBody = (props) => {
@@ -37,11 +37,7 @@ const Messages = () => {
           <LeftFrame>
             <Filter/>
             <PostList header='Saved' Posts={User.saved}/>
-            <PostList header='Messages' Posts={User.saved}/>
-            {/*placeholder until Contacts List is ready to be used*/}
-            {/* <div style={{zIndex: 2, position: 'fixed', top: '190px', left: '32px' }}>
-                <Card type='simple' user={User} hasX={false} topText={' '} mainText={User.name} hasLine={false} bottomText='hihi - 2h'/>
-            </div> */}
+            <ContactsList header='Messages' Contacts={User.contacts}/>
             <CreateButton/>
           </LeftFrame>
           <RightFrame>
