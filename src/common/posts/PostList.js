@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import User from '../users/User';
-import Post from './Post';
 import './Post.css';
+import Card from '../card/Card';
 
 // contains the displayed list of posts
 // isProfileList: true if list is the user's personal or saved lists
@@ -17,7 +17,7 @@ const PostList = ({header, Posts, isProfileList, isUserSavedList}) => {
         User.saved.push(newPosts[index]);
       }
       else {
-        User.saved = User.saved.filter(post => post.name !== newPosts[index].name);
+        User.saved = User.saved.filter(post => post.id !== newPosts[index].id);
       }
   
       setPosts(newPosts);
@@ -27,8 +27,8 @@ const PostList = ({header, Posts, isProfileList, isUserSavedList}) => {
       const newPosts = [...posts];
       newPosts[index].show = false;
       
-      User.display = User.display.filter(post => post.name !== newPosts[index].name);
-      setPosts(newPosts.filter(post => post.name !== newPosts[index].name));
+      User.display = User.display.filter(post => post.id !== newPosts[index].id);
+      setPosts(newPosts.filter(post => post.id !== newPosts[index].id));
     }
   
     // when save button is clicked
@@ -45,15 +45,7 @@ const PostList = ({header, Posts, isProfileList, isUserSavedList}) => {
   
     // when x button is clicked
     useEffect(() => {
-      if (isProfileList) {
-        if (isUserSavedList)
-          console.log('Current Saved Posts: ', posts);
-        else
-          console.log('Current User Posts: ', posts); // shouldn't ever run
-      }
-      else {
-        console.log('Current Home Posts: ', posts);
-      }
+      console.log(`Current ${header}: `, posts);
     },  [posts])
   
     return (
@@ -61,14 +53,22 @@ const PostList = ({header, Posts, isProfileList, isUserSavedList}) => {
         <h2>{header}</h2>
         <div className='postList'>
           {posts.map((post, index) => {
+
+            const day = post.start.toLocaleString('default', { weekday: 'short' });
+            const month = ((post.start.getMonth()) + 1).toString().padStart(2, '0');
+            const date = post.start.getDate().toString().padStart(2, '0');
+            const startTime = post.start.toLocaleString('default', { hour: '2-digit', minute: '2-digit' });
+            const endTime = post.end.toLocaleString('default', { hour: '2-digit', minute: '2-digit' });
+
             return (
-              <Post key={post.id}
-                    name={post.name} 
-                    initials={post.initials} 
-                    iconColor={post.iconColor} 
-                    location={post.location} 
-                    start={post.start} 
-                    end={post.end} 
+              <Card key={post.id}
+                    type={'complex'}
+                    user={post.user}
+                    hasX={!isProfileList}
+                    topText={post.user.name}
+                    mainText={post.location} 
+                    hasLine={true}
+                    bottomText={`${day} ${month}/${date}   ${startTime} - ${endTime}`}
                     bookmarked={post.bookmarked} 
                     show={post.show} 
                     handleBookmark={() => handleBookmark(index)}

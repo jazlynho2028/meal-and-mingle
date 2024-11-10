@@ -7,4 +7,9 @@
     background-color: white;
     border-radius: 10px 3px 10px 10px;
     height: 100%;
+    gap: 2;
+}
+
+.leftFrame .postsSection + .postsSection > .postList > .card {
+    box-shadow: none;
 }

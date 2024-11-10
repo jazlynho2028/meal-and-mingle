@@ -7,7 +7,7 @@ import getCSSVar from "../getCSSVar";
 // contacts: user's messaging contact list
 const AllUsers = [
     {
-      id: 1,
+      id: 'u1',
       name: 'First Last',
       initials: 'FL',
       color: getCSSVar('--purpleIcon'),
@@ -22,7 +22,7 @@ const AllUsers = [
       contacts: []
     },
     {
-      id: 2,
+      id: 'u2',
       name: 'John Doe',
       initials: 'JD',
       color: getCSSVar('--pinkIcon'),
@@ -37,7 +37,7 @@ const AllUsers = [
       contacts: []
     },
     {
-      id: 3,
+      id: 'u3',
       name: 'Some Person',
       initials: 'SP',
       color: getCSSVar('--yellowIcon'),
@@ -52,7 +52,7 @@ const AllUsers = [
       contacts: []
     },
     {
-      id: 4,
+      id: 'u4',
       name: 'Person One',
       initials: 'PO',
       color: getCSSVar('--greenIcon'),

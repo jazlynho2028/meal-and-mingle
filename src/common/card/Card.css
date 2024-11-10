@@ -1,0 +1,58 @@
+.card {
+    background-color: var(--white);
+    box-shadow: 2px 2px 4px var(--shadowColor);
+  
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  
+    width: 296px;
+    /* minus padding */
+    height: auto;
+    /* minus padding */
+    border-radius: 10px 3px 10px 10px;
+  
+    padding-left: 13px;
+    padding-right: 8px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .cardTextBlock {
+    background-color: var(--white);
+    /* placeholder */
+  
+    display: flex;
+    flex-direction: column;
+  
+    width: 245px;
+    height: auto;
+  
+    gap: 4px;
+  }
+
+  .cardTextBlock p {
+    /* default text (name and date/time) */
+    font-family: var(--regularFont);
+    font-size: 11pt;
+    font-weight: 300;
+    transform: scale(1, 0.95);
+    line-height: 1;
+    text-align: left;
+    color: var(--darkPurple1);
+  }
+
+  .cardTextBlock .mainText {
+    font-size: 16pt;
+    font-weight: 500;
+    color: var(--darkPurple2);
+    line-height: 1;
+  }
+
+  /* .cardBottomText {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  
+    gap: 10px;
+  } */

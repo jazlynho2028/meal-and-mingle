@@ -6,9 +6,7 @@ const AllPosts = [];
 const createPost = (id, user, location, start, end) => {
     const post = {
       id: id,
-      name: user.name,
-      initials: user.initials,
-      iconColor: user.color,
+      user: user,
       location: location,
       start: start,
       end: end,
