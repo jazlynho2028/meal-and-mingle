@@ -55,7 +55,7 @@ const AllUsers = [
       id: 'u4',
       name: 'Person One',
       initials: 'PO',
-      color: getCSSVar('--greenIcon'),
+      color: getCSSVar('--blueIcon'),
       class: 2026,
       school: ['Medill'],
       major: ['Journalism'],

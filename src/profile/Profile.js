@@ -96,7 +96,7 @@ function Profile(props) {
     return (
       <ProfileBody>
         <TopFrame>
-          <UserIcon color={props.color} initials={props.initials}/>
+          <UserIcon user={User}/>
           <Info>
             <NameClass name={props.name} class={props.class}/>
             <OtherInfo>   

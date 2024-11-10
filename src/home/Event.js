@@ -51,10 +51,8 @@ const EventLocation = (props) => {
 const OtherParty = (props) => {
     return (
       <div>
-        {props.iconColor1 && 
-          <UserIcon iconColor={props.iconColor1}
-                     initials={props.initials1}
-          />
+        {props.otherUser && 
+          <UserIcon user={props.otherUser}/>
         }
       </div>
     )
@@ -70,7 +68,7 @@ function Event(props) {
           <StartTime startTime={startTime}/>
           <EventName title={props.title}/>
           <EventLocation location={props.location}/>
-          <OtherParty iconColor1={props.iconColor1} initials1={props.initials1}/>
+          <OtherParty otherUser={props.otherUser}/>
         </EventInfo>
       </EventContainer>
     )

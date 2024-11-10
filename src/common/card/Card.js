@@ -74,7 +74,7 @@ const SendSave = (props) => {
 const Card = React.memo((props) => {
     return (
         <ACard type={props.type} isProfileList={props.isProfileList} isUserSavedList={props.isUserSavedList} bookmarked={props.bookmarked} show={props.show}>
-            <UserIcon initials={props.user.initials} iconColor={props.user.color}/>
+            <UserIcon user={props.user}/>
             <CardBody>
                 <X hasX={props.hasX} handleShow={props.handleShow}/>
                 <CardInfo>
