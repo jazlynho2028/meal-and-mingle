@@ -1,5 +1,4 @@
 import UserIcon from "../common/buttons/UserIcon";
-import { getCalendarDates } from './Event';
 
 // determine grid placement for a time
 const getGridCol = (date) => {

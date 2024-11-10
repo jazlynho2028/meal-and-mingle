@@ -1,3 +1,4 @@
+import React from 'react';
 import '../App.css';
 import './Home.css';
 import getCSSVar from '../common/getCSSVar.js';
@@ -11,6 +12,7 @@ import CalendarHeader from './CalendarHeader.js';
 import Event from './Event.js';
 import AllEvents, { createEvent } from './AllEvents.js';
 import getAllUsers from '../common/users/getAllUsers.js';
+import { CalendarContextProvider } from './CalendarContext.js';
 
 // placeholders before create button functions are implemented (move into a useEffect later)
 getAllUsers();
@@ -111,11 +113,13 @@ function Home() {
         <CreateButton/>
       </LeftFrame>
       <RightFrame>
+      <CalendarContextProvider>
         <CalendarHeader/>
-        <CalendarBody>
-          <Times/>
-          <CalendarEvents/>
-        </CalendarBody>
+          <CalendarBody>
+            <Times/>
+            <CalendarEvents/>
+          </CalendarBody>
+      </CalendarContextProvider>
       </RightFrame>
     </HomeBody>
   )
