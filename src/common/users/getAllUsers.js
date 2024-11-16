@@ -16,6 +16,7 @@ async function getAllUsers() {
           id: user.id,
           name: `${user.firstName} ${user.lastName}`,
           initials: `${user.firstName[0]}${user.lastName[0]}`,
+          email: user.email,
           color: getCSSVar('--lightGray'),
           class: user.graduationYear,
           school: 'NA',
