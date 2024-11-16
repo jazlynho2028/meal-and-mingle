@@ -1,184 +1,170 @@
 .profileBody {
-    background-color: yellow;
-    /* placeholder */
-  
-    display: flex;
-    flex-direction: column;
-  
-    height: 100vh;
+  background-color: yellow;
+  /* placeholder */
+
+  display: flex;
+  flex-direction: column;
+
+  height: 100vh;
 }
 
 .topFrame {
-    background-color: var(--white);
-  
-    width: 100%;
-    height: 33.33%;
-  
-    display: flex;
-    flex-direction: row;
-    gap: 50px;
-  
-    padding-left: 72px;
-    padding-right: 72px;
-    padding-top: 48px;
-    padding-bottom: 20px;
-    box-sizing: border-box;
+  background-color: var(--white);
+
+  width: 100%;
+  height: 33.33%;
+
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+
+  padding-left: 72px;
+  padding-right: 72px;
+  padding-top: 48px;
+  padding-bottom: 20px;
+  box-sizing: border-box;
 }
 
-/* userIcon -> profileVariation */
-.profileVariation {
-    width: 200px;
-    height: 200px;
-    font-size: 80pt;
-    background-color: var(--purpleIcon);
-  
-    margin-right: 0;
-    flex-shrink: 0;
+.topFrame .userIcon{
+width: 200px;
+height: 200px;
+font-size: 80pt;
+background-color: var(--purpleIcon);
+
+margin-right: 0;
+flex-shrink: 0;
 }
 
 .infoContainer {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    width: 100%;
-    height: 100%;
-    gap: 30px;
+  width: 100%;
+  height: 100%;
+  gap: 30px;
 
-    /* background-color: aqua; */
-    overflow: hidden;
-    box-sizing: border-box;
+  /* background-color: aqua; */
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .nameClassContainer {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .textBlocksContainer {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    width: 100%;
+  width: 100%;
 
-    /* background-color: aquamarine; */
-    overflow: hidden;
+  overflow: hidden;
 }
 
 /* profile name */
 h3 {
-    font-family: var(--regularFont);
-    font-weight: var(--headerWeight);
-    font-size: 70pt;
-    color: var(--black);
+  font-family: var(--regularFont);
+  font-weight: var(--headerWeight);
+  font-size: 70pt;
+  color: var(--black);
 
-    /* background-color: aliceblue; */
-    white-space: nowrap;
-  }
-
-  /* postText -> locationText -> schoolMajorBioTextHead */
-  .schoolMajorBioTextHead {
-    font-size: 20pt;
-    color: var(--darkPurple1);
-    font-weight: 500;
-  }
-
-  /* postText -> profileClass */
-  .profileClass {
-    /* background-color: yellow; */
-    font-size: 18pt;
-    margin: 0;
-    white-space: nowrap;
-  }
-
-  /* row container separating school and major from bio */
-  .schoolMajorBioContainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 30px;
-  }
-
-  .schoolMajorContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  /* row container with subject and description for school, bio, header */
-  .subjectDetails {
-    display: flex;
-    flex-direction: row;
-    /* background-color: burlywood; */
-    gap: 10px;
-  }
-
-  /* holds the list of details */
-  .detailsContainer {
-    /* background-color: blue; */
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    overflow: hidden;
-    padding-top: 5px;
-    max-width: 50vh;
-    flex-wrap: wrap;
-  }
-
-  /* detail */
-  .detail {
-    background-color: var(--purple1);
-    border-radius: 28px;
-    justify-content: center;
-  
-    width: auto;
-    height: 30px;
-    padding-top: 11px;
-    padding-bottom: 11px;
-    padding-left: 18px;
-    padding-right: 18px;
-    white-space: nowrap;
-  }
-
-  .bioText {
-    font-family: var(--headerFont);
-    font-weight: var(--headerWeight);
-    font-size: 13pt;
-    color: var(--darkPurple2);
-    padding-top: 4px;
-  }
-
-  .bottomFrame {
-    background-color: var(--lightGray);
-  
-    width: 100%;
-    height: 66.67%;
-  
-    display: flex;
-    flex-direction: row;
-
-    padding-top: 25px;
-    padding-bottom: 25px;
-
-    justify-content: space-around;
-    overflow: hidden;
+  white-space: nowrap;
 }
 
-.profileFilterButton {
-    position: fixed;
-    top: 466px;
-    right: 32px;
+.schoolMajorBioContainer h3 {
+  font-size: 20pt;
+  color: var(--darkPurple1);
+  font-weight: 500;
 }
 
-/* h2 variation */
-.profileBottomHead {
-    font-size: 20pt;
-    font-weight: 600;
-    margin-right: 0;
+.nameClassContainer p {
+  font-size: 18pt;
+  margin: 0;
+  white-space: nowrap;
 }
 
-/* postList -> profilePostList */
-.profilePostList {
-    align-items: center;
+/* row container separating school and major from bio */
+.schoolMajorBioContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.schoolMajorContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* row container with subject and description for school, bio, header */
+.schoolMajorBioContainer section {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+/* holds the list of details */
+h3 ~ div {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  overflow: hidden;
+  padding-top: 5px;
+  max-width: 50vh;
+  flex-wrap: wrap;
+}
+
+/* detail */
+.schoolMajorBioContainer button {
+  background-color: var(--purple1);
+  border-radius: 28px;
+  justify-content: center;
+
+  width: auto;
+  height: 30px;
+  padding-top: 11px;
+  padding-bottom: 11px;
+  padding-left: 18px;
+  padding-right: 18px;
+  white-space: nowrap;
+}
+
+.schoolMajorBioContainer p {
+  font-family: var(--headerFont);
+  font-weight: var(--headerWeight);
+  font-size: 13pt;
+  color: var(--darkPurple2);
+  padding-top: 4px;
+}
+
+.bottomFrame {
+  background-color: var(--lightGray);
+
+  position: relative;
+
+  width: 100%;
+  height: 66.67%;
+
+  display: flex;
+  flex-direction: row;
+
+  padding-top: 25px;
+  padding-bottom: 25px;
+
+  justify-content: space-around;
+  overflow: hidden;
+}
+
+.bottomFrame h2 {
+  font-size: 20pt;
+  font-weight: 600;
+  margin-right: 0;
+}
+
+.bottomFrame .postList {
+  align-items: center;
 }
 
 

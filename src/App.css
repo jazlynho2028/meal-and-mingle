@@ -96,16 +96,6 @@ img {
   gap: 16px;
 }
 
-.leftHead {
-  display: flex;
-  flex-direction: row;
-
-  width: 318px;
-  height: 13px;
-
-  align-items: center;
-}
-
 .postList {
   display: flex;
   flex-direction: column;
@@ -128,7 +118,7 @@ img {
   gap: 4px;
 }
 
-.postText {
+.postTextBlock p {
   /* default text (name and date/time) */
   font-family: var(--regularFont);
   font-size: 11pt;
@@ -147,7 +137,7 @@ img {
   gap: 10px;
 }
 
-.locationText {
+.postTextBlock .locationText {
   font-size: 16pt;
   font-weight: 500;
   color: var(--darkPurple2);
@@ -177,12 +167,6 @@ img {
   flex-direction: row;
   align-items: center;
   gap: 75px
-}
-.navProfile {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 16px;
 }
 .dateTimeContainer {
   display: flex;
@@ -217,7 +201,7 @@ img {
   padding-bottom: 12px;
 }
 
-.logoCircle {
+.nav button {
   width: 48px;
   height: 48px;
   border: 1px solid var(--white);
@@ -250,19 +234,20 @@ button {
   flex-grow: 1;
 }
 
-.navButton {
+.nav h1 {
   border-radius: 0;
   background-color: var(--nullColor);
   gap: 17px;
 }
 
-.logoButton {
+.nav .link:has(button):has(h1) {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 17px;
 }
 
+/* post */
 .userIcon {
   background-color: var(--pinkIcon);
 
@@ -277,7 +262,8 @@ button {
 
   margin-right: auto;
 }
-.headerVariation {
+/* nav */
+.navTopRight .userIcon {
   width: 48px;
   height: 48px;
   font-size: 20pt;
@@ -291,6 +277,11 @@ button {
   background-color: var(--purple1);
   width: 25px;
   height: 25px;
+
+  position: absolute;
+  z-index: 1;
+  right: 25px;
+  top: 25px;
 }
 
 .xButtonContainer {
@@ -301,9 +292,8 @@ button {
   height: 0px; 
   justify-content: flex-end;
 }
-.xButton {
+.xButtonContainer button {
   background-color: var(--white);
-  /* placeholder */
   width: 10px;
   height: 10px;
 }
@@ -317,7 +307,7 @@ button {
   gap: 5px;
   justify-content: flex-end;
 }
-.sendSaveButtons {
+.sendSaveContainer button {
   background-color: var(--white);
   width: 15px;
   height: 15px;
