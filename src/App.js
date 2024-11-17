@@ -2,11 +2,18 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Home from './home/Home.js';
 import Profile from './profile/Profile.js';
-import User from './common/users/User.js';
 import Messages from './messages/Messages.js';
 import NavBar from './navigation/NavBar.js';
+import useUsers from './common/users/useUsers.js';
 
 function App() {
+  const { allUsers, selectedUser, loading, setSelectedUser } = useUsers();
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  console.log(selectedUser.class)
+  console.log(selectedUser.major)
   return (
     <Router>
       <div className='App'>
@@ -17,11 +24,11 @@ function App() {
           <title>INDEX</title>
           <link rel='stylesheet' href='App.css' />
 
-          <NavBar name={User.name} initials={User.initials} color={User.color}/>
+          <NavBar name={selectedUser.name} initials={selectedUser.initials} color={selectedUser.color}/>
           <Routes>
             <Route path='/' element={<Home/>}/>
             <Route path='/messages' element={<Messages/>}/>
-            <Route path='/profile' element={<Profile name={User.name} initials={User.initials} color={User.color} class={User.class} school={User.school} major={User.major} bio={User.bio}/>}/>
+            <Route path='/profile' element={<Profile name={selectedUser.name} initials={selectedUser.initials} color={selectedUser.color} class={selectedUser.class} school={selectedUser.school} major={selectedUser.major} bio={selectedUser.bio}/>}/>
           </Routes>
         </div>
       </div>
