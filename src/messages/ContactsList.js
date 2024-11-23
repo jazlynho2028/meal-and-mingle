@@ -1,5 +1,5 @@
-import '../common/card/Card.css'
-import Card from '../common/card/Card.js';
+import '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/card/Card.css'
+import Card from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/card/Card.js';
 
 // contains the displayed list of contacts
 const ContactsList = ({ header, Contacts }) => {

@@ -1,10 +1,10 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import './App.css';
-import Home from './home/Home.js';
-import Profile from './profile/Profile.js';
-import Messages from './messages/Messages.js';
-import NavBar from './navigation/NavBar.js';
-import useUsers from './common/users/useUsers.js';
+import '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/App.css';
+import Home from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/home/Home.js';
+import Profile from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/profile/Profile.js';
+import Messages from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/messages/Messages.js';
+import NavBar from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/navigation/NavBar.js';
+import useUsers from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/users/useUsers.js';
 
 function App() {
   const { loading } = useUsers();

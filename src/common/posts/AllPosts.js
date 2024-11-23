@@ -1,4 +1,4 @@
-import AllUsers from "../users/AllUsers";
+import AllUsers from "/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/users/AllUsers.js";
 
 // stores information for all posts
 const AllPosts = [];

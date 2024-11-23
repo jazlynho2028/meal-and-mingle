@@ -1,6 +1,6 @@
-import './Post.css';
-import Card from '../card/Card';
-import usePostList from './usePostList';
+import '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/posts/Post.css';
+import Card from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/card/Card.js';
+import usePostList from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/posts/usePostList.js';
 
 // contains the displayed list of posts
 // isProfileList: true if list is the user's personal or saved lists

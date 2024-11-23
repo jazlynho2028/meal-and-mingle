@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import './NavBar.css';
-import useUsers from '../common/users/useUsers';
+import '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/navigation/NavBar.css';
+import useUsers from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/users/useUsers.js';
 
 const Nav = (props) => {
   return (

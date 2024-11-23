@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import UserIcon from "../common/buttons/UserIcon";
-import { CalendarContext } from "./CalendarContext";
+import UserIcon from "/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/buttons/UserIcon.js";
+import { CalendarContext } from "/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/home/CalendarContext.js";
 
 // determine grid placement for a time
 const getGridCol = (date) => {

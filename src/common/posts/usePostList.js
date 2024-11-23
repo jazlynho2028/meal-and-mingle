@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import User from '../users/User';
+import User from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/users/User.js';
 
 const usePostList = (header, Posts) => {
   const [posts, setPosts] = useState(Posts);

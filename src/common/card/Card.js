@@ -1,16 +1,16 @@
 import React from "react";
-import UserIcon from "../buttons/UserIcon";
-import XButton from "../buttons/XButton";
-import SendButton from "../buttons/SendButton";
-import SaveButton from "../buttons/SaveButton";
-import './Card.css';
+import UserIcon from "/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/buttons/UserIcon.js";
+import XButton from "/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/buttons/XButton.js";
+import SendButton from "/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/buttons/SendButton.js";
+import SaveButton from "/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/buttons/SaveButton.js";
+import "/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/card/Card.css";
 
 // props: 
 //      All: type, user, hasX, topText, mainText, hasLine, bottomText
 //      Post-specific (complex): bookmarked, show, handleBookmark, handleShow (if hasX), isProfileList, isUserSavedList
 //      Ex. Contact (simple): no additional props
 
-const ACard = React.memo((props) => {
+const ACard = (props) => {
     return (
         ((props.type !== 'complex' ||
             ((!props.isUserSavedList && props.isProfileList) ||
@@ -19,7 +19,7 @@ const ACard = React.memo((props) => {
             <div className='card'>{props.children}</div>
         )
     )
-})
+}
 const CardBody = (props) => {
     return (
         <div className='colContainer'>{props.children}</div>

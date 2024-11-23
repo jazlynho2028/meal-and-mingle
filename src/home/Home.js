@@ -1,18 +1,18 @@
 import React from 'react';
-import '../App.css';
-import './Home.css';
-import getCSSVar from '../common/getCSSVar.js';
-import Filter from '../common/Filter.js';
-import User from '../common/users/User.js';
-import CreateButton from '../common/buttons/CreateButton.js';
-import PostList from '../common/posts/PostList.js';
-import AllUsers from '../common/users/AllUsers.js';
-import { createPost } from '../common/posts/AllPosts.js';
-import CalendarHeader from './CalendarHeader.js';
-import Event from './Event.js';
-import AllEvents, { createEvent } from './AllEvents.js';
-import { CalendarContextProvider } from './CalendarContext.js';
-import createContact from '../common/contacts/createContact.js';
+import '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/App.css';
+import '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/home/Home.css';
+import getCSSVar from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/getCSSVar.js';
+import Filter from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/Filter.js';
+import User from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/users/User.js';
+import CreateButton from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/buttons/CreateButton.js';
+import PostList from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/posts/PostList.js';
+import AllUsers from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/users/AllUsers.js';
+import { createPost } from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/posts/AllPosts.js';
+import CalendarHeader from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/home/CalendarHeader.js';
+import Event from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/home/Event.js';
+import AllEvents, { createEvent } from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/home/AllEvents.js';
+import { CalendarContextProvider } from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/home/CalendarContext.js';
+import createContact from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/contacts/createContact.js';
 
 // placeholders 
 createContact(AllUsers[1], 'hihi - 2h');

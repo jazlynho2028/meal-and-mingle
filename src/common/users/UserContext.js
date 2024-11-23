@@ -1,5 +1,5 @@
 import { createContext, useContext } from 'react';
-import useUsers from './useUsers';
+import useUsers from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/users/useUsers.js';
 
 const UserContext = createContext();
 

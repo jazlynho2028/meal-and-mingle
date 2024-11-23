@@ -1,4 +1,4 @@
-import getCSSVar from "../getCSSVar";
+import getCSSVar from "/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/getCSSVar.js";
 
 const UserIcon = (props) => {
   return (

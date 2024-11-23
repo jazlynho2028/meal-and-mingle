@@ -1,4 +1,4 @@
-import getCSSVar from "../getCSSVar";
+import getCSSVar from "/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/getCSSVar.js";
 
 // events: list of user's events in calendar
 // posts: list of user's created posts
