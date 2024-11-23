@@ -2,9 +2,8 @@ import React from 'react';
 import '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/App.css';
 import '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/home/Home.css';
 import getCSSVar from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/getCSSVar.js';
-import Filter from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/Filter.js';
 import User from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/users/User.js';
-import CreateButton from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/buttons/CreateButton.js';
+import Button from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/Button.js';
 import PostList from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/posts/PostList.js';
 import AllUsers from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/users/AllUsers.js';
 import { createPost } from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/posts/AllPosts.js';
@@ -50,12 +49,12 @@ function Home() {
   return (
     <HomeBody>
       <LeftFrame>
-        <Filter />
+        <Button.Filter />
         <PostList header='Posts' Posts={User.display} />
-        <CreateButton />
+        <Button.Create />
       </LeftFrame>
       <RightFrame>
-        <Calendar/>
+        <Calendar />
       </RightFrame>
     </HomeBody>
   )

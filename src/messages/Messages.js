@@ -1,8 +1,7 @@
 import '../App.css';
 import './Messages.css';
-import Filter from '../common/Filter.js';
 import User from '../common/users/User.js';
-import CreateButton from '../common/buttons/CreateButton.js';
+import Button from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/Button.js';
 import PostList from '../common/posts/PostList.js';
 import ContactsList from './ContactsList.js';
 
@@ -35,10 +34,10 @@ const Messages = () => {
   return (
     <MessagesBody>
       <LeftFrame>
-        <Filter />
+        <Button.Filter />
         <PostList header='Saved' Posts={User.saved} />
         <ContactsList header='Messages' Contacts={User.contacts} />
-        <CreateButton />
+        <Button.Create />
       </LeftFrame>
       <RightFrame>
         <MessageBody />

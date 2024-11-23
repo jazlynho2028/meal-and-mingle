@@ -1,8 +1,5 @@
 import React from "react";
-import UserIcon from "/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/buttons/UserIcon.js";
-import XButton from "/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/buttons/XButton.js";
-import SendButton from "/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/buttons/SendButton.js";
-import SaveButton from "/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/buttons/SaveButton.js";
+import Button from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/Button.js'
 import "/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/card/Card.css";
 
 // props: 
@@ -27,7 +24,7 @@ const CardBody = (props) => {
 }
 const X = (props) => {
     return (
-        <div>{props.hasX && <XButton handleShow={props.handleShow} />}</div>
+        <div>{props.hasX && <Button.X handleShow={props.handleShow} />}</div>
     )
 }
 const CardInfo = (props) => {
@@ -64,8 +61,8 @@ const SendSave = (props) => {
         <div>
             {props.type === 'complex' &&
                 <div className='sendSaveContainer'>
-                    <SendButton />
-                    <SaveButton bookmarked={props.bookmarked}
+                    <Button.Send />
+                    <Button.Save bookmarked={props.bookmarked}
                         handleBookmark={props.handleBookmark} />
                 </div>}
         </div>
@@ -74,7 +71,7 @@ const SendSave = (props) => {
 const Card = React.memo((props) => {
     return (
         <ACard type={props.type} isProfileList={props.isProfileList} isUserSavedList={props.isUserSavedList} bookmarked={props.bookmarked} show={props.show}>
-            <UserIcon user={props.user} />
+            <Button.User user={props.user} />
             <CardBody>
                 <X hasX={props.hasX} handleShow={props.handleShow} />
                 <CardInfo>

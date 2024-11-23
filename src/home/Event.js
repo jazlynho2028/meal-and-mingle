@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import UserIcon from "/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/buttons/UserIcon.js";
+import Button from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/Button.js';
 import { CalendarContext } from "/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/home/calendar/CalendarContext.js";
 
 // determine grid placement for a time
@@ -56,7 +56,7 @@ const OtherParty = (props) => {
   return (
     <div>
       {props.otherUser &&
-        <UserIcon user={props.otherUser} />
+        <Button.User user={props.otherUser} />
       }
     </div>
   )

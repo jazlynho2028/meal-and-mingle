@@ -1,8 +1,6 @@
 import '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/App.css';
 import '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/profile/Profile.css';
-import UserIcon from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/buttons/UserIcon.js';
-import Filter from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/Filter.js';
-import CreateButton from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/buttons/CreateButton.js';
+import Button from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/Button.js';
 import User from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/users/User.js';
 import PostList from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/posts/PostList.js';
 import useUsers from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/users/useUsers.js';
@@ -105,7 +103,7 @@ function Profile() {
   return (
     <ProfileBody>
       <TopFrame>
-        <UserIcon user={User} />
+        <Button.User user={User} />
         <Info>
           <NameClass name={selectedUser.name} class={selectedUser.class} />
           <OtherInfo>
@@ -118,10 +116,10 @@ function Profile() {
         </Info>
       </TopFrame>
       <BottomFrame>
-        <Filter />
+        <Button.Filter />
         <PostList header='My Posts' Posts={User.posts} isProfileList={true} isUserSavedList={false} />
         <PostList header='Saved Posts' Posts={User.saved} isProfileList={true} isUserSavedList={true} />
-        <CreateButton />
+        <Button.Create />
       </BottomFrame>
     </ProfileBody>
   )
