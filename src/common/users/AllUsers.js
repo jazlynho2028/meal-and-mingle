@@ -5,6 +5,8 @@ import getCSSVar from "../getCSSVar";
 // saved: list of user's saved posts
 // display: list of posts to display in Home
 // contacts: user's messaging contact list
+
+// these values are placeholders before database has all functions implemented for creating posts and such
 const AllUsers = [
     {
       id: 'u1',
