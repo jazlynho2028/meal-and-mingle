@@ -93,7 +93,7 @@ const BottomFrame = (props) => {
 }
 
 // displays profile page
-function Profile(props) {
+function Profile() {
   const { selectedUser, loading } = useUsers();
 
   if (loading) {
