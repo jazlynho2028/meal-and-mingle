@@ -1,8 +1,10 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Home from './Home.js';
-import Profile from './Profile.js';
-import { NavBar, User } from './variables.js';
+import Home from './home/Home.js';
+import Profile from './profile/Profile.js';
+import User from './common/users/User.js';
+import Messages from './messages/Messages.js';
+import NavBar from './navigation/NavBar.js';
 
 function App() {
   return (
@@ -18,7 +20,7 @@ function App() {
           <NavBar name={User.name} initials={User.initials} color={User.color}/>
           <Routes>
             <Route path='/' element={<Home/>}/>
-            <Route path='/messages' element={<div>Messages Page (coming soon)</div>}/>
+            <Route path='/messages' element={<Messages/>}/>
             <Route path='/profile' element={<Profile name={User.name} initials={User.initials} color={User.color} class={User.class} school={User.school} major={User.major} bio={User.bio}/>}/>
           </Routes>
         </div>

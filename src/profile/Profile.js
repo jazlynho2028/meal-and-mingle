@@ -1,6 +1,10 @@
-import './App.css';
+import '../App.css';
 import './Profile.css';
-import { UserIcon, User, Filter, CreateButton, PostList } from './variables.js';
+import UserIcon from '../common/buttons/UserIcon.js';
+import Filter from '../common/Filter.js';
+import CreateButton from '../common/buttons/CreateButton.js';
+import User from '../common/users/User.js';
+import PostList from '../common/posts/PostList.js';
 
 const ProfileBody = (props) => {
   return (
@@ -51,7 +55,7 @@ const School = (props) => {
       <h3>School:</h3>
       <div>
         {props.school.map((school) => {
-          return (<button>{school}</button>)
+          return (<button key={school}>{school}</button>)
         })}
       </div>
     </section>
@@ -63,7 +67,7 @@ const Major = (props) => {
       <h3>Major:</h3>
       <div>
         {props.major.map((major) => {
-          return (<button>{major}</button>)
+          return (<button key={major}>{major}</button>)
         })}
       </div>
     </section>
@@ -73,7 +77,7 @@ const Bio = (props) => {
   return (
     <section>
       <h3>Bio:</h3>
-      <div class='subjectDetails'>
+      <div className='subjectDetails'>
         <p>{props.bio}</p>
       </div>
     </section>
@@ -92,7 +96,7 @@ function Profile(props) {
     return (
       <ProfileBody>
         <TopFrame>
-          <UserIcon color={props.color} initials={props.initials}/>
+          <UserIcon user={User}/>
           <Info>
             <NameClass name={props.name} class={props.class}/>
             <OtherInfo>   
