@@ -7,13 +7,11 @@ import NavBar from './navigation/NavBar.js';
 import useUsers from './common/users/useUsers.js';
 
 function App() {
-  const { allUsers, selectedUser, loading, setSelectedUser } = useUsers();
+  const { loading } = useUsers();
   if (loading) {
     return <p>Loading...</p>;
   }
 
-  console.log(selectedUser.class)
-  console.log(selectedUser.major)
   return (
     <Router>
       <div className='App'>
@@ -24,11 +22,11 @@ function App() {
           <title>INDEX</title>
           <link rel='stylesheet' href='App.css' />
 
-          <NavBar name={selectedUser.name} initials={selectedUser.initials} color={selectedUser.color}/>
+          <NavBar/>
           <Routes>
             <Route path='/' element={<Home/>}/>
             <Route path='/messages' element={<Messages/>}/>
-            <Route path='/profile' element={<Profile name={selectedUser.name} initials={selectedUser.initials} color={selectedUser.color} class={selectedUser.class} school={selectedUser.school} major={selectedUser.major} bio={selectedUser.bio}/>}/>
+            <Route path='/profile' element={<Profile/>}/>
           </Routes>
         </div>
       </div>

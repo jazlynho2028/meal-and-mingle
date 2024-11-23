@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import './NavBar.css';
+import useUsers from '../common/users/useUsers';
 
 const Nav = (props) => {
   return (
@@ -38,15 +39,20 @@ const MessagesLink = () => {
     </Link>
   )
 }
-const ProfileLink = (props) => {
+const ProfileLink = () => {
+  const { selectedUser, loading } = useUsers();
+  if (loading) {
+    return <p>Loading Profile Link...</p>
+  }
+  
   return (
     <Link to='/profile' className='link'>
-      <h1>{props.name}</h1>
-      <button className='userIcon' style={{backgroundColor: props.color}}>{props.initials}</button>
+      <h1>{selectedUser.name}</h1>
+      <button className='userIcon' style={{backgroundColor: selectedUser.color}}>{selectedUser.initials}</button>
     </Link>
   )
 }
-function NavBar(props) {
+function NavBar() {
   return (
     <Nav>
       <LeftNav>
@@ -55,7 +61,7 @@ function NavBar(props) {
       <RightNav>
         <HomeLink/>
         <MessagesLink/>
-        <ProfileLink name={props.name} color={props.color} initials={props.initials}/>
+        <ProfileLink/>
       </RightNav>
     </Nav>
   )

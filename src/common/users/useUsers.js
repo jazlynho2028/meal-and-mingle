@@ -40,8 +40,12 @@ const useUsers = () => {
             if (allUsers.length > 0) {
                 setSelectedUser(allUsers[0]);
                 console.log("Updated Users array:", allUsers);
-
-                setLoading(false); 
+                
+                if (selectedUser !== null) {
+                    console.log(selectedUser)
+                    setLoading(false); 
+                }
+                
             }
 
             } catch (error) {

@@ -5,6 +5,7 @@ import Filter from '../common/Filter.js';
 import CreateButton from '../common/buttons/CreateButton.js';
 import User from '../common/users/User.js';
 import PostList from '../common/posts/PostList.js';
+import useUsers from '../common/users/useUsers.js';
 
 const ProfileBody = (props) => {
   return (
@@ -93,18 +94,26 @@ const BottomFrame = (props) => {
 
 // displays profile page
 function Profile(props) {
-    return (
+  const { selectedUser, loading } = useUsers();
+
+  if (loading) {
+    return(
+      <p>Loading Profile...</p>
+    )
+  }  
+
+  return (
       <ProfileBody>
         <TopFrame>
           <UserIcon user={User}/>
           <Info>
-            <NameClass name={props.name} class={props.class}/>
+            <NameClass name={selectedUser.name} class={selectedUser.class}/>
             <OtherInfo>   
               <SchoolMajor>
-                <School school={props.school}/>
-                <Major major={props.major}/>
+                <School school={selectedUser.school}/>
+                <Major major={selectedUser.major}/>
               </SchoolMajor>
-              <Bio bio={props.bio}/>
+              <Bio bio={selectedUser.bio}/>
             </OtherInfo>
           </Info>
         </TopFrame>
