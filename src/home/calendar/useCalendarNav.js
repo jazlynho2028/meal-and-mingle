@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useCalendarContext } from "/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/home/CalendarContext.js";
+import { useCalendarContext } from "/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/home/calendar/CalendarContext.js";
 
 const useCalendarNav = (isForwards) => {
     const { startDate, setStartDate } = useCalendarContext();

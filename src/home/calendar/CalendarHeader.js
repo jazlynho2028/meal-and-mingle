@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import useCalendarNav from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/home/useCalendarNav.js';
-import { CalendarContext } from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/home/CalendarContext.js';
+import useCalendarNav from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/home/calendar/useCalendarNav.js';
+import { CalendarContext } from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/home/calendar/CalendarContext.js';
 
 const CalendarHead = (props) => {
   return (
