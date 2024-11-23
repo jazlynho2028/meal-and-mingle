@@ -32,19 +32,19 @@ const MessageBody = (props) => {
 }
 
 const Messages = () => {
-    return(
-        <MessagesBody>
-          <LeftFrame>
-            <Filter/>
-            <PostList header='Saved' Posts={User.saved}/>
-            <ContactsList header='Messages' Contacts={User.contacts}/>
-            <CreateButton/>
-          </LeftFrame>
-          <RightFrame>
-            <MessageBody/>
-          </RightFrame>
-        </MessagesBody>
-    )
+  return (
+    <MessagesBody>
+      <LeftFrame>
+        <Filter />
+        <PostList header='Saved' Posts={User.saved} />
+        <ContactsList header='Messages' Contacts={User.contacts} />
+        <CreateButton />
+      </LeftFrame>
+      <RightFrame>
+        <MessageBody />
+      </RightFrame>
+    </MessagesBody>
+  )
 }
 
 export default Messages;

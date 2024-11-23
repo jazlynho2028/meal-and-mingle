@@ -5,23 +5,23 @@ import Card from '../common/card/Card.js';
 const ContactsList = ({ header, Contacts }) => {
     return (
         <section className='listsSection'>
-        <h2>{header}</h2>
-        <div className='list'>
-            {Contacts.map((contact) => {
-            return (
-                <Card key={contact.user.id}
-                    type={'simple'}
-                    user={contact.user}
-                    hasX={false}
-                    mainText={contact.user.name} 
-                    hasLine={false}
-                    bottomText={contact.latestText}
-                />
-            )
-            })}
-        </div>
+            <h2>{header}</h2>
+            <div className='list'>
+                {Contacts.map((contact) => {
+                    return (
+                        <Card key={contact.user.id}
+                            type={'simple'}
+                            user={contact.user}
+                            hasX={false}
+                            mainText={contact.user.name}
+                            hasLine={false}
+                            bottomText={contact.latestText}
+                        />
+                    )
+                })}
+            </div>
         </section>
     )
-  }
+}
 
-  export default ContactsList;
+export default ContactsList;

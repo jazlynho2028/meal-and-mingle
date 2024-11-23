@@ -15,7 +15,7 @@ const LeftNav = (props) => {
 const LogoLink = () => {
   return (
     <Link to='/' className='link'>
-      <button/>
+      <button />
       <h1>Meal and Mingle</h1>
     </Link>
   )
@@ -28,14 +28,14 @@ const RightNav = (props) => {
 const HomeLink = () => {
   return (
     <Link to='/' className='link'>
-        <h1>Home</h1>
+      <h1>Home</h1>
     </Link>
   )
 }
 const MessagesLink = () => {
   return (
     <Link to='/messages' className='link'>
-        <h1>Messages</h1>
+      <h1>Messages</h1>
     </Link>
   )
 }
@@ -44,11 +44,11 @@ const ProfileLink = () => {
   if (loading) {
     return <p>Loading Profile Link...</p>
   }
-  
+
   return (
     <Link to='/profile' className='link'>
       <h1>{selectedUser.name}</h1>
-      <button className='userIcon' style={{backgroundColor: selectedUser.color}}>{selectedUser.initials}</button>
+      <button className='userIcon' style={{ backgroundColor: selectedUser.color }}>{selectedUser.initials}</button>
     </Link>
   )
 }
@@ -56,12 +56,12 @@ function NavBar() {
   return (
     <Nav>
       <LeftNav>
-        <LogoLink/>
+        <LogoLink />
       </LeftNav>
       <RightNav>
-        <HomeLink/>
-        <MessagesLink/>
-        <ProfileLink/>
+        <HomeLink />
+        <MessagesLink />
+        <ProfileLink />
       </RightNav>
     </Nav>
   )

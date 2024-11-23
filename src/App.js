@@ -22,11 +22,11 @@ function App() {
           <title>INDEX</title>
           <link rel='stylesheet' href='App.css' />
 
-          <NavBar/>
+          <NavBar />
           <Routes>
-            <Route path='/' element={<Home/>}/>
-            <Route path='/messages' element={<Messages/>}/>
-            <Route path='/profile' element={<Profile/>}/>
+            <Route path='/' element={<Home />} />
+            <Route path='/messages' element={<Messages />} />
+            <Route path='/profile' element={<Profile />} />
           </Routes>
         </div>
       </div>

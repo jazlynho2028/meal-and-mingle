@@ -27,7 +27,7 @@
   --blueEventBg: #5c76eb99;
   --greenEvent: #36cec1;
   --greenEventBg: #36cec199;
-  
+
   --gridRowCount: 30;
   --gridColCount: 7;
 }
@@ -126,10 +126,11 @@ button {
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 250px; 
-  height: 0px; 
+  width: 250px;
+  height: 0px;
   justify-content: flex-end;
 }
+
 .xButtonContainer button {
   background-color: var(--white);
   width: 10px;
@@ -145,6 +146,7 @@ button {
   gap: 5px;
   justify-content: flex-end;
 }
+
 .sendSaveContainer button {
   background-color: var(--white);
   width: 15px;

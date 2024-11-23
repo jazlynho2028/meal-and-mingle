@@ -35,7 +35,7 @@ const NameClass = (props) => {
       <p className='postText'>Class of {props.class}</p>
     </div>
   )
-} 
+}
 const OtherInfo = (props) => {
   return (
     <div className='schoolMajorBioContainer'>
@@ -97,34 +97,34 @@ function Profile() {
   const { selectedUser, loading } = useUsers();
 
   if (loading) {
-    return(
+    return (
       <p>Loading Profile...</p>
-    )
-  }  
-
-  return (
-      <ProfileBody>
-        <TopFrame>
-          <UserIcon user={User}/>
-          <Info>
-            <NameClass name={selectedUser.name} class={selectedUser.class}/>
-            <OtherInfo>   
-              <SchoolMajor>
-                <School school={selectedUser.school}/>
-                <Major major={selectedUser.major}/>
-              </SchoolMajor>
-              <Bio bio={selectedUser.bio}/>
-            </OtherInfo>
-          </Info>
-        </TopFrame>
-        <BottomFrame>
-          <Filter/>
-          <PostList header='My Posts' Posts={User.posts} isProfileList={true} isUserSavedList={false}/>
-          <PostList header='Saved Posts' Posts={User.saved} isProfileList={true} isUserSavedList={true}/>
-          <CreateButton/>
-        </BottomFrame>
-      </ProfileBody>
     )
   }
 
-  export default Profile;
+  return (
+    <ProfileBody>
+      <TopFrame>
+        <UserIcon user={User} />
+        <Info>
+          <NameClass name={selectedUser.name} class={selectedUser.class} />
+          <OtherInfo>
+            <SchoolMajor>
+              <School school={selectedUser.school} />
+              <Major major={selectedUser.major} />
+            </SchoolMajor>
+            <Bio bio={selectedUser.bio} />
+          </OtherInfo>
+        </Info>
+      </TopFrame>
+      <BottomFrame>
+        <Filter />
+        <PostList header='My Posts' Posts={User.posts} isProfileList={true} isUserSavedList={false} />
+        <PostList header='Saved Posts' Posts={User.saved} isProfileList={true} isUserSavedList={true} />
+        <CreateButton />
+      </BottomFrame>
+    </ProfileBody>
+  )
+}
+
+export default Profile;

@@ -14,20 +14,20 @@ import AllEvents, { createEvent } from './AllEvents.js';
 import { CalendarContextProvider } from './CalendarContext.js';
 import createContact from '../common/contacts/createContact.js';
 
- // placeholders 
- createContact(AllUsers[1], 'hihi - 2h');
- createContact(AllUsers[2], 'I\'m hungry - 1d');
+// placeholders 
+createContact(AllUsers[1], 'hihi - 2h');
+createContact(AllUsers[2], 'I\'m hungry - 1d');
 
- createPost('p1', AllUsers[0], 'Sargent Dining Commons', new Date('2024-09-25T12:30'), new Date('2024-09-25T13:00'));
- createPost('p2', AllUsers[1], 'Foster Walker Plex East', new Date('2024-10-17T16:00'), new Date('2024-10-17T18:00'));
- createPost('p3', AllUsers[2], 'Allison Dining Commons/ Sargent Dining Commons', new Date('2024-10-14T20:00'), new Date('2024-10-14T21:30'));
+createPost('p1', AllUsers[0], 'Sargent Dining Commons', new Date('2024-09-25T12:30'), new Date('2024-09-25T13:00'));
+createPost('p2', AllUsers[1], 'Foster Walker Plex East', new Date('2024-10-17T16:00'), new Date('2024-10-17T18:00'));
+createPost('p3', AllUsers[2], 'Allison Dining Commons/ Sargent Dining Commons', new Date('2024-10-14T20:00'), new Date('2024-10-14T21:30'));
 
- createEvent('e1', User, 'Class A', new Date('2024-10-07T10:00'), new Date('2024-10-07T13:00'), 'Somewhere', getCSSVar('--purpleEvent'), getCSSVar('--purpleEventBg'));
- createEvent('e2', User, 'Class A', new Date('2024-10-09T10:00'), new Date('2024-10-09T13:00'), 'Somewhere', getCSSVar('--purpleEvent'), getCSSVar('--purpleEventBg'));
- createEvent('e3', User, 'Class A', new Date('2024-10-11T10:00'), new Date('2024-10-11T13:00'), 'Somewhere', getCSSVar('--purpleEvent'), getCSSVar('--purpleEventBg'));
- createEvent('e4', User, 'Class B', new Date('2024-10-08T09:00'), new Date('2024-10-08T11:00'), 'Someplace', getCSSVar('--blueEvent'), getCSSVar('--blueEventBg'));
- createEvent('e5', User, 'Class B', new Date('2024-10-10T09:00'), new Date('2024-10-10T11:00'), 'Someplace', getCSSVar('--blueEvent'), getCSSVar('--blueEventBg'));
- createEvent('e6', User, 'Lunch', new Date('2024-10-08T13:30'), new Date('2024-10-08T16:30'), 'Elder Dining Commons', getCSSVar('--greenEvent'), getCSSVar('--greenEventBg'), AllUsers[3]);
+createEvent('e1', User, 'Class A', new Date('2024-10-07T10:00'), new Date('2024-10-07T13:00'), 'Somewhere', getCSSVar('--purpleEvent'), getCSSVar('--purpleEventBg'));
+createEvent('e2', User, 'Class A', new Date('2024-10-09T10:00'), new Date('2024-10-09T13:00'), 'Somewhere', getCSSVar('--purpleEvent'), getCSSVar('--purpleEventBg'));
+createEvent('e3', User, 'Class A', new Date('2024-10-11T10:00'), new Date('2024-10-11T13:00'), 'Somewhere', getCSSVar('--purpleEvent'), getCSSVar('--purpleEventBg'));
+createEvent('e4', User, 'Class B', new Date('2024-10-08T09:00'), new Date('2024-10-08T11:00'), 'Someplace', getCSSVar('--blueEvent'), getCSSVar('--blueEventBg'));
+createEvent('e5', User, 'Class B', new Date('2024-10-10T09:00'), new Date('2024-10-10T11:00'), 'Someplace', getCSSVar('--blueEvent'), getCSSVar('--blueEventBg'));
+createEvent('e6', User, 'Lunch', new Date('2024-10-08T13:30'), new Date('2024-10-08T16:30'), 'Elder Dining Commons', getCSSVar('--greenEvent'), getCSSVar('--greenEventBg'), AllUsers[3]);
 
 const HomeBody = (props) => {
   return (
@@ -56,8 +56,8 @@ const CalendarBody = (props) => {
 // displays timestamps for calendar side display
 const Times = () => {
   const AllTimes = [
-    '7 AM', '8 AM', '9 AM', '10 AM', '11 AM', '12 PM', 
-    '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM', 
+    '7 AM', '8 AM', '9 AM', '10 AM', '11 AM', '12 PM',
+    '1 PM', '2 PM', '3 PM', '4 PM', '5 PM', '6 PM',
     '7 PM', '8 PM', '9 PM'
   ]
 
@@ -77,9 +77,9 @@ const CalendarEvents = () => {
   for (let row = 1; row <= getCSSVar('--gridRowCount'); row++) {
     for (let col = 1; col <= getCSSVar('--gridColCount'); col++) {
       gridLines.push(
-        <div className='gridLine' 
-              key={`${row}-${col}`} 
-              style={{gridRow: row, gridColumn: col}}
+        <div className='gridLine'
+          key={`${row}-${col}`}
+          style={{ gridRow: row, gridColumn: col }}
         />
       )
     }
@@ -87,18 +87,18 @@ const CalendarEvents = () => {
   return (
     <section className='calendarGrid'>
       {AllEvents.map(event => {
-          return (
-            <Event key={event.id}
-                    title={event.title} 
-                    start={event.start} 
-                    end={event.end} 
-                    location={event.location} 
-                    sideColor={event.sideColor} 
-                    bgColor={event.bgColor}
-                    otherUser={event.otherUser}
-            />
-          )
-        })}
+        return (
+          <Event key={event.id}
+            title={event.title}
+            start={event.start}
+            end={event.end}
+            location={event.location}
+            sideColor={event.sideColor}
+            bgColor={event.bgColor}
+            otherUser={event.otherUser}
+          />
+        )
+      })}
       {gridLines}
     </section>
   )
@@ -106,21 +106,21 @@ const CalendarEvents = () => {
 
 // displays home page
 function Home() {
-  return(
+  return (
     <HomeBody>
       <LeftFrame>
-        <Filter/>
-        <PostList header='Posts' Posts={User.display}/>
-        <CreateButton/>
+        <Filter />
+        <PostList header='Posts' Posts={User.display} />
+        <CreateButton />
       </LeftFrame>
       <RightFrame>
-      <CalendarContextProvider>
-        <CalendarHeader/>
+        <CalendarContextProvider>
+          <CalendarHeader />
           <CalendarBody>
-            <Times/>
-            <CalendarEvents/>
+            <Times />
+            <CalendarEvents />
           </CalendarBody>
-      </CalendarContextProvider>
+        </CalendarContextProvider>
       </RightFrame>
     </HomeBody>
   )

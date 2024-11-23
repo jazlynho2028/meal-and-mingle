@@ -9,7 +9,7 @@ const CalendarHead = (props) => {
 }
 const Month = (props) => {
   return (
-    <h4>{props.currentDates[0].toLocaleString('default', {month: 'long'})}</h4>
+    <h4>{props.currentDates[0].toLocaleString('default', { month: 'long' })}</h4>
   )
 }
 const CalendarNav = (props) => {
@@ -22,12 +22,14 @@ const BackButton = () => {
 
   return (
     <button className='calendarNavButton' onClick={handleWeek}>
-      <img src='https://cdn-icons-png.flaticon.com/128/2989/2989988.png' 
-        alt='previous' 
-        style={{width: 25, 
-                height: 'auto', 
-                transform: 'scaleX(-1)', 
-                filter: 'invert(29%) sepia(46%) saturate(312%) hue-rotate(212deg) brightness(98%) contrast(89%)'}} />
+      <img src='https://cdn-icons-png.flaticon.com/128/2989/2989988.png'
+        alt='previous'
+        style={{
+          width: 25,
+          height: 'auto',
+          transform: 'scaleX(-1)',
+          filter: 'invert(29%) sepia(46%) saturate(312%) hue-rotate(212deg) brightness(98%) contrast(89%)'
+        }} />
     </button>
   )
 }
@@ -41,8 +43,8 @@ const WeekDays = (props) => {
     <div>
       {props.currentDates.map((date, index) => (
         <div key={index}>
-          <h5>{date.toLocaleString('default', {weekday: 'short'})}</h5>
-        </div>    
+          <h5>{date.toLocaleString('default', { weekday: 'short' })}</h5>
+        </div>
       ))}
     </div>
   )
@@ -53,7 +55,7 @@ const WeekDates = (props) => {
       {props.currentDates.map((date, index) => (
         <div key={index}>
           <h5 className='dateStyle'>{date.getDate().toString().padStart(2, '0')}</h5>
-        </div>    
+        </div>
       ))}
     </div>
   )
@@ -63,11 +65,13 @@ const ForwardsButton = () => {
 
   return (
     <button className='calendarNavButton' onClick={handleWeek}>
-      <img src='https://cdn-icons-png.flaticon.com/128/2989/2989988.png' 
-        alt='next' 
-        style={{width: 25, 
-                height: 'auto', 
-                filter: 'invert(29%) sepia(46%) saturate(312%) hue-rotate(212deg) brightness(98%) contrast(89%)'}} />
+      <img src='https://cdn-icons-png.flaticon.com/128/2989/2989988.png'
+        alt='next'
+        style={{
+          width: 25,
+          height: 'auto',
+          filter: 'invert(29%) sepia(46%) saturate(312%) hue-rotate(212deg) brightness(98%) contrast(89%)'
+        }} />
     </button>
   )
 }
@@ -75,17 +79,17 @@ const ForwardsButton = () => {
 const CalendarHeader = () => {
   const { currentDates } = useContext(CalendarContext);
 
-  
+
   return (
     <CalendarHead>
-      <Month currentDates={currentDates}/>
+      <Month currentDates={currentDates} />
       <CalendarNav>
-        <BackButton/>
+        <BackButton />
         <WeekLabel>
-          <WeekDays currentDates={currentDates}/>
-          <WeekDates currentDates={currentDates}/>
+          <WeekDays currentDates={currentDates} />
+          <WeekDates currentDates={currentDates} />
         </WeekLabel>
-        <ForwardsButton/>
+        <ForwardsButton />
       </CalendarNav>
     </CalendarHead>
   )

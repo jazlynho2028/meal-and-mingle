@@ -25,14 +25,14 @@
   box-sizing: border-box;
 }
 
-.topFrame .userIcon{
-width: 200px;
-height: 200px;
-font-size: 80pt;
-background-color: var(--purpleIcon);
+.topFrame .userIcon {
+  width: 200px;
+  height: 200px;
+  font-size: 80pt;
+  background-color: var(--purpleIcon);
 
-margin-right: 0;
-flex-shrink: 0;
+  margin-right: 0;
+  flex-shrink: 0;
 }
 
 .infoContainer {
@@ -106,7 +106,7 @@ h3 {
 }
 
 /* holds the list of details */
-h3 ~ div {
+h3~div {
   display: flex;
   flex-direction: row;
   gap: 10px;
@@ -166,6 +166,3 @@ h3 ~ div {
 .bottomFrame .postList {
   align-items: center;
 }
-
-
-

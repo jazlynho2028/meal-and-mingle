@@ -55,7 +55,7 @@ h5 {
 }
 
 /* days of week */
-.weekLabel > div {
+.weekLabel>div {
   background-color: var(--white);
   display: flex;
   flex-direction: row;
