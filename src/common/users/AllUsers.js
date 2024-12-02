@@ -8,8 +8,9 @@ import getCSSVar from "../getCSSVar";
 const AllUsers = [
     {
       id: 'u1',
-      name: 'First Last',
+      name: 'ABC AVS',
       initials: 'FL',
+      email: 'firstlast@example.com',
       color: getCSSVar('--purpleIcon'),
       class: 2023,
       school: ['A School'],
@@ -23,8 +24,9 @@ const AllUsers = [
     },
     {
       id: 'u2',
-      name: 'John Doe',
+      name: 'Help Me',
       initials: 'JD',
+      email: 'johndoe@example.com',
       color: getCSSVar('--pinkIcon'),
       class: 2025,
       school: ['Bienen, Weinberg'],
@@ -38,8 +40,9 @@ const AllUsers = [
     },
     {
       id: 'u3',
-      name: 'Some Person',
+      name: 'Im dDead',
       initials: 'SP',
+      email: 'someperson@example.com',
       color: getCSSVar('--yellowIcon'),
       class: 2027,
       school: ['McCormick'],
@@ -53,8 +56,9 @@ const AllUsers = [
     },
     {
       id: 'u4',
-      name: 'Person One',
+      name: 'AHhh AHh',
       initials: 'PO',
+      email: 'personone@example.com',
       color: getCSSVar('--blueIcon'),
       class: 2026,
       school: ['Medill'],

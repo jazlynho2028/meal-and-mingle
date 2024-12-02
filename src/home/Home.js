@@ -11,13 +11,10 @@ import { createPost } from '../common/posts/AllPosts.js';
 import CalendarHeader from './CalendarHeader.js';
 import Event from './Event.js';
 import AllEvents, { createEvent } from './AllEvents.js';
-import getAllUsers from '../common/users/getAllUsers.js';
 import { CalendarContextProvider } from './CalendarContext.js';
 import createContact from '../common/contacts/createContact.js';
 
  // placeholders 
- getAllUsers();
-
  createContact(AllUsers[1], 'hihi - 2h');
  createContact(AllUsers[2], 'I\'m hungry - 1d');
 
