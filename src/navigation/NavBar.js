@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import './NavBar.css';
+import '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/navigation/NavBar.css';
+import useUsers from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/users/useUsers.js';
 
 const Nav = (props) => {
   return (
@@ -14,7 +15,7 @@ const LeftNav = (props) => {
 const LogoLink = () => {
   return (
     <Link to='/' className='link'>
-      <button/>
+      <button />
       <h1>Meal and Mingle</h1>
     </Link>
   )
@@ -27,35 +28,40 @@ const RightNav = (props) => {
 const HomeLink = () => {
   return (
     <Link to='/' className='link'>
-        <h1>Home</h1>
+      <h1>Home</h1>
     </Link>
   )
 }
 const MessagesLink = () => {
   return (
     <Link to='/messages' className='link'>
-        <h1>Messages</h1>
+      <h1>Messages</h1>
     </Link>
   )
 }
-const ProfileLink = (props) => {
+const ProfileLink = () => {
+  const { selectedUser, loading } = useUsers();
+  if (loading) {
+    return <p>Loading Profile Link...</p>
+  }
+
   return (
     <Link to='/profile' className='link'>
-      <h1>{props.name}</h1>
-      <button className='userIcon' style={{backgroundColor: props.color}}>{props.initials}</button>
+      <h1>{selectedUser.name}</h1>
+      <button className='userIcon' style={{ backgroundColor: selectedUser.color }}>{selectedUser.initials}</button>
     </Link>
   )
 }
-function NavBar(props) {
+function NavBar() {
   return (
     <Nav>
       <LeftNav>
-        <LogoLink/>
+        <LogoLink />
       </LeftNav>
       <RightNav>
-        <HomeLink/>
-        <MessagesLink/>
-        <ProfileLink name={props.name} color={props.color} initials={props.initials}/>
+        <HomeLink />
+        <MessagesLink />
+        <ProfileLink />
       </RightNav>
     </Nav>
   )

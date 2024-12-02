@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import getCSSVar from '../getCSSVar';
+import getCSSVar from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/getCSSVar.js';
 
 const useUsers = () => {
-    const [loading, setLoading] = useState(true);  
-    const [selectedUser, setSelectedUser] = useState(null);  
+    const [loading, setLoading] = useState(true);
+    const [selectedUser, setSelectedUser] = useState(null);
     const [allUsers, setAllUsers] = useState([]);
 
     useEffect(() => {
@@ -33,25 +33,29 @@ const useUsers = () => {
                         display: [],
                         contacts: []
                     };
-            });
+                });
 
-            setAllUsers(newAllUsers);
+                setAllUsers(newAllUsers);
 
-            if (allUsers.length > 0) {
-                setSelectedUser(allUsers[0]);
-                console.log("Updated Users array:", allUsers);
+                if (allUsers.length > 0) {
+                    setSelectedUser(allUsers[0]);
+                    console.log("Updated Users array:", allUsers);
 
-                setLoading(false); 
-            }
+                    if (selectedUser !== null) {
+                        console.log(selectedUser)
+                        setLoading(false);
+                    }
+
+                }
 
             } catch (error) {
                 console.error("Failed to fetch users:", error);
             }
         }
 
-        fetchAndSetUsers();  
-        
-    }, selectedUser);  
+        fetchAndSetUsers();
+
+    }, selectedUser);
 
     return { allUsers, selectedUser, loading, setSelectedUser };
 }

@@ -1,12 +1,12 @@
  .postLine {
-  width: 230px;
-  height: 0.5px;
-  background-color: var(--darkPurple2);
-}
+   width: 230px;
+   height: 0.5px;
+   background-color: var(--darkPurple2);
+ }
 
-.dateTimeContainer {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 10px;
-}
+ .dateTimeContainer {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   gap: 10px;
+ }

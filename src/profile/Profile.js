@@ -1,10 +1,9 @@
-import '../App.css';
-import './Profile.css';
-import UserIcon from '../common/buttons/UserIcon.js';
-import Filter from '../common/Filter.js';
-import CreateButton from '../common/buttons/CreateButton.js';
-import User from '../common/users/User.js';
-import PostList from '../common/posts/PostList.js';
+import '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/App.css';
+import '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/profile/Profile.css';
+import Button from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/Button.js';
+import User from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/users/User.js';
+import PostList from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/posts/PostList.js';
+import useUsers from '/Users/JazlynHo/Desktop/Northwestern/DISC/VS-folder/meal-and-mingle/src/common/users/useUsers.js';
 
 const ProfileBody = (props) => {
   return (
@@ -34,7 +33,7 @@ const NameClass = (props) => {
       <p className='postText'>Class of {props.class}</p>
     </div>
   )
-} 
+}
 const OtherInfo = (props) => {
   return (
     <div className='schoolMajorBioContainer'>
@@ -92,30 +91,38 @@ const BottomFrame = (props) => {
 }
 
 // displays profile page
-function Profile(props) {
+function Profile() {
+  const { selectedUser, loading } = useUsers();
+
+  if (loading) {
     return (
-      <ProfileBody>
-        <TopFrame>
-          <UserIcon user={User}/>
-          <Info>
-            <NameClass name={props.name} class={props.class}/>
-            <OtherInfo>   
-              <SchoolMajor>
-                <School school={props.school}/>
-                <Major major={props.major}/>
-              </SchoolMajor>
-              <Bio bio={props.bio}/>
-            </OtherInfo>
-          </Info>
-        </TopFrame>
-        <BottomFrame>
-          <Filter/>
-          <PostList header='My Posts' Posts={User.posts} isProfileList={true} isUserSavedList={false}/>
-          <PostList header='Saved Posts' Posts={User.saved} isProfileList={true} isUserSavedList={true}/>
-          <CreateButton/>
-        </BottomFrame>
-      </ProfileBody>
+      <p>Loading Profile...</p>
     )
   }
 
-  export default Profile;
+  return (
+    <ProfileBody>
+      <TopFrame>
+        <Button.User user={User} />
+        <Info>
+          <NameClass name={selectedUser.name} class={selectedUser.class} />
+          <OtherInfo>
+            <SchoolMajor>
+              <School school={selectedUser.school} />
+              <Major major={selectedUser.major} />
+            </SchoolMajor>
+            <Bio bio={selectedUser.bio} />
+          </OtherInfo>
+        </Info>
+      </TopFrame>
+      <BottomFrame>
+        <Button.Filter />
+        <PostList header='My Posts' Posts={User.posts} isProfileList={true} isUserSavedList={false} />
+        <PostList header='Saved Posts' Posts={User.saved} isProfileList={true} isUserSavedList={true} />
+        <Button.Create />
+      </BottomFrame>
+    </ProfileBody>
+  )
+}
+
+export default Profile;

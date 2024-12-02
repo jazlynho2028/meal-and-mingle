@@ -19,7 +19,7 @@ const CalendarContextProvider = ({ children }) => {
 
     return (
         <CalendarContext.Provider value={{ startDate, setStartDate, currentDates }}>
-            { children }
+            {children}
         </CalendarContext.Provider>
     )
 }
